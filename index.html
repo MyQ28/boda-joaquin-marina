@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,12 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap"
+    rel="stylesheet">
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -22,269 +26,561 @@
     }
 
     body {
-      background: #faf8f5;
-      color: #4c453f;
       font-family: 'Montserrat', sans-serif;
+      background: #f8f1e8;
+      color: #4d423b;
       overflow-x: hidden;
     }
 
-    /* SOBRE */
+    /* =========================
+       PALETA
+       ========================= */
 
-    #sobre {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f5eee7;
-      transition: opacity 1.2s ease, visibility 1.2s ease;
+    :root {
+      --crema: #f8f1e8;
+      --papel: #efe2d3;
+      --rosa: #d98f83;
+      --rosa-claro: #e7b4aa;
+      --terracota: #b86453;
+      --granada: #7b292d;
+      --oliva: #778061;
+      --texto: #4d423b;
     }
 
-    #sobre.abierto {
+    /* =========================
+       SOBRE INICIAL
+       ========================= */
+
+    #inicio {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 35px 20px;
+
+      background:
+        linear-gradient(
+          rgba(248, 241, 232, .90),
+          rgba(248, 241, 232, .90)
+        ),
+        url('images/Banner Boda Floral Minimalista Blanco y Negro_20260718_093521_0000.png');
+
+      background-size: cover;
+      background-position: center;
+
+      transition:
+        opacity 1.1s ease,
+        visibility 1.1s ease;
+    }
+
+    #inicio.abierto {
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
     }
 
-    .sobre-contenido {
+    .inicio-contenido {
+      width: 100%;
+      max-width: 430px;
       text-align: center;
-      padding: 30px;
     }
 
-    .sobre-texto {
+    .inicio-subtitulo {
+      color: var(--terracota);
       font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      letter-spacing: 3px;
+      font-size: 20px;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      color: #8c7869;
-      margin-bottom: 28px;
+
+      margin-bottom: 35px;
     }
+
+    /* SOBRE */
 
     .sobre {
-      width: 280px;
-      height: 190px;
       position: relative;
+
+      width: min(330px, 82vw);
+      height: 215px;
+
       margin: auto;
+
       cursor: pointer;
-      filter: drop-shadow(0 15px 25px rgba(80, 60, 45, 0.15));
+
+      filter: drop-shadow(0 18px 18px rgba(70, 45, 30, .18));
     }
 
     .sobre-base {
       position: absolute;
       inset: 0;
-      background: #e7d9cc;
+
       border-radius: 4px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #f4e9db,
+          #dfcdbb
+        );
+
+      border: 1px solid rgba(110, 80, 60, .12);
+    }
+
+    /* Solapa inferior izquierda */
+
+    .sobre-base::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      clip-path: polygon(
+        0 0,
+        50% 54%,
+        0 100%
+      );
+
+      background: #e8d8c7;
+    }
+
+    /* Solapa inferior derecha */
+
+    .sobre-base::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      clip-path: polygon(
+        100% 0,
+        50% 54%,
+        100% 100%
+      );
+
+      background: #e4d2c0;
     }
 
     .sobre-tapa {
       position: absolute;
+      z-index: 3;
+
       top: 0;
       left: 0;
-      width: 0;
-      height: 0;
-      border-left: 140px solid transparent;
-      border-right: 140px solid transparent;
-      border-top: 100px solid #d9c8b8;
-      z-index: 3;
+
+      width: 100%;
+      height: 62%;
+
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 100%
+      );
+
+      background: #ead9c8;
+
       transform-origin: top center;
-      transition: transform 1s ease;
+
+      transition: transform .8s ease;
     }
 
     .sobre:hover .sobre-tapa {
-      transform: rotateX(25deg);
+      transform: rotateX(12deg);
     }
 
-    .sello {
+    /* SELLO ORIGINAL */
+
+    .sello-original {
       position: absolute;
+      z-index: 10;
+
+      width: 94px;
+      height: 94px;
+
       left: 50%;
-      top: 50%;
+      top: 52%;
+
       transform: translate(-50%, -50%);
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: #b89578;
-      color: #fffaf5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+      object-fit: contain;
+
+      /* NO se altera el color ni la forma */
+      filter: drop-shadow(0 7px 7px rgba(70, 30, 30, .18));
+
+      transition: transform .25s ease;
+    }
+
+    .sobre:hover .sello-original {
+      transform:
+        translate(-50%, -50%)
+        scale(1.05);
+    }
+
+    .pulsa {
+      margin-top: 35px;
+
       font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      z-index: 5;
-      box-shadow: 0 5px 12px rgba(80, 50, 30, 0.2);
-      transition: transform .3s ease;
+      color: var(--terracota);
+
+      font-size: 17px;
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
     }
 
-    .sobre:hover .sello {
-      transform: translate(-50%, -50%) scale(1.08);
+    .ramita {
+      margin-top: 14px;
+
+      color: var(--oliva);
+
+      font-size: 25px;
     }
 
-    /* PORTADA */
+    /* =========================
+       PORTADA
+       ========================= */
 
     .hero {
-      min-height: 100vh;
+      min-height: 100svh;
+
       position: relative;
+
       display: flex;
       align-items: flex-end;
       justify-content: center;
+
+      padding:
+        70px 28px
+        80px;
+
+      text-align: center;
+
       background-image:
-        linear-gradient(to top, rgba(30, 25, 20, .72), rgba(30, 25, 20, .05) 65%),
-        url('images/20260712_215553.jpg');
+        linear-gradient(
+          to top,
+          rgba(38, 26, 22, .67),
+          rgba(38, 26, 22, .08) 62%
+        ),
+        url('images/IMG_20260718_081155_596~2.jpg');
+
       background-size: cover;
       background-position: center;
-      padding: 60px 25px;
-      text-align: center;
+
+      color: white;
     }
 
     .hero-contenido {
-      color: white;
-      animation: aparecer 2s ease forwards;
+      width: 100%;
+
+      animation: aparecer 1.7s ease;
     }
 
-    .pequeno {
+    .nos-casamos {
       font-size: 12px;
-      letter-spacing: 4px;
+      letter-spacing: 5px;
       text-transform: uppercase;
-      margin-bottom: 12px;
+
+      margin-bottom: 14px;
     }
 
-    .nombres {
+    .nombre {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(58px, 16vw, 105px);
+
+      font-size: clamp(60px, 16vw, 108px);
       font-weight: 400;
-      line-height: .8;
+
+      line-height: .86;
     }
 
     .ampersand {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 40px;
-      margin: 10px 0;
+
+      font-size: 43px;
+
+      margin: 12px 0;
     }
 
     .fecha {
       margin-top: 28px;
-      font-size: 14px;
-      letter-spacing: 4px;
+
+      font-size: 13px;
+      letter-spacing: 5px;
     }
 
     .flecha {
-      margin-top: 35px;
-      font-size: 24px;
-      animation: subirBajar 1.7s infinite;
+      margin-top: 38px;
+
+      font-size: 28px;
+
+      animation: subirBajar 1.6s infinite;
     }
 
-    /* PRESENTACIÓN */
+    /* =========================
+       ESTAMPADO DE GRANADAS
+       ========================= */
+
+    .franja-estampado {
+      height: 135px;
+
+      background-image:
+        url('images/Banner Boda Floral Minimalista Blanco y Negro_20260718_093521_0000.png');
+
+      background-size: cover;
+      background-position: center;
+
+      position: relative;
+    }
+
+    .franja-estampado::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background: rgba(248, 241, 232, .10);
+    }
+
+    /* =========================
+       PRESENTACIÓN
+       ========================= */
 
     .presentacion {
       min-height: 70vh;
+
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+
+      padding: 90px 26px;
+
       text-align: center;
-      padding: 80px 25px;
-      background: #faf8f5;
+
+      background:
+        linear-gradient(
+          rgba(248, 241, 232, .96),
+          rgba(248, 241, 232, .96)
+        ),
+        url('images/Banner Boda Floral Minimalista Blanco y Negro_20260718_093521_0000.png');
+
+      background-size: cover;
+      background-position: center;
     }
 
-    .presentacion-contenido {
+    .presentacion-interior {
       max-width: 650px;
     }
 
-    .adorno {
-      color: #b89578;
-      font-size: 28px;
-      margin-bottom: 25px;
+    .granada {
+      font-size: 25px;
+      margin-bottom: 18px;
+      color: var(--granada);
     }
 
-    h2 {
+    .presentacion h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(38px, 9vw, 58px);
-      font-weight: 400;
-      color: #554b43;
-      margin-bottom: 25px;
+
+      font-weight: 500;
+      font-size: clamp(38px, 10vw, 60px);
+
+      color: var(--terracota);
+
+      margin-bottom: 15px;
+    }
+
+    .separador {
+      width: 85px;
+      height: 1px;
+
+      margin:
+        0 auto
+        32px;
+
+      background: var(--rosa);
     }
 
     .texto {
-      font-size: 15px;
-      line-height: 2;
-      font-weight: 300;
-    }
+      max-width: 560px;
 
-    .detalle {
-      margin-top: 35px;
-      color: #9b8979;
+      margin:
+        0 auto
+        16px;
+
       font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
+
+      font-size: 21px;
+      line-height: 1.65;
+
+      color: var(--texto);
     }
 
-    /* ANIMACIONES */
+    .firma {
+      margin-top: 32px;
+
+      font-family: 'Cormorant Garamond', serif;
+
+      font-size: 30px;
+      font-style: italic;
+
+      color: var(--rosa);
+    }
+
+    .corazon {
+      margin-top: 15px;
+
+      color: var(--terracota);
+
+      font-size: 18px;
+    }
+
+    /* =========================
+       SIGUIENTE SECCIÓN
+       ========================= */
+
+    .proximamente {
+      padding: 85px 25px;
+
+      text-align: center;
+
+      background: var(--papel);
+    }
+
+    .proximamente h3 {
+      font-family: 'Cormorant Garamond', serif;
+
+      font-size: 42px;
+      font-weight: 400;
+
+      color: var(--granada);
+
+      margin-bottom: 15px;
+    }
+
+    .proximamente p {
+      font-size: 13px;
+      line-height: 1.8;
+
+      color: #74665d;
+    }
+
+    /* =========================
+       ANIMACIONES
+       ========================= */
 
     @keyframes aparecer {
+
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(25px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
+
     }
 
     @keyframes subirBajar {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0);
       }
+
       50% {
-        transform: translateY(8px);
+        transform: translateY(9px);
       }
+
     }
+
+    /* =========================
+       MÓVIL
+       ========================= */
 
     @media (max-width: 600px) {
-      .sobre {
-        width: 250px;
-        height: 170px;
+
+      .hero {
+        background-position: center center;
       }
 
-      .sobre-tapa {
-        border-left-width: 125px;
-        border-right-width: 125px;
-        border-top-width: 90px;
+      .inicio-subtitulo {
+        font-size: 16px;
       }
+
+      .sello-original {
+        width: 86px;
+        height: 86px;
+      }
+
+      .texto {
+        font-size: 19px;
+      }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- SOBRE -->
 
-  <div id="sobre">
-    <div class="sobre-contenido">
+  <!-- =====================================
+       SOBRE DE APERTURA
+       ===================================== -->
 
-      <div class="sobre-texto">
+  <section id="inicio">
+
+    <div class="inicio-contenido">
+
+      <div class="inicio-subtitulo">
         Una invitación para ti
       </div>
 
-      <div class="sobre" onclick="abrirInvitacion()">
+
+      <div
+        class="sobre"
+        onclick="abrirInvitacion()"
+        aria-label="Abrir invitación"
+      >
 
         <div class="sobre-base"></div>
 
         <div class="sobre-tapa"></div>
 
-        <div class="sello">
-          J & M
-        </div>
+
+        <!--
+        ESTE ES VUESTRO SELLO ORIGINAL.
+        NO SE MODIFICA.
+        -->
+
+        <img
+          class="sello-original"
+          src="images/file_0000000021b48246af1f6a9c2d569cae.png"
+          alt="Sello Joaquín y Marina"
+        >
 
       </div>
 
-      <p style="margin-top:25px; font-size:12px; letter-spacing:1px;">
+
+      <div class="pulsa">
         Pulsa el sello para abrir
-      </p>
+      </div>
+
+      <div class="ramita">
+        ❧
+      </div>
 
     </div>
-  </div>
+
+  </section>
 
 
-  <!-- PORTADA -->
+
+  <!-- =====================================
+       PORTADA
+       ===================================== -->
 
   <main>
 
@@ -292,11 +588,11 @@
 
       <div class="hero-contenido">
 
-        <div class="pequeno">
+        <div class="nos-casamos">
           Nos casamos
         </div>
 
-        <div class="nombres">
+        <div class="nombre">
           Joaquín
         </div>
 
@@ -304,7 +600,7 @@
           &
         </div>
 
-        <div class="nombres">
+        <div class="nombre">
           Marina
         </div>
 
@@ -321,47 +617,105 @@
     </section>
 
 
-    <!-- PRESENTACIÓN -->
+
+    <!-- ESTAMPADO -->
+
+    <div class="franja-estampado"></div>
+
+
+
+    <!-- =====================================
+         MENSAJE
+         ===================================== -->
 
     <section class="presentacion">
 
-      <div class="presentacion-contenido">
+      <div class="presentacion-interior">
 
-        <div class="adorno">✦</div>
+        <div class="granada">
+          ❦
+        </div>
 
         <h2>
           Nuestro gran día
         </h2>
 
+        <div class="separador"></div>
+
+
         <p class="texto">
+
           Hay momentos que merecen ser compartidos
           con las personas que más queremos.
+
         </p>
+
 
         <p class="texto">
+
           Nos hace muchísima ilusión celebrar este día
           contigo y comenzar juntos esta nueva etapa.
+
         </p>
 
-        <div class="detalle">
+
+        <div class="firma">
           Joaquín & Marina
+        </div>
+
+
+        <div class="corazon">
+          ♥
         </div>
 
       </div>
 
     </section>
 
+
+
+    <!-- OTRA FRANJA DEL ESTAMPADO -->
+
+    <div class="franja-estampado"></div>
+
+
+
+    <!-- Aquí iremos añadiendo
+         ceremonia, celebración,
+         autobuses y RSVP -->
+
+    <section class="proximamente">
+
+      <h3>
+        19 · 12 · 2026
+      </h3>
+
+      <p>
+        Próximamente añadiremos aquí todos los detalles
+        de nuestro gran día.
+      </p>
+
+    </section>
+
+
   </main>
+
 
 
   <script>
 
     function abrirInvitacion() {
-      document.getElementById('sobre').classList.add('abierto');
-      document.body.style.overflow = 'auto';
+
+      const inicio =
+        document.getElementById('inicio');
+
+      inicio.classList.add('abierto');
+
     }
 
   </script>
 
+
 </body>
+
 </html>
