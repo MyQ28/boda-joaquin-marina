@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Joaquín & Marina | 19.12.2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #faf8f5;
+      color: #4c453f;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* SOBRE */
+
+    #sobre {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5eee7;
+      transition: opacity 1.2s ease, visibility 1.2s ease;
+    }
+
+    #sobre.abierto {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .sobre-contenido {
+      text-align: center;
+      padding: 30px;
+    }
+
+    .sobre-texto {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #8c7869;
+      margin-bottom: 28px;
+    }
+
+    .sobre {
+      width: 280px;
+      height: 190px;
+      position: relative;
+      margin: auto;
+      cursor: pointer;
+      filter: drop-shadow(0 15px 25px rgba(80, 60, 45, 0.15));
+    }
+
+    .sobre-base {
+      position: absolute;
+      inset: 0;
+      background: #e7d9cc;
+      border-radius: 4px;
+    }
+
+    .sobre-tapa {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 140px solid transparent;
+      border-right: 140px solid transparent;
+      border-top: 100px solid #d9c8b8;
+      z-index: 3;
+      transform-origin: top center;
+      transition: transform 1s ease;
+    }
+
+    .sobre:hover .sobre-tapa {
+      transform: rotateX(25deg);
+    }
+
+    .sello {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #b89578;
+      color: #fffaf5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      z-index: 5;
+      box-shadow: 0 5px 12px rgba(80, 50, 30, 0.2);
+      transition: transform .3s ease;
+    }
+
+    .sobre:hover .sello {
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+
+    /* PORTADA */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      background-image:
+        linear-gradient(to top, rgba(30, 25, 20, .72), rgba(30, 25, 20, .05) 65%),
+        url('images/20260712_215553.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 60px 25px;
+      text-align: center;
+    }
+
+    .hero-contenido {
+      color: white;
+      animation: aparecer 2s ease forwards;
+    }
+
+    .pequeno {
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .nombres {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(58px, 16vw, 105px);
+      font-weight: 400;
+      line-height: .8;
+    }
+
+    .ampersand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      margin: 10px 0;
+    }
+
+    .fecha {
+      margin-top: 28px;
+      font-size: 14px;
+      letter-spacing: 4px;
+    }
+
+    .flecha {
+      margin-top: 35px;
+      font-size: 24px;
+      animation: subirBajar 1.7s infinite;
+    }
+
+    /* PRESENTACIÓN */
+
+    .presentacion {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 25px;
+      background: #faf8f5;
+    }
+
+    .presentacion-contenido {
+      max-width: 650px;
+    }
+
+    .adorno {
+      color: #b89578;
+      font-size: 28px;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 9vw, 58px);
+      font-weight: 400;
+      color: #554b43;
+      margin-bottom: 25px;
+    }
+
+    .texto {
+      font-size: 15px;
+      line-height: 2;
+      font-weight: 300;
+    }
+
+    .detalle {
+      margin-top: 35px;
+      color: #9b8979;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+    }
+
+    /* ANIMACIONES */
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes subirBajar {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(8px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .sobre {
+        width: 250px;
+        height: 170px;
+      }
+
+      .sobre-tapa {
+        border-left-width: 125px;
+        border-right-width: 125px;
+        border-top-width: 90px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SOBRE -->
+
+  <div id="sobre">
+    <div class="sobre-contenido">
+
+      <div class="sobre-texto">
+        Una invitación para ti
+      </div>
+
+      <div class="sobre" onclick="abrirInvitacion()">
+
+        <div class="sobre-base"></div>
+
+        <div class="sobre-tapa"></div>
+
+        <div class="sello">
+          J & M
+        </div>
+
+      </div>
+
+      <p style="margin-top:25px; font-size:12px; letter-spacing:1px;">
+        Pulsa el sello para abrir
+      </p>
+
+    </div>
+  </div>
+
+
+  <!-- PORTADA -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-contenido">
+
+        <div class="pequeno">
+          Nos casamos
+        </div>
+
+        <div class="nombres">
+          Joaquín
+        </div>
+
+        <div class="ampersand">
+          &
+        </div>
+
+        <div class="nombres">
+          Marina
+        </div>
+
+        <div class="fecha">
+          19 · 12 · 2026
+        </div>
+
+        <div class="flecha">
+          ↓
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PRESENTACIÓN -->
+
+    <section class="presentacion">
+
+      <div class="presentacion-contenido">
+
+        <div class="adorno">✦</div>
+
+        <h2>
+          Nuestro gran día
+        </h2>
+
+        <p class="texto">
+          Hay momentos que merecen ser compartidos
+          con las personas que más queremos.
+        </p>
+
+        <p class="texto">
+          Nos hace muchísima ilusión celebrar este día
+          contigo y comenzar juntos esta nueva etapa.
+        </p>
+
+        <div class="detalle">
+          Joaquín & Marina
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script>
+
+    function abrirInvitacion() {
+      document.getElementById('sobre').classList.add('abierto');
+      document.body.style.overflow = 'auto';
+    }
+
+  </script>
+
+</body>
+</html>
