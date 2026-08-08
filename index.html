@@ -36,46 +36,50 @@
     }
 
     body {
-      font-family: 'Montserrat', sans-serif;
+      margin: 0;
       background: var(--crema);
       color: var(--texto);
+      font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
     }
 
 
     /* ==========================
-       SOBRE DE APERTURA
+       PANTALLA INICIAL
        ========================== */
 
     #inicio {
-    #inicio {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
+      position: fixed;
+      top: 0;
+      left: 0;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+      width: 100%;
+      height: 100vh;
 
-  padding: 30px 20px;
+      z-index: 9999;
 
-  background-color: #f8f1e8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-  background-image:
-    linear-gradient(
-      rgba(248, 241, 232, .82),
-      rgba(248, 241, 232, .82)
-    ),
-    url('images/Screenshot_20260709_231219_Gallery.jpg');
+      padding: 28px 20px;
 
-  background-size: cover;
-  background-position: center;
+      overflow: hidden;
 
-  opacity: 1;
-  visibility: visible;
+      background:
+        linear-gradient(
+          rgba(248, 241, 232, .92),
+          rgba(248, 241, 232, .92)
+        ),
+        url('images/Screenshot_20260709_231219_Gallery.jpg');
 
-  transition: opacity 1s ease, visibility 1s ease;
-}
+      background-size: cover;
+      background-position: center;
+
+      transition:
+        opacity 1s ease,
+        visibility 1s ease;
+    }
 
     #inicio.abierto {
       opacity: 0;
@@ -86,19 +90,25 @@
     .inicio-contenido {
       width: 100%;
       max-width: 430px;
+
       text-align: center;
     }
 
     .inicio-subtitulo {
-      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 34px;
+
       color: var(--terracota);
 
+      font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
       letter-spacing: 4px;
       text-transform: uppercase;
-
-      margin-bottom: 32px;
     }
+
+
+    /* ==========================
+       SOBRE
+       ========================== */
 
     .sobre {
       position: relative;
@@ -111,7 +121,7 @@
       cursor: pointer;
 
       filter: drop-shadow(
-        0 18px 20px rgba(70, 45, 30, .18)
+        0 18px 22px rgba(70, 45, 30, .18)
       );
     }
 
@@ -119,16 +129,18 @@
       position: absolute;
       inset: 0;
 
-      border-radius: 4px;
+      overflow: hidden;
+
+      border-radius: 5px;
 
       background:
         linear-gradient(
           145deg,
-          #f4e9db,
+          #f6ebdf,
           #dfcdbb
         );
 
-      border: 1px solid rgba(100, 70, 50, .12);
+      border: 1px solid rgba(100, 70, 50, .10);
     }
 
     .sobre-base::before {
@@ -139,11 +151,11 @@
 
       clip-path: polygon(
         0 0,
-        50% 55%,
+        50% 53%,
         0 100%
       );
 
-      background: #e8d8c7;
+      background: #eadbcb;
     }
 
     .sobre-base::after {
@@ -154,11 +166,11 @@
 
       clip-path: polygon(
         100% 0,
-        50% 55%,
+        50% 53%,
         100% 100%
       );
 
-      background: #e4d2c0;
+      background: #e5d3c2;
     }
 
     .sobre-tapa {
@@ -182,14 +194,17 @@
 
       transform-origin: top center;
 
-      transition: transform .7s ease;
+      transition: transform .75s ease;
     }
 
     .sobre:hover .sobre-tapa {
       transform: rotateX(12deg);
     }
 
-    /* SELLO ORIGINAL SIN MODIFICAR */
+
+    /* ==========================
+       SELLO ORIGINAL
+       ========================== */
 
     .sello-original {
       position: absolute;
@@ -222,19 +237,20 @@
     .pulsa {
       margin-top: 34px;
 
-      font-family: 'Cormorant Garamond', serif;
       color: var(--terracota);
 
+      font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
       letter-spacing: 3px;
-
       text-transform: uppercase;
     }
 
     .ramita {
-      margin-top: 13px;
+      margin-top: 14px;
+
       color: var(--oliva);
-      font-size: 25px;
+
+      font-size: 24px;
     }
 
 
@@ -248,32 +264,27 @@
       position: relative;
 
       display: flex;
-      justify-content: center;
       align-items: flex-end;
+      justify-content: center;
+
+      padding: 40px 24px 62px;
 
       text-align: center;
-
-      padding: 40px 25px 65px;
 
       color: white;
 
       background-image:
         linear-gradient(
           to top,
-          rgba(25, 20, 20, .65),
-          rgba(25, 20, 20, .05) 65%
+          rgba(25, 20, 20, .66),
+          rgba(25, 20, 20, .08) 66%
         ),
         url('images/IMG_20180630_214405(1).jpg');
 
       background-size: cover;
 
-      /*
-       Este valor centra el encuadre
-       principalmente en vosotros
-       y reduce los laterales.
-      */
-
-      background-position: 52% center;
+      /* Más desplazado hacia Marina */
+      background-position: 60% center;
     }
 
     .hero-contenido {
@@ -284,45 +295,40 @@
     }
 
     .nos-casamos {
-      font-size: 12px;
-
-      letter-spacing: 5px;
-
-      text-transform: uppercase;
-
       margin-bottom: 12px;
+
+      font-size: 12px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
     }
 
     .nombre {
       font-family: 'Cormorant Garamond', serif;
 
-      font-size: clamp(58px, 15vw, 98px);
-
+      font-size: clamp(58px, 16vw, 96px);
       font-weight: 400;
 
-      line-height: .83;
+      line-height: .84;
     }
 
     .ampersand {
-      font-family: 'Cormorant Garamond', serif;
-
-      font-size: 48px;
-
       margin: 10px 0;
 
       color: var(--rosa);
+
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
     }
 
     .fecha {
       margin-top: 26px;
 
       font-size: 13px;
-
       letter-spacing: 5px;
     }
 
     .flecha {
-      margin-top: 27px;
+      margin-top: 28px;
 
       font-size: 27px;
 
@@ -331,35 +337,34 @@
 
 
     /* ==========================
-       ESTAMPADO
+       FRANJA DE GRANADAS
        ========================== */
 
     .franja-estampado {
       height: 125px;
 
       background-image:
-        url('images/Screenshot_20260709_231219_Gallery.jpg')
+        url('images/Screenshot_20260709_231219_Gallery.jpg');
 
       background-size: cover;
-
       background-position: center;
     }
 
 
     /* ==========================
-       PRESENTACIÓN
+       NUESTRO GRAN DÍA
        ========================== */
 
     .presentacion {
       min-height: 70vh;
 
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+
+      padding: 88px 28px;
 
       text-align: center;
-
-      padding: 90px 28px;
 
       background: var(--crema);
     }
@@ -369,31 +374,29 @@
       max-width: 650px;
     }
 
-    .granada {
+    .granada-icono {
+      margin-bottom: 16px;
+
       color: var(--granada);
 
-      font-size: 25px;
-
-      margin-bottom: 15px;
+      font-size: 24px;
     }
 
     .presentacion h2 {
-      font-family: 'Cormorant Garamond', serif;
-
-      font-size: clamp(40px, 10vw, 60px);
-
-      font-weight: 500;
+      margin-bottom: 15px;
 
       color: var(--granada);
 
-      margin-bottom: 15px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 10vw, 60px);
+      font-weight: 500;
     }
 
     .separador {
       width: 82px;
       height: 1px;
 
-      margin: 0 auto 31px;
+      margin: 0 auto 32px;
 
       background: var(--terracota);
     }
@@ -401,44 +404,40 @@
     .texto {
       max-width: 560px;
 
-      margin: 0 auto 17px;
-
-      font-family: 'Cormorant Garamond', serif;
-
-      font-size: 21px;
-
-      line-height: 1.6;
+      margin: 0 auto 18px;
 
       color: var(--texto);
+
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      line-height: 1.65;
     }
 
     .firma {
       margin-top: 30px;
 
-      font-family: 'Cormorant Garamond', serif;
-
-      font-size: 30px;
-
-      font-style: italic;
-
       color: var(--terracota);
+
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-style: italic;
     }
 
     .corazon {
-      margin-top: 14px;
-
-      font-size: 18px;
+      margin-top: 15px;
 
       color: var(--granada);
+
+      font-size: 18px;
     }
 
 
     /* ==========================
-       FINAL TEMPORAL
+       SIGUIENTE BLOQUE
        ========================== */
 
     .proximamente {
-      padding: 80px 25px;
+      padding: 80px 26px;
 
       text-align: center;
 
@@ -446,27 +445,24 @@
     }
 
     .proximamente h3 {
-      font-family: 'Cormorant Garamond', serif;
-
-      font-size: 42px;
-
-      font-weight: 400;
+      margin-bottom: 15px;
 
       color: var(--granada);
 
-      margin-bottom: 14px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px;
+      font-weight: 400;
     }
 
     .proximamente p {
-      max-width: 500px;
+      max-width: 520px;
 
       margin: auto;
 
-      font-size: 13px;
-
-      line-height: 1.8;
-
       color: #74665d;
+
+      font-size: 14px;
+      line-height: 1.8;
     }
 
 
@@ -478,10 +474,12 @@
 
       from {
         opacity: 0;
+        transform: translateY(15px);
       }
 
       to {
         opacity: 1;
+        transform: translateY(0);
       }
 
     }
@@ -507,14 +505,7 @@
     @media (max-width: 600px) {
 
       .hero {
-
-        /*
-         Aquí podemos ajustar después
-         el encuadre al milímetro.
-        */
-
-        background-position: 62% center;
-
+        background-position: 60% center;
         padding-bottom: 55px;
       }
 
@@ -531,6 +522,14 @@
         height: 88px;
       }
 
+      .inicio-subtitulo {
+        font-size: 16px;
+      }
+
+      .pulsa {
+        font-size: 15px;
+      }
+
     }
 
   </style>
@@ -541,11 +540,14 @@
 <body>
 
 
-  <!-- SOBRE -->
+  <!-- ==========================
+       APERTURA
+       ========================== -->
 
   <section id="inicio">
 
     <div class="inicio-contenido">
+
 
       <div class="inicio-subtitulo">
         Una invitación para ti
@@ -555,6 +557,7 @@
       <div
         class="sobre"
         onclick="abrirInvitacion()"
+        aria-label="Abrir invitación"
       >
 
         <div class="sobre-base"></div>
@@ -565,7 +568,7 @@
         <img
           class="sello-original"
           src="images/file_0000000021b48246af1f6a9c2d569cae.png"
-          alt="Sello Joaquín y Marina"
+          alt="Sello de Joaquín y Marina"
         >
 
       </div>
@@ -580,13 +583,16 @@
         ❧
       </div>
 
+
     </div>
 
   </section>
 
 
 
-  <!-- WEB -->
+  <!-- ==========================
+       INVITACIÓN
+       ========================== -->
 
   <main>
 
@@ -596,6 +602,7 @@
     <section class="hero">
 
       <div class="hero-contenido">
+
 
         <div class="nos-casamos">
           Nos casamos
@@ -626,6 +633,7 @@
           ↓
         </div>
 
+
       </div>
 
     </section>
@@ -638,14 +646,14 @@
 
 
 
-    <!-- PRESENTACIÓN -->
+    <!-- MENSAJE -->
 
     <section class="presentacion">
 
       <div class="presentacion-interior">
 
 
-        <div class="granada">
+        <div class="granada-icono">
           ❦
         </div>
 
@@ -675,16 +683,12 @@
 
 
         <div class="firma">
-
           Joaquín & Marina
-
         </div>
 
 
         <div class="corazon">
-
           ♥
-
         </div>
 
 
@@ -700,7 +704,7 @@
 
 
 
-    <!-- TEMPORAL -->
+    <!-- BLOQUE TEMPORAL -->
 
     <section class="proximamente">
 
@@ -709,10 +713,8 @@
       </h3>
 
       <p>
-
-        Próximamente añadiremos aquí
-        todos los detalles de nuestro gran día.
-
+        Próximamente añadiremos aquí todos los detalles
+        de nuestro gran día.
       </p>
 
     </section>
@@ -726,10 +728,10 @@
 
     function abrirInvitacion() {
 
-      document
-        .getElementById('inicio')
-        .classList
-        .add('abierto');
+      const inicio =
+        document.getElementById('inicio');
+
+      inicio.classList.add('abierto');
 
     }
 
