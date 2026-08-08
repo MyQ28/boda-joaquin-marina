@@ -48,27 +48,34 @@
        ========================== */
 
     #inicio {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
+    #inicio {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-      padding: 30px 20px;
+  padding: 30px 20px;
 
-      background:
-        linear-gradient(
-          rgba(248, 241, 232, .88),
-          rgba(248, 241, 232, .88)
-        ),
-        url('images/Screenshot_20260709_231219_Gallery.jpg')
-      background-size: cover;
-      background-position: center;
+  background-color: #f8f1e8;
 
-      transition: opacity 1s ease, visibility 1s ease;
-    }
+  background-image:
+    linear-gradient(
+      rgba(248, 241, 232, .82),
+      rgba(248, 241, 232, .82)
+    ),
+    url('images/Screenshot_20260709_231219_Gallery.jpg');
+
+  background-size: cover;
+  background-position: center;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition: opacity 1s ease, visibility 1s ease;
+}
 
     #inicio.abierto {
       opacity: 0;
