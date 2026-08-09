@@ -2,17 +2,41 @@
 <html lang="es">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Joaquín & Marina | 19.12.2026</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>
+    Joaquín & Marina | 19.12.2026
+  </title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  >
+
 
   <style>
+
+
+    /* ========================================
+       GENERAL
+       ======================================== */
 
     * {
       box-sizing: border-box;
@@ -25,93 +49,158 @@
     }
 
     :root {
+
       --crema: #f8f1e8;
       --papel: #efe2d3;
+
       --rosa: #d98f83;
       --rosa-claro: #e7b4aa;
+
       --terracota: #b86453;
+
       --granada: #7b292d;
+
       --oliva: #778061;
+
       --texto: #4d423b;
+
     }
+
 
     body {
+
       margin: 0;
-      background: var(--crema);
-      color: var(--texto);
-      font-family: 'Montserrat', sans-serif;
+
+      background:
+        var(--crema);
+
+      color:
+        var(--texto);
+
+      font-family:
+        'Montserrat',
+        sans-serif;
+
       overflow-x: hidden;
+
     }
 
 
-    /* =========================
+
+    /* ========================================
        APERTURA
-       ========================= */
+       ======================================== */
 
     #inicio {
+
       position: fixed;
+
       inset: 0;
 
       width: 100%;
+
       height: 100vh;
 
       z-index: 9999;
 
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
-      padding: 28px 20px;
+
+      padding:
+        28px 20px;
+
 
       overflow: hidden;
 
+
       background:
+
         linear-gradient(
           rgba(248, 241, 232, .92),
           rgba(248, 241, 232, .92)
         ),
-        url('images/Screenshot_20260709_231219_Gallery.jpg');
 
-      background-size: cover;
-      background-position: center;
+        url(
+          'images/Screenshot_20260709_231219_Gallery.jpg'
+        );
+
+
+      background-size:
+        cover;
+
+      background-position:
+        center;
+
 
       transition:
+
         opacity 1s ease,
+
         visibility 1s ease;
+
     }
+
 
     #inicio.abierto {
+
       opacity: 0;
+
       visibility: hidden;
+
       pointer-events: none;
+
     }
+
 
     .inicio-contenido {
+
       width: 100%;
+
       max-width: 430px;
+
       text-align: center;
+
     }
+
 
     .inicio-subtitulo {
+
       margin-bottom: 34px;
 
-      color: var(--terracota);
+      color:
+        var(--terracota);
 
-      font-family: 'Cormorant Garamond', serif;
+      font-family:
+        'Cormorant Garamond',
+        serif;
+
       font-size: 18px;
+
       letter-spacing: 4px;
-      text-transform: uppercase;
+
+      text-transform:
+        uppercase;
+
     }
 
 
-    /* =========================
+
+    /* ========================================
        SOBRE
-       ========================= */
+       ======================================== */
 
     .sobre {
+
       position: relative;
 
-      width: min(330px, 84vw);
+      width:
+        min(330px, 84vw);
+
       height: 215px;
 
       margin: auto;
@@ -119,11 +208,18 @@
       cursor: pointer;
 
       filter:
-        drop-shadow(0 18px 22px rgba(70,45,30,.18));
+        drop-shadow(
+          0 18px 22px
+          rgba(70,45,30,.18)
+        );
+
     }
 
+
     .sobre-base {
+
       position: absolute;
+
       inset: 0;
 
       overflow: hidden;
@@ -131,6 +227,7 @@
       border-radius: 5px;
 
       background:
+
         linear-gradient(
           145deg,
           #f6ebdf,
@@ -138,284 +235,472 @@
         );
 
       border:
-        1px solid rgba(100,70,50,.10);
+
+        1px solid
+
+        rgba(
+          100,
+          70,
+          50,
+          .10
+        );
+
     }
+
 
     .sobre-base::before {
+
       content: "";
 
       position: absolute;
+
       inset: 0;
 
       clip-path:
-        polygon(0 0,50% 53%,0 100%);
 
-      background: #eadbcb;
+        polygon(
+          0 0,
+          50% 53%,
+          0 100%
+        );
+
+      background:
+        #eadbcb;
+
     }
+
 
     .sobre-base::after {
+
       content: "";
 
       position: absolute;
+
       inset: 0;
 
       clip-path:
-        polygon(100% 0,50% 53%,100% 100%);
 
-      background: #e5d3c2;
+        polygon(
+          100% 0,
+          50% 53%,
+          100% 100%
+        );
+
+      background:
+        #e5d3c2;
+
     }
 
+
     .sobre-tapa {
+
       position: absolute;
 
       top: 0;
+
       left: 0;
 
       width: 100%;
+
       height: 62%;
 
       z-index: 3;
 
+
       clip-path:
-        polygon(0 0,100% 0,50% 100%);
 
-      background: #ead9c8;
+        polygon(
+          0 0,
+          100% 0,
+          50% 100%
+        );
 
-      transform-origin: top center;
+
+      background:
+        #ead9c8;
+
+
+      transform-origin:
+        top center;
+
 
       transition:
         transform .75s ease;
+
     }
 
-    .sobre:hover .sobre-tapa {
-      transform: rotateX(12deg);
+
+    .sobre:hover
+    .sobre-tapa {
+
+      transform:
+        rotateX(12deg);
+
     }
+
 
     .sello-original {
+
       position: absolute;
 
       z-index: 10;
 
       width: 94px;
+
       height: 94px;
 
       left: 50%;
+
       top: 53%;
 
       transform:
-        translate(-50%, -50%);
 
-      object-fit: contain;
+        translate(
+          -50%,
+          -50%
+        );
+
+      object-fit:
+        contain;
 
       filter:
-        drop-shadow(0 7px 8px rgba(70,30,30,.18));
+
+        drop-shadow(
+          0 7px 8px
+          rgba(70,30,30,.18)
+        );
+
     }
+
 
     .pulsa {
+
       margin-top: 34px;
 
-      color: var(--terracota);
+      color:
+        var(--terracota);
 
-      font-family: 'Cormorant Garamond', serif;
+      font-family:
+        'Cormorant Garamond',
+        serif;
+
       font-size: 16px;
+
       letter-spacing: 3px;
-      text-transform: uppercase;
+
+      text-transform:
+        uppercase;
+
     }
+
 
     .ramita {
+
       margin-top: 14px;
 
-      color: var(--oliva);
+      color:
+        var(--oliva);
 
       font-size: 24px;
+
     }
 
 
-    /* =========================
+
+    /* ========================================
        PORTADA
-       ========================= */
+       ======================================== */
 
     .hero {
-      min-height: 100svh;
+
+      min-height:
+        100svh;
 
       position: relative;
 
       display: flex;
-      align-items: flex-end;
-      justify-content: center;
+
+      align-items:
+        flex-end;
+
+      justify-content:
+        center;
+
 
       padding:
+
         40px 24px
         62px;
 
-      text-align: center;
 
-      color: white;
+      text-align:
+        center;
+
+      color:
+        white;
+
 
       background-image:
-        linear-gradient(
-          to top,
-          rgba(25,20,20,.66),
-          rgba(25,20,20,.08) 66%
-        ),
-        url('images/IMG_20180630_214405(1).jpg');
 
-      background-size: cover;
-      background-position: 60% center;
+        linear-gradient(
+
+          to top,
+
+          rgba(25,20,20,.66),
+
+          rgba(25,20,20,.08)
+          66%
+
+        ),
+
+        url(
+          'images/IMG_20180630_214405(1).jpg'
+        );
+
+
+      background-size:
+        cover;
+
+
+      background-position:
+        60% center;
+
     }
 
+
     .hero-contenido {
+
       width: 100%;
+
       max-width: 500px;
 
       animation:
         aparecer 1.6s ease;
+
     }
 
+
     .nos-casamos {
+
       margin-bottom: 12px;
 
       font-size: 12px;
+
       letter-spacing: 5px;
-      text-transform: uppercase;
+
+      text-transform:
+        uppercase;
+
     }
 
+
     .nombre {
+
       font-family:
         'Cormorant Garamond',
         serif;
 
       font-size:
-        clamp(58px,16vw,96px);
+
+        clamp(
+          58px,
+          16vw,
+          96px
+        );
 
       font-weight: 400;
 
       line-height: .84;
+
     }
 
-    .ampersand {
-      margin: 10px 0;
 
-      color: var(--rosa);
+    .ampersand {
+
+      margin:
+        10px 0;
+
+      color:
+        var(--rosa);
 
       font-family:
         'Cormorant Garamond',
         serif;
 
-      font-size: 48px;
+      font-size:
+        48px;
+
     }
 
+
     .fecha {
+
       margin-top: 26px;
 
       font-size: 13px;
+
       letter-spacing: 5px;
+
     }
 
+
     .flecha {
+
       margin-top: 28px;
 
       font-size: 27px;
 
       animation:
-        subirBajar 1.6s infinite;
+
+        subirBajar
+        1.6s
+        infinite;
+
     }
 
 
-    /* =========================
+
+    /* ========================================
        FRANJA GRANADAS
-       ========================= */
+       ======================================== */
 
     .franja-estampado {
+
       height: 120px;
 
       background-image:
-        url('images/Screenshot_20260709_231219_Gallery.jpg');
 
-      background-size: cover;
-      background-position: center;
+        url(
+          'images/Screenshot_20260709_231219_Gallery.jpg'
+        );
+
+      background-size:
+        cover;
+
+      background-position:
+        center;
+
     }
 
 
-    /* =========================
+
+    /* ========================================
        ELEMENTOS COMUNES
-       ========================= */
+       ======================================== */
 
     .detalle-icono {
+
       margin-bottom: 16px;
 
-      color: var(--granada);
+      color:
+        var(--granada);
 
       font-size: 24px;
+
     }
 
+
     h2 {
-      color: var(--granada);
+
+      color:
+        var(--granada);
 
       font-family:
         'Cormorant Garamond',
         serif;
 
       font-size:
-        clamp(40px,10vw,60px);
+
+        clamp(
+          40px,
+          10vw,
+          60px
+        );
 
       font-weight: 500;
 
       margin-bottom: 15px;
+
     }
 
+
     .separador {
+
       width: 82px;
+
       height: 1px;
 
       margin:
+
         0 auto
         32px;
 
       background:
         var(--terracota);
+
     }
 
 
-    /* =========================
+
+    /* ========================================
        PRESENTACIÓN
-       ========================= */
+       ======================================== */
 
     .presentacion {
+
       display: flex;
-      align-items: center;
-      justify-content: center;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
 
       padding:
+
         80px 28px;
 
-      text-align: center;
+      text-align:
+        center;
 
       background:
         var(--crema);
+
     }
+
 
     .presentacion-interior {
+
       width: 100%;
+
       max-width: 650px;
+
     }
 
+
     .texto {
+
       max-width: 560px;
 
       margin:
+
         0 auto
         18px;
 
       font-family:
+
         'Cormorant Garamond',
         serif;
 
       font-size: 21px;
+
       line-height: 1.65;
+
     }
 
+
     .firma {
+
       margin-top: 30px;
 
       color:
@@ -428,62 +713,99 @@
       font-size: 30px;
 
       font-style: italic;
+
     }
 
+
     .corazon {
+
       margin-top: 15px;
 
       color:
         var(--granada);
 
       font-size: 18px;
+
     }
 
 
-    /* =========================
+
+    /* ========================================
        CUENTA ATRÁS
-       ========================= */
+       ======================================== */
 
     .cuenta {
+
       padding:
         75px 20px;
 
-      text-align: center;
+      text-align:
+        center;
 
       background:
         var(--papel);
+
     }
+
 
     .cuenta h2 {
-      margin-bottom: 40px;
+
+      margin-bottom:
+        40px;
+
     }
 
+
     .contador {
+
       display: grid;
 
       grid-template-columns:
-        repeat(4,1fr);
+
+        repeat(
+          4,
+          1fr
+        );
 
       gap: 8px;
 
       max-width: 600px;
 
       margin: auto;
+
     }
 
+
     .contador-caja {
+
       padding:
         18px 4px;
 
       background:
-        rgba(248,241,232,.7);
+
+        rgba(
+          248,
+          241,
+          232,
+          .7
+        );
 
       border:
+
         1px solid
-        rgba(123,41,45,.12);
+
+        rgba(
+          123,
+          41,
+          45,
+          .12
+        );
+
     }
 
+
     .numero {
+
       display: block;
 
       color:
@@ -493,10 +815,14 @@
         'Cormorant Garamond',
         serif;
 
-      font-size: 38px;
+      font-size:
+        38px;
+
     }
 
+
     .unidad {
+
       font-size: 9px;
 
       letter-spacing:
@@ -505,31 +831,43 @@
       text-transform:
         uppercase;
 
-      color: #77685f;
+      color:
+        #77685f;
+
     }
 
 
-    /* =========================
+
+    /* ========================================
        CEREMONIA Y CELEBRACIÓN
-       ========================= */
+       ======================================== */
 
     .lugares {
+
       padding:
         78px 22px;
 
       background:
         var(--crema);
 
-      text-align: center;
+      text-align:
+        center;
+
     }
+
 
     .lugares-contenido {
-      max-width: 720px;
+
+      max-width:
+        720px;
 
       margin: auto;
+
     }
 
+
     .tarjeta {
+
       padding:
         42px 25px;
 
@@ -537,51 +875,82 @@
         25px auto;
 
       background:
-        rgba(255,255,255,.38);
+
+        rgba(
+          255,
+          255,
+          255,
+          .38
+        );
 
       border:
+
         1px solid
-        rgba(123,41,45,.12);
+
+        rgba(
+          123,
+          41,
+          45,
+          .12
+        );
+
     }
+
 
     .tarjeta-icono {
-      margin-bottom: 15px;
+
+      margin-bottom:
+        15px;
+
     }
 
+
     .icono-linea {
+
       width: 46px;
+
       height: 46px;
 
       margin:
         0 auto;
 
-      display: block;
+      display:
+        block;
 
       color:
         var(--terracota);
+
     }
 
+
     .icono-linea svg {
+
       width: 100%;
+
       height: 100%;
 
-      display: block;
+      display:
+        block;
 
       fill: none;
 
       stroke:
         currentColor;
 
-      stroke-width: 1.5;
+      stroke-width:
+        1.5;
 
       stroke-linecap:
         round;
 
       stroke-linejoin:
         round;
+
     }
 
+
     .tarjeta h3 {
+
       color:
         var(--granada);
 
@@ -589,14 +958,20 @@
         'Cormorant Garamond',
         serif;
 
-      font-size: 34px;
+      font-size:
+        34px;
 
-      font-weight: 500;
+      font-weight:
+        500;
 
-      margin-bottom: 17px;
+      margin-bottom:
+        17px;
+
     }
 
+
     .hora {
+
       color:
         var(--terracota);
 
@@ -604,34 +979,50 @@
         'Cormorant Garamond',
         serif;
 
-      font-size: 27px;
+      font-size:
+        27px;
 
-      margin-bottom: 16px;
+      margin-bottom:
+        16px;
+
     }
 
+
     .lugar {
+
       font-family:
         'Cormorant Garamond',
         serif;
 
-      font-size: 21px;
+      font-size:
+        21px;
 
-      line-height: 1.5;
+      line-height:
+        1.5;
+
     }
+
 
     .localidad {
+
       margin-top: 7px;
 
-      font-size: 13px;
+      font-size:
+        13px;
 
-      color: #75675e;
+      color:
+        #75675e;
+
     }
 
+
     .boton {
+
       display:
         inline-block;
 
-      margin-top: 27px;
+      margin-top:
+        27px;
 
       padding:
         13px 26px;
@@ -642,7 +1033,8 @@
       text-decoration:
         none;
 
-      font-size: 11px;
+      font-size:
+        11px;
 
       letter-spacing:
         2px;
@@ -651,6 +1043,7 @@
         uppercase;
 
       border:
+
         1px solid
         var(--granada);
 
@@ -659,39 +1052,54 @@
 
       transition:
         .25s ease;
+
     }
 
+
     .boton:hover {
+
       background:
         var(--granada);
 
       color:
         var(--crema);
+
     }
 
 
-    /* =========================
+
+    /* ========================================
        AUTOBUSES
-       ========================= */
+       ======================================== */
 
     .autobuses {
+
       padding:
         78px 25px;
 
       background:
         var(--papel);
 
-      text-align: center;
+      text-align:
+        center;
+
     }
+
 
     .autobuses-contenido {
-      max-width: 650px;
+
+      max-width:
+        650px;
 
       margin: auto;
+
     }
 
+
     .autobuses p {
-      max-width: 520px;
+
+      max-width:
+        520px;
 
       margin: auto;
 
@@ -699,13 +1107,19 @@
         'Cormorant Garamond',
         serif;
 
-      font-size: 20px;
+      font-size:
+        20px;
 
-      line-height: 1.6;
+      line-height:
+        1.6;
+
     }
 
+
     .rutas {
-      margin-top: 35px;
+
+      margin-top:
+        35px;
 
       display: grid;
 
@@ -713,37 +1127,65 @@
         1fr 1fr;
 
       gap: 12px;
+
     }
 
+
     .ruta {
-      position: relative;
+
+      position:
+        relative;
 
       padding:
         27px 10px;
 
       border:
+
         1px solid
-        rgba(123,41,45,.14);
+
+        rgba(
+          123,
+          41,
+          45,
+          .14
+        );
 
       background:
-        rgba(248,241,232,.65);
+
+        rgba(
+          248,
+          241,
+          232,
+          .65
+        );
+
     }
 
+
     .ruta::before {
-      content: "•";
 
-      display: block;
+      content:
+        "•";
 
-      margin-bottom: 9px;
+      display:
+        block;
+
+      margin-bottom:
+        9px;
 
       color:
         var(--terracota);
 
-      font-size: 22px;
+      font-size:
+        22px;
+
     }
 
+
     .ruta strong {
-      display: block;
+
+      display:
+        block;
 
       color:
         var(--granada);
@@ -752,15 +1194,22 @@
         'Cormorant Garamond',
         serif;
 
-      font-size: 27px;
+      font-size:
+        27px;
 
-      font-weight: 500;
+      font-weight:
+        500;
 
-      margin-bottom: 7px;
+      margin-bottom:
+        7px;
+
     }
 
+
     .pendiente {
-      font-size: 10px;
+
+      font-size:
+        10px;
 
       letter-spacing:
         1.3px;
@@ -768,39 +1217,54 @@
       text-transform:
         uppercase;
 
-      color: #7e7067;
+      color:
+        #7e7067;
+
     }
 
 
-    /* =========================
+
+    /* ========================================
        NUESTRA HISTORIA
-       ========================= */
+       ======================================== */
 
     .historia {
+
       padding:
-        90px 18px
-        95px;
+
+        88px 14px
+        80px;
 
       background:
         var(--crema);
 
-      text-align: center;
+      text-align:
+        center;
 
-      overflow: hidden;
+      overflow:
+        hidden;
+
     }
+
 
     .historia-contenido {
-      max-width: 760px;
+
+      width: 100%;
+
+      max-width:
+        760px;
 
       margin: auto;
+
     }
 
-    .historia-intro,
-    .historia-final {
-      max-width: 500px;
+
+    .historia-intro {
 
       margin:
-        0 auto;
+
+        0 auto
+        44px;
 
       color:
         var(--texto);
@@ -809,228 +1273,512 @@
         'Cormorant Garamond',
         serif;
 
-      font-size: 26px;
+      font-size:
+        27px;
 
-      font-style: italic;
+      font-style:
+        italic;
 
-      line-height: 1.5;
-    }
-
-    .historia-intro {
-      margin-bottom: 40px;
-    }
-
-    .historia-final {
-      margin-top: 40px;
-
-      color:
-        var(--terracota);
     }
 
 
-    /* MARCO TIPO SELLO POSTAL */
 
-    .sellos {
-      position: relative;
-
-      width: min(100%, 620px);
-
-      height: 820px;
-
-      margin:
-        0 auto;
-    }
+    /* SELLOS */
 
     .sello-foto {
-      position: absolute;
 
-      width: 230px;
+      position:
+        relative;
 
-      padding: 10px;
+      padding:
+        10px;
 
       background:
         #fffaf2;
 
-      box-shadow:
-        0 14px 30px
-        rgba(77,66,59,.16);
 
       border:
-        2px dashed
-        rgba(123,41,45,.35);
+
+        1px solid
+
+        rgba(
+          123,
+          41,
+          45,
+          .18
+        );
+
+
+      box-shadow:
+
+        0 14px 28px
+
+        rgba(
+          77,
+          66,
+          59,
+          .15
+        );
+
+
+      /*
+       borde que recuerda
+       a los dientes de un sello
+      */
 
       outline:
+
         7px dotted
         #fffaf2;
 
-      outline-offset:
-        -3px;
 
-      transition:
-        transform .5s ease,
-        box-shadow .5s ease;
+      outline-offset:
+        -2px;
+
 
       animation:
-        entrarSello
+
+        aparecerSello
         .9s ease
         both;
+
     }
 
-    .sello-foto:hover {
-      z-index: 20;
-
-      transform:
-        rotate(0deg)
-        scale(1.05);
-
-      box-shadow:
-        0 20px 40px
-        rgba(77,66,59,.22);
-    }
 
     .sello-foto img {
+
       width: 100%;
 
-      aspect-ratio:
-        4 / 5;
+      display:
+        block;
 
-      display: block;
-
-      object-fit: cover;
+      object-fit:
+        cover;
 
       border:
+
         1px solid
-        rgba(123,41,45,.14);
+
+        rgba(
+          123,
+          41,
+          45,
+          .28
+        );
+
     }
 
-    .sello-foto::after {
-      content:
-        "J & M · 19.12.2026";
 
-      position: absolute;
 
-      right: -25px;
-      bottom: 28px;
+    /* FOTOS DE PEQUEÑOS */
 
-      padding:
-        6px 12px;
+    .infancia {
 
-      color:
-        rgba(123,41,45,.48);
+      position:
+        relative;
+
+      width:
+        min(100%, 600px);
+
+      height:
+        390px;
+
+      margin:
+        0 auto;
+
+    }
+
+
+    .infancia
+    .sello-foto {
+
+      position:
+        absolute;
+
+      width:
+        245px;
+
+    }
+
+
+    .infancia
+    .sello-foto img {
+
+      height:
+        305px;
+
+    }
+
+
+    .joaquin-peque {
+
+      left:
+        8%;
+
+      top:
+        6px;
+
+      transform:
+        rotate(-6deg);
+
+      z-index:
+        2;
+
+    }
+
+
+    .marina-peque {
+
+      right:
+        8%;
+
+      top:
+        20px;
+
+      transform:
+        rotate(6deg);
+
+      z-index:
+        3;
+
+    }
+
+
+
+    /* MATASELLOS DECORATIVO */
+
+    .matasellos {
+
+      position:
+        absolute;
+
+      left:
+        2%;
+
+      bottom:
+        18px;
+
+      z-index:
+        8;
+
+
+      width:
+        104px;
+
+      height:
+        104px;
+
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
 
       border:
+
         1px solid
-        rgba(123,41,45,.28);
+
+        rgba(
+          123,
+          41,
+          45,
+          .44
+        );
+
 
       border-radius:
         50%;
+
+
+      color:
+
+        rgba(
+          123,
+          41,
+          45,
+          .64
+        );
+
 
       font-family:
         'Cormorant Garamond',
         serif;
 
-      font-size: 11px;
 
-      letter-spacing: 1px;
+      font-size:
+        12px;
 
-      transform:
-        rotate(-13deg);
+
+      line-height:
+        1.4;
+
+
+      letter-spacing:
+        1px;
+
 
       background:
-        rgba(248,241,232,.78);
 
-      pointer-events: none;
-    }
+        rgba(
+          248,
+          241,
+          232,
+          .82
+        );
 
-
-    /* POSICIONES */
-
-    .sello-joaquin {
-      top: 10px;
-      left: 35px;
 
       transform:
-        rotate(-7deg);
+        rotate(-10deg);
 
-      z-index: 2;
     }
 
-    .sello-marina {
-      top: 45px;
-      right: 35px;
+
+    .matasellos::before,
+    .matasellos::after {
+
+      content: "";
+
+      position:
+        absolute;
+
+      left:
+        -55px;
+
+      width:
+        70px;
+
+      height:
+        1px;
+
+      background:
+
+        rgba(
+          123,
+          41,
+          45,
+          .35
+        );
+
+    }
+
+
+    .matasellos::before {
+
+      top:
+        37px;
+
+    }
+
+
+    .matasellos::after {
+
+      top:
+        64px;
+
+    }
+
+
+
+    /* FRASE ENTRE INFANCIA Y ACTUALIDAD */
+
+    .historia-transicion {
+
+      max-width:
+        520px;
+
+      margin:
+
+        28px auto
+        52px;
+
+
+      color:
+        var(--terracota);
+
+
+      font-family:
+        'Cormorant Garamond',
+        serif;
+
+
+      font-size:
+        28px;
+
+
+      font-style:
+        italic;
+
+
+      line-height:
+        1.45;
+
+    }
+
+
+
+    /* FOTOS ACTUALES */
+
+    .actualidad {
+
+      position:
+        relative;
+
+      width:
+        min(100%, 720px);
+
+      height:
+        340px;
+
+      margin:
+        0 auto;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+    }
+
+
+    .actualidad
+    .sello-foto {
+
+      width:
+        31%;
+
+      min-width:
+        0;
+
+      flex:
+        0 0 auto;
+
+    }
+
+
+    .actualidad
+    .sello-foto img {
+
+      width:
+        100%;
+
+      height:
+        275px;
+
+      object-fit:
+        cover;
+
+    }
+
+
+    /*
+       Las tres se ven completas,
+       pero ligeramente montadas.
+    */
+
+    .actual-1 {
 
       transform:
-        rotate(7deg);
+        rotate(-5deg);
 
-      z-index: 3;
+      z-index:
+        2;
 
-      animation-delay:
-        .12s;
+      margin-right:
+        -8px;
+
     }
 
-    .sello-actual-1 {
-      top: 305px;
-      left: 30px;
+
+    .actual-2 {
+
+      transform:
+        rotate(1deg);
+
+      z-index:
+        4;
+
+      margin-left:
+        -8px;
+
+      margin-right:
+        -8px;
+
+    }
+
+
+    .actual-3 {
 
       transform:
         rotate(5deg);
 
-      z-index: 5;
+      z-index:
+        3;
 
-      animation-delay:
-        .22s;
-    }
+      margin-left:
+        -8px;
 
-    .sello-actual-2 {
-      top: 350px;
-      left: 50%;
-
-      transform:
-        translateX(-50%)
-        rotate(-4deg);
-
-      z-index: 7;
-
-      animation-delay:
-        .32s;
-    }
-
-    .sello-actual-3 {
-      top: 310px;
-      right: 20px;
-
-      transform:
-        rotate(7deg);
-
-      z-index: 4;
-
-      animation-delay:
-        .42s;
     }
 
 
-    /* =========================
-       RSVP
-       ========================= */
+
+    /* PEQUEÑO ADORNO FINAL */
+
+    .historia-adorno {
+
+      margin-top:
+        36px;
+
+      color:
+        var(--oliva);
+
+      font-size:
+        27px;
+
+    }
+
+
+
+    /* ========================================
+       CONFIRMACIÓN
+       ======================================== */
 
     .rsvp {
+
       padding:
         82px 24px;
 
       background:
         var(--papel);
 
-      text-align: center;
+      text-align:
+        center;
+
     }
+
 
     .rsvp-contenido {
-      max-width: 650px;
+
+      max-width:
+        650px;
 
       margin: auto;
+
     }
 
+
     .rsvp p {
-      max-width: 530px;
+
+      max-width:
+        530px;
 
       margin:
         0 auto;
@@ -1039,16 +1787,22 @@
         'Cormorant Garamond',
         serif;
 
-      font-size: 21px;
+      font-size:
+        21px;
 
-      line-height: 1.65;
+      line-height:
+        1.65;
+
     }
 
+
     .boton-rsvp {
+
       display:
         inline-block;
 
-      margin-top: 32px;
+      margin-top:
+        32px;
 
       padding:
         15px 30px;
@@ -1065,7 +1819,8 @@
       text-decoration:
         none;
 
-      font-size: 11px;
+      font-size:
+        11px;
 
       letter-spacing:
         2px;
@@ -1074,54 +1829,78 @@
         uppercase;
 
       border:
+
         1px solid
         var(--granada);
 
       transition:
         .25s ease;
+
     }
 
+
     .boton-rsvp:hover {
+
       background:
         transparent;
 
       color:
         var(--granada);
+
     }
+
 
     .rsvp-nota {
-      margin-top: 15px;
 
-      font-size: 11px;
+      margin-top:
+        15px;
 
-      color: #7e7067;
+      font-size:
+        11px;
+
+      color:
+        #7e7067;
+
     }
 
 
-    /* =========================
+
+    /* ========================================
        CONTACTO
-       ========================= */
+       ======================================== */
 
     .contacto {
+
       padding:
         78px 24px;
 
       background:
         var(--crema);
 
-      text-align: center;
+      text-align:
+        center;
+
     }
+
 
     .contacto-contenido {
-      max-width: 600px;
 
-      margin: auto;
-    }
-
-    .contacto-texto {
-      max-width: 490px;
+      max-width:
+        600px;
 
       margin:
+        auto;
+
+    }
+
+
+    .contacto-texto {
+
+      max-width:
+        490px;
+
+      margin:
+
         0 auto
         32px;
 
@@ -1129,40 +1908,71 @@
         'Cormorant Garamond',
         serif;
 
-      font-size: 20px;
+      font-size:
+        20px;
 
-      line-height: 1.6;
+      line-height:
+        1.6;
+
     }
 
+
     .contactos {
-      display: grid;
+
+      display:
+        grid;
 
       grid-template-columns:
         1fr 1fr;
 
-      gap: 12px;
+      gap:
+        12px;
 
-      max-width: 500px;
+      max-width:
+        500px;
 
-      margin: auto;
+      margin:
+        auto;
+
     }
 
+
     .contacto-persona {
+
       padding:
         24px 12px;
 
       border:
+
         1px solid
-        rgba(123,41,45,.14);
+
+        rgba(
+          123,
+          41,
+          45,
+          .14
+        );
 
       background:
-        rgba(239,226,211,.45);
+
+        rgba(
+          239,
+          226,
+          211,
+          .45
+        );
+
     }
 
-    .contacto-persona strong {
-      display: block;
 
-      margin-bottom: 13px;
+    .contacto-persona
+    strong {
+
+      display:
+        block;
+
+      margin-bottom:
+        13px;
 
       color:
         var(--granada);
@@ -1171,12 +1981,17 @@
         'Cormorant Garamond',
         serif;
 
-      font-size: 27px;
+      font-size:
+        27px;
 
-      font-weight: 500;
+      font-weight:
+        500;
+
     }
 
+
     .whatsapp {
+
       display:
         inline-block;
 
@@ -1189,7 +2004,8 @@
       text-decoration:
         none;
 
-      font-size: 10px;
+      font-size:
+        10px;
 
       letter-spacing:
         1.4px;
@@ -1198,39 +2014,54 @@
         uppercase;
 
       border:
+
         1px solid
         var(--granada);
 
       border-radius:
         30px;
+
     }
+
 
     .telefono {
-      display: block;
 
-      margin-top: 11px;
+      display:
+        block;
 
-      color: #75675e;
+      margin-top:
+        11px;
 
-      font-size: 12px;
+      color:
+        #75675e;
+
+      font-size:
+        12px;
+
     }
 
 
-    /* =========================
+
+    /* ========================================
        FINAL
-       ========================= */
+       ======================================== */
 
     .final {
+
       padding:
         70px 25px;
 
       background:
         var(--papel);
 
-      text-align: center;
+      text-align:
+        center;
+
     }
 
+
     .final-fecha {
+
       color:
         var(--granada);
 
@@ -1238,176 +2069,395 @@
         'Cormorant Garamond',
         serif;
 
-      font-size: 43px;
+      font-size:
+        43px;
+
     }
+
 
     .final p {
-      margin-top: 15px;
 
-      font-size: 13px;
+      margin-top:
+        15px;
 
-      color: #77685f;
+      font-size:
+        13px;
+
+      color:
+        #77685f;
+
     }
 
 
-    /* =========================
+
+    /* ========================================
        ANIMACIONES
-       ========================= */
+       ======================================== */
 
     @keyframes aparecer {
 
       from {
+
         opacity: 0;
+
         transform:
           translateY(15px);
+
       }
 
       to {
+
         opacity: 1;
+
         transform:
           translateY(0);
+
       }
 
     }
+
 
     @keyframes subirBajar {
 
       0%,
       100% {
+
         transform:
           translateY(0);
+
       }
 
       50% {
+
         transform:
           translateY(8px);
+
       }
 
     }
 
-    @keyframes entrarSello {
+
+    @keyframes aparecerSello {
 
       from {
+
         opacity: 0;
-        margin-top: 35px;
+
+        margin-top:
+          30px;
+
       }
 
       to {
+
         opacity: 1;
-        margin-top: 0;
+
+        margin-top:
+          0;
+
       }
 
     }
 
 
-    /* =========================
-       MÓVIL
-       ========================= */
 
-    @media (max-width: 600px) {
+    /* ========================================
+       MÓVIL
+       ======================================== */
+
+    @media (
+      max-width: 600px
+    ) {
+
 
       .hero {
+
         background-position:
           60% center;
 
         padding-bottom:
           55px;
+
       }
+
 
       .nombre {
+
         font-size:
-          clamp(58px,16vw,78px);
+
+          clamp(
+            58px,
+            16vw,
+            78px
+          );
+
       }
+
 
       .texto {
-        font-size: 19px;
+
+        font-size:
+          19px;
+
       }
+
 
       .sello-original {
-        width: 88px;
-        height: 88px;
+
+        width:
+          88px;
+
+        height:
+          88px;
+
       }
+
 
       .contador {
-        gap: 5px;
+
+        gap:
+          5px;
+
       }
+
 
       .numero {
-        font-size: 31px;
+
+        font-size:
+          31px;
+
       }
 
-      .sellos {
-        height: 760px;
-      }
 
-      .sello-foto {
-        width: 185px;
 
-        padding: 8px;
-      }
+      /* HISTORIA MÓVIL */
 
-      .sello-joaquin {
-        top: 10px;
-        left: 4px;
-      }
-
-      .sello-marina {
-        top: 35px;
-        right: 4px;
-      }
-
-      .sello-actual-1 {
-        top: 280px;
-        left: 0;
-      }
-
-      .sello-actual-2 {
-        top: 340px;
-        left: 50%;
-      }
-
-      .sello-actual-3 {
-        top: 285px;
-        right: 0;
-      }
-
-      .sello-foto::after {
-        right: -12px;
-
-        bottom: 18px;
-
-        font-size: 8px;
+      .historia {
 
         padding:
-          4px 8px;
+
+          76px 10px
+          72px;
+
       }
+
+
+      .historia-intro {
+
+        font-size:
+          25px;
+
+      }
+
+
+      .infancia {
+
+        height:
+          335px;
+
+      }
+
+
+      .infancia
+      .sello-foto {
+
+        width:
+          185px;
+
+      }
+
+
+      .infancia
+      .sello-foto img {
+
+        height:
+          235px;
+
+      }
+
+
+      .joaquin-peque {
+
+        left:
+          2px;
+
+        top:
+          8px;
+
+      }
+
+
+      .marina-peque {
+
+        right:
+          2px;
+
+        top:
+          28px;
+
+      }
+
+
+      .matasellos {
+
+        width:
+          82px;
+
+        height:
+          82px;
+
+        left:
+          5px;
+
+        bottom:
+          12px;
+
+        font-size:
+          9px;
+
+      }
+
+
+      .matasellos::before,
+      .matasellos::after {
+
+        left:
+          -38px;
+
+        width:
+          48px;
+
+      }
+
+
+      .historia-transicion {
+
+        margin:
+
+          22px auto
+          38px;
+
+        padding:
+          0 20px;
+
+        font-size:
+          26px;
+
+      }
+
+
+
+      /*
+        Aquí está el cambio importante:
+        tres fotos visibles completas
+        en la misma fila.
+      */
+
+      .actualidad {
+
+        width:
+          100%;
+
+        height:
+          260px;
+
+      }
+
+
+      .actualidad
+      .sello-foto {
+
+        width:
+          34%;
+
+        padding:
+          6px;
+
+      }
+
+
+      .actualidad
+      .sello-foto img {
+
+        height:
+          205px;
+
+      }
+
+
+      .actual-1 {
+
+        margin-right:
+          -5px;
+
+        transform:
+          rotate(-4deg);
+
+      }
+
+
+      .actual-2 {
+
+        margin-left:
+          -5px;
+
+        margin-right:
+          -5px;
+
+        transform:
+          rotate(1deg);
+
+      }
+
+
+      .actual-3 {
+
+        margin-left:
+          -5px;
+
+        transform:
+          rotate(4deg);
+
+      }
+
 
       .contactos {
+
         grid-template-columns:
           1fr;
+
       }
 
+
     }
+
 
   </style>
 
 </head>
 
 
+
 <body>
 
 
-  <!-- =========================
+
+  <!-- ========================================
        APERTURA
-       ========================= -->
+       ======================================== -->
 
   <section id="inicio">
 
+
     <div class="inicio-contenido">
 
+
       <div class="inicio-subtitulo">
+
         Una invitación para ti
+
       </div>
+
 
       <div
         class="sobre"
@@ -1415,27 +2465,43 @@
         aria-label="Abrir invitación"
       >
 
+
         <div class="sobre-base"></div>
+
 
         <div class="sobre-tapa"></div>
 
+
         <img
+
           class="sello-original"
+
           src="images/file_0000000021b48246af1f6a9c2d569cae.png"
+
           alt="Sello de Joaquín y Marina"
+
         >
 
+
       </div>
+
 
       <div class="pulsa">
+
         Pulsa el sello para abrir
+
       </div>
+
 
       <div class="ramita">
+
         ❧
+
       </div>
 
+
     </div>
+
 
   </section>
 
@@ -1444,282 +2510,479 @@
   <main>
 
 
-    <!-- =========================
+
+    <!-- ========================================
          PORTADA
-         ========================= -->
+         ======================================== -->
 
     <section class="hero">
 
+
       <div class="hero-contenido">
 
+
         <div class="nos-casamos">
+
           Nos casamos
+
         </div>
 
+
         <div class="nombre">
+
           Joaquín
+
         </div>
+
 
         <div class="ampersand">
+
           &
+
         </div>
+
 
         <div class="nombre">
+
           Marina
+
         </div>
+
 
         <div class="fecha">
+
           19 · 12 · 2026
+
         </div>
 
+
         <div class="flecha">
+
           ↓
+
         </div>
+
 
       </div>
 
+
     </section>
+
 
 
     <div class="franja-estampado"></div>
 
 
 
-    <!-- =========================
+    <!-- ========================================
          PRESENTACIÓN
-         ========================= -->
+         ======================================== -->
 
     <section class="presentacion">
 
+
       <div class="presentacion-interior">
 
+
         <div class="detalle-icono">
+
           ❦
+
         </div>
 
+
         <h2>
+
           Nuestro gran día
+
         </h2>
+
 
         <div class="separador"></div>
 
+
         <p class="texto">
+
           Hay momentos que merecen ser compartidos
           con las personas que más queremos.
+
         </p>
+
 
         <p class="texto">
+
           Nos hace muchísima ilusión celebrar este día
           contigo y comenzar juntos esta nueva etapa.
+
         </p>
 
+
         <div class="firma">
+
           Joaquín & Marina
+
         </div>
+
 
         <div class="corazon">
+
           ♥
+
         </div>
 
+
       </div>
+
 
     </section>
 
 
 
-    <!-- =========================
+    <!-- ========================================
          CUENTA ATRÁS
-         ========================= -->
+         ======================================== -->
 
     <section class="cuenta">
 
+
       <div class="detalle-icono">
+
         ✦
+
       </div>
 
+
       <h2>
+
         Falta muy poco
+
       </h2>
+
 
       <div class="contador">
 
-        <div class="contador-caja">
-          <span class="numero" id="dias">0</span>
-          <span class="unidad">Días</span>
-        </div>
 
         <div class="contador-caja">
-          <span class="numero" id="horas">0</span>
-          <span class="unidad">Horas</span>
+
+          <span
+            class="numero"
+            id="dias"
+          >
+            0
+          </span>
+
+          <span class="unidad">
+            Días
+          </span>
+
         </div>
 
-        <div class="contador-caja">
-          <span class="numero" id="minutos">0</span>
-          <span class="unidad">Min</span>
-        </div>
 
         <div class="contador-caja">
-          <span class="numero" id="segundos">0</span>
-          <span class="unidad">Seg</span>
+
+          <span
+            class="numero"
+            id="horas"
+          >
+            0
+          </span>
+
+          <span class="unidad">
+            Horas
+          </span>
+
         </div>
+
+
+        <div class="contador-caja">
+
+          <span
+            class="numero"
+            id="minutos"
+          >
+            0
+          </span>
+
+          <span class="unidad">
+            Min
+          </span>
+
+        </div>
+
+
+        <div class="contador-caja">
+
+          <span
+            class="numero"
+            id="segundos"
+          >
+            0
+          </span>
+
+          <span class="unidad">
+            Seg
+          </span>
+
+        </div>
+
 
       </div>
 
+
     </section>
+
 
 
     <div class="franja-estampado"></div>
 
 
 
-    <!-- =========================
+    <!-- ========================================
          EL GRAN DÍA
-         ========================= -->
+         ======================================== -->
 
     <section class="lugares">
 
+
       <div class="lugares-contenido">
 
+
         <div class="detalle-icono">
+
           ❦
+
         </div>
 
+
         <h2>
+
           El gran día
+
         </h2>
 
+
         <div class="separador"></div>
+
 
 
         <!-- CEREMONIA -->
 
         <article class="tarjeta">
 
+
           <div class="tarjeta-icono">
+
 
             <span class="icono-linea">
 
+
               <svg viewBox="0 0 64 64">
+
 
                 <path d="M12 54h40"/>
 
-                <path d="M16 54V27l16-12 16 12v27"/>
 
-                <path d="M24 54V37h16v17"/>
+                <path
+                  d="M16 54V27l16-12 16 12v27"
+                />
+
+
+                <path
+                  d="M24 54V37h16v17"
+                />
+
 
                 <path d="M32 15V7"/>
 
+
                 <path d="M27 11h10"/>
+
 
                 <path d="M22 30h4"/>
 
+
                 <path d="M38 30h4"/>
+
 
               </svg>
 
+
             </span>
 
+
           </div>
+
 
           <h3>
+
             Ceremonia
+
           </h3>
 
+
           <div class="hora">
+
             12:45 h
+
           </div>
+
 
           <div class="lugar">
-            Iglesia de la Soledad<br>
+
+            Iglesia de la Soledad
+            <br>
             de San Buenaventura
+
           </div>
+
 
           <div class="localidad">
+
             Sevilla
+
           </div>
 
+
           <a
+
             class="boton"
+
             href="https://www.google.com/maps/search/?api=1&query=Iglesia+de+la+Soledad+de+San+Buenaventura+Sevilla"
+
             target="_blank"
+
+            rel="noopener noreferrer"
+
           >
+
             Cómo llegar
+
           </a>
 
+
         </article>
+
 
 
         <!-- CELEBRACIÓN -->
 
         <article class="tarjeta">
 
+
           <div class="tarjeta-icono">
+
 
             <span class="icono-linea">
 
+
               <svg viewBox="0 0 64 64">
+
 
                 <path d="M10 54h44"/>
 
-                <path d="M14 54V25h36v29"/>
 
-                <path d="M20 54V36h24v18"/>
+                <path
+                  d="M14 54V25h36v29"
+                />
 
-                <path d="M20 36c0-6 5-10 12-10s12 4 12 10"/>
 
-                <path d="M14 25l18-10 18 10"/>
+                <path
+                  d="M20 54V36h24v18"
+                />
+
+
+                <path
+                  d="M20 36c0-6 5-10 12-10s12 4 12 10"
+                />
+
+
+                <path
+                  d="M14 25l18-10 18 10"
+                />
+
 
               </svg>
 
+
             </span>
 
+
           </div>
+
 
           <h3>
+
             Celebración
+
           </h3>
 
+
           <div class="hora">
+
             14:30 h aprox.
+
           </div>
+
 
           <div class="lugar">
+
             Hacienda Torre de las Arcas
+
           </div>
+
 
           <div class="localidad">
+
             Bollullos de la Mitación
+
           </div>
 
+
           <a
+
             class="boton"
+
             href="https://www.google.com/maps/search/?api=1&query=Hacienda+Torre+de+las+Arcas+Bollullos+de+la+Mitacion"
+
             target="_blank"
+
+            rel="noopener noreferrer"
+
           >
+
             Cómo llegar
+
           </a>
+
 
         </article>
 
+
       </div>
+
 
     </section>
 
 
 
-    <!-- =========================
+    <!-- ========================================
          AUTOBUSES
-         ========================= -->
+         ======================================== -->
 
     <section class="autobuses">
 
+
       <div class="autobuses-contenido">
+
 
         <div class="detalle-icono">
 
+
           <span class="icono-linea">
 
+
             <svg viewBox="0 0 64 64">
+
 
               <rect
                 x="12"
@@ -1729,13 +2992,18 @@
                 rx="6"
               />
 
+
               <path d="M16 20h32"/>
+
 
               <path d="M18 29h28"/>
 
+
               <path d="M20 48v5"/>
 
+
               <path d="M44 48v5"/>
+
 
               <circle
                 cx="22"
@@ -1743,149 +3011,191 @@
                 r="2.5"
               />
 
+
               <circle
                 cx="42"
                 cy="43"
                 r="2.5"
               />
 
+
             </svg>
+
 
           </span>
 
+
         </div>
 
+
         <h2>
+
           Autobuses
+
         </h2>
+
 
         <div class="separador"></div>
 
+
         <p>
-          Queremos que solo tengas que preocuparte de disfrutar.
-          Habrá servicio de autobús desde Sevilla y Tocina.
-          Publicaremos aquí los horarios cuando estén confirmados.
+
+          Queremos que solo tengas que preocuparte
+          de disfrutar.
+
+          Habrá servicio de autobús
+          desde Sevilla y Tocina.
+
+          Publicaremos aquí los horarios
+          cuando estén confirmados.
+
         </p>
+
 
         <div class="rutas">
 
+
           <div class="ruta">
 
+
             <strong>
+
               Sevilla
+
             </strong>
 
+
             <span class="pendiente">
+
               Horario pendiente
+
             </span>
 
+
           </div>
+
 
           <div class="ruta">
 
+
             <strong>
+
               Tocina
+
             </strong>
 
+
             <span class="pendiente">
+
               Horario pendiente
+
             </span>
 
+
           </div>
+
 
         </div>
 
+
       </div>
 
+
     </section>
+
 
 
     <div class="franja-estampado"></div>
 
 
 
-    <!-- =========================
+    <!-- ========================================
          NUESTRA HISTORIA
-         ========================= -->
+         ======================================== -->
 
     <section class="historia">
 
+
       <div class="historia-contenido">
 
+
         <div class="detalle-icono">
+
           ❦
+
         </div>
 
+
         <h2>
+
           Nuestra historia
+
         </h2>
+
 
         <div class="separador"></div>
 
+
         <p class="historia-intro">
+
           Quién nos iba a decir…
+
         </p>
 
 
-        <div class="sellos">
+
+        <!-- FOTOS DE PEQUEÑOS -->
+
+        <div class="infancia">
 
 
-          <!-- JOAQUÍN PEQUEÑO -->
+          <div
+            class="
+              sello-foto
+              joaquin-peque
+            "
+          >
 
-          <div class="sello-foto sello-joaquin">
 
             <img
+
               src="images/1786297988259.png"
+
               alt="Joaquín de pequeño"
+
             >
+
 
           </div>
 
 
-          <!-- MARINA PEQUEÑA -->
 
-          <div class="sello-foto sello-marina">
+          <div
+            class="
+              sello-foto
+              marina-peque
+            "
+          >
+
 
             <img
+
               src="images/FB_IMG_1786299085334.jpg"
+
               alt="Marina de pequeña"
+
             >
+
 
           </div>
 
 
-          <!-- FOTO ACTUAL 1 -->
 
-          <div class="sello-foto sello-actual-1">
+          <div class="matasellos">
 
-            <img
-              src="images/20240616133050505.jpeg"
-              alt="Joaquín y Marina"
-            >
-
-          </div>
-
-
-          <!-- FOTO ACTUAL 2 -->
-
-          <div class="sello-foto sello-actual-2">
-
-            <img
-              src="images/20260712_215553.jpg"
-              alt="Joaquín y Marina"
-            >
-
-          </div>
-
-
-          <!-- FOTO ACTUAL 3 -->
-
-          <div class="sello-foto sello-actual-3">
-
-            <img
-              src="images/Screenshot_20260807_135313_Gallery.jpg"
-              alt="Joaquín y Marina"
-            >
+            J & M
+            <br>
+            19.12.2026
 
           </div>
 
@@ -1893,158 +3203,330 @@
         </div>
 
 
-        <p class="historia-final">
-          …que acabaríamos llegando hasta aquí.
+
+        <!-- FRASE ANTES DE LAS FOTOS ACTUALES -->
+
+        <p class="historia-transicion">
+
+          …que acabaríamos
+          llegando hasta aquí.
+
         </p>
 
 
+
+        <!-- TRES FOTOS ACTUALES -->
+
+        <div class="actualidad">
+
+
+          <div
+            class="
+              sello-foto
+              actual-1
+            "
+          >
+
+
+            <img
+
+              src="images/20240616133050505.jpeg"
+
+              alt="Joaquín y Marina"
+
+            >
+
+
+          </div>
+
+
+
+          <div
+            class="
+              sello-foto
+              actual-2
+            "
+          >
+
+
+            <img
+
+              src="images/20260712_215553.jpg"
+
+              alt="Joaquín y Marina"
+
+            >
+
+
+          </div>
+
+
+
+          <div
+            class="
+              sello-foto
+              actual-3
+            "
+          >
+
+
+            <img
+
+              src="images/Screenshot_20260807_135313_Gallery.jpg"
+
+              alt="Joaquín y Marina"
+
+            >
+
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="historia-adorno">
+
+          ❧
+
+        </div>
+
+
       </div>
+
 
     </section>
 
 
 
-    <!-- =========================
+    <!-- ========================================
          CONFIRMACIÓN
-         ========================= -->
+         ======================================== -->
 
     <section class="rsvp">
 
+
       <div class="rsvp-contenido">
 
+
         <div class="detalle-icono">
+
           ❦
+
         </div>
 
+
         <h2>
+
           ¿Nos acompañas?
+
         </h2>
+
 
         <div class="separador"></div>
 
+
         <p>
+
           Nos hará muchísima ilusión contar contigo.
-          Confirma tu asistencia y cuéntanos todo lo necesario
+
+          Confirma tu asistencia
+          y cuéntanos todo lo necesario
           para que podamos cuidar cada detalle.
+
         </p>
 
+
         <a
+
           class="boton-rsvp"
+
           href="https://forms.gle/1RrKdaNcS1fuMRbn9"
+
           target="_blank"
+
           rel="noopener noreferrer"
+
         >
+
           Confirmar asistencia
+
         </a>
 
+
         <div class="rsvp-nota">
-          El formulario se abrirá en una nueva pestaña.
+
+          El formulario se abrirá
+          en una nueva pestaña.
+
         </div>
 
+
       </div>
+
 
     </section>
 
 
 
-    <!-- =========================
+    <!-- ========================================
          CONTACTO
-         ========================= -->
+         ======================================== -->
 
     <section class="contacto">
 
+
       <div class="contacto-contenido">
 
+
         <div class="detalle-icono">
+
           ❦
+
         </div>
 
+
         <h2>
+
           ¿Necesitas algo?
+
         </h2>
+
 
         <div class="separador"></div>
 
+
         <p class="contacto-texto">
-          Si tienes cualquier duda antes del gran día,
-          escríbenos. Estaremos encantados de ayudarte.
+
+          Si tienes cualquier duda
+          antes del gran día,
+          escríbenos.
+
+          Estaremos encantados
+          de ayudarte.
+
         </p>
 
 
+
         <div class="contactos">
+
 
 
           <!-- JOAQUÍN -->
 
           <div class="contacto-persona">
 
+
             <strong>
+
               Joaquín
+
             </strong>
 
+
             <a
+
               class="whatsapp"
+
               href="https://wa.me/34605245594"
+
               target="_blank"
+
               rel="noopener noreferrer"
+
             >
+
               Escribir por WhatsApp
+
             </a>
 
+
             <span class="telefono">
+
               605 245 594
+
             </span>
 
+
           </div>
+
 
 
           <!-- MARINA -->
 
           <div class="contacto-persona">
 
+
             <strong>
+
               Marina
+
             </strong>
 
+
             <a
+
               class="whatsapp"
+
               href="https://wa.me/34605253664"
+
               target="_blank"
+
               rel="noopener noreferrer"
+
             >
+
               Escribir por WhatsApp
+
             </a>
 
+
             <span class="telefono">
+
               605 253 664
+
             </span>
+
 
           </div>
 
 
         </div>
 
+
       </div>
+
 
     </section>
 
 
 
-    <!-- =========================
+    <!-- ========================================
          FINAL
-         ========================= -->
+         ======================================== -->
 
     <section class="final">
 
+
       <div class="final-fecha">
+
         19 · 12 · 2026
+
       </div>
 
+
       <p>
-        Estamos deseando celebrarlo contigo.
+
+        Estamos deseando
+        celebrarlo contigo.
+
       </p>
 
+
     </section>
+
 
 
   </main>
@@ -2054,95 +3536,159 @@
   <script>
 
 
-    /* =========================
+    /* ========================================
        ABRIR INVITACIÓN
-       ========================= */
+       ======================================== */
 
     function abrirInvitacion() {
 
+
       document
-        .getElementById('inicio')
+
+        .getElementById(
+          'inicio'
+        )
+
         .classList
-        .add('abierto');
+
+        .add(
+          'abierto'
+        );
+
 
     }
 
 
 
-    /* =========================
+    /* ========================================
        CUENTA ATRÁS
-       ========================= */
+       ======================================== */
 
     const fechaBoda =
+
       new Date(
+
         '2026-12-19T12:45:00+01:00'
+
       );
+
 
 
     function actualizarContador() {
 
+
       const ahora =
+
         new Date();
 
+
       const diferencia =
+
         fechaBoda - ahora;
 
 
-      if (diferencia <= 0) {
+
+      if (
+        diferencia <= 0
+      ) {
+
 
         document
           .getElementById('dias')
           .textContent = '0';
 
+
         document
           .getElementById('horas')
           .textContent = '0';
+
 
         document
           .getElementById('minutos')
           .textContent = '0';
 
+
         document
           .getElementById('segundos')
           .textContent = '0';
 
+
         return;
+
 
       }
 
 
+
       const dias =
+
         Math.floor(
+
           diferencia /
-          (1000 * 60 * 60 * 24)
+
+          (
+            1000 *
+            60 *
+            60 *
+            24
+          )
+
         );
+
 
 
       const horas =
+
         Math.floor(
+
           (
+
             diferencia /
-            (1000 * 60 * 60)
+
+            (
+              1000 *
+              60 *
+              60
+            )
+
           ) % 24
+
         );
+
 
 
       const minutos =
+
         Math.floor(
+
           (
+
             diferencia /
-            (1000 * 60)
+
+            (
+              1000 *
+              60
+            )
+
           ) % 60
+
         );
+
 
 
       const segundos =
+
         Math.floor(
+
           (
+
             diferencia /
             1000
+
           ) % 60
+
         );
+
 
 
       document
@@ -2151,10 +3697,12 @@
         dias;
 
 
+
       document
         .getElementById('horas')
         .textContent =
         horas;
+
 
 
       document
@@ -2163,20 +3711,27 @@
         minutos;
 
 
+
       document
         .getElementById('segundos')
         .textContent =
         segundos;
 
+
     }
+
 
 
     actualizarContador();
 
 
+
     setInterval(
+
       actualizarContador,
+
       1000
+
     );
 
 
