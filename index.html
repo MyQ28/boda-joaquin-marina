@@ -43,19 +43,13 @@
       overflow-x: hidden;
     }
 
-
-    /* ==========================
-       APERTURA
-       ========================== */
+    /* APERTURA */
 
     #inicio {
       position: fixed;
-      top: 0;
-      left: 0;
-
+      inset: 0;
       width: 100%;
       height: 100vh;
-
       z-index: 9999;
 
       display: flex;
@@ -63,7 +57,6 @@
       justify-content: center;
 
       padding: 28px 20px;
-
       overflow: hidden;
 
       background:
@@ -99,7 +92,6 @@
       letter-spacing: 4px;
       text-transform: uppercase;
     }
-
 
     /* SOBRE */
 
@@ -181,10 +173,7 @@
       font-size: 24px;
     }
 
-
-    /* ==========================
-       PORTADA
-       ========================== */
+    /* PORTADA */
 
     .hero {
       min-height: 100svh;
@@ -192,7 +181,9 @@
       display: flex;
       align-items: flex-end;
       justify-content: center;
+
       padding: 40px 24px 62px;
+
       text-align: center;
       color: white;
 
@@ -247,37 +238,17 @@
       animation: subirBajar 1.6s infinite;
     }
 
-
-    /* ==========================
-       GRANADAS
-       ========================== */
+    /* FRANJA GRANADAS */
 
     .franja-estampado {
-      height: 125px;
+      height: 120px;
       background-image:
         url('images/Screenshot_20260709_231219_Gallery.jpg');
       background-size: cover;
       background-position: center;
     }
 
-
-    /* ==========================
-       PRESENTACIÓN
-       ========================== */
-
-    .presentacion {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 88px 28px;
-      text-align: center;
-      background: var(--crema);
-    }
-
-    .presentacion-interior {
-      width: 100%;
-      max-width: 650px;
-    }
+    /* ELEMENTOS COMUNES */
 
     .detalle-icono {
       margin-bottom: 16px;
@@ -298,6 +269,22 @@
       height: 1px;
       margin: 0 auto 32px;
       background: var(--terracota);
+    }
+
+    /* PRESENTACIÓN */
+
+    .presentacion {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 28px;
+      text-align: center;
+      background: var(--crema);
+    }
+
+    .presentacion-interior {
+      width: 100%;
+      max-width: 650px;
     }
 
     .texto {
@@ -322,13 +309,10 @@
       font-size: 18px;
     }
 
-
-    /* ==========================
-       CUENTA ATRÁS
-       ========================== */
+    /* CUENTA ATRÁS */
 
     .cuenta {
-      padding: 85px 20px;
+      padding: 75px 20px;
       text-align: center;
       background: var(--papel);
     }
@@ -365,13 +349,10 @@
       color: #77685f;
     }
 
-
-    /* ==========================
-       CEREMONIA Y CELEBRACIÓN
-       ========================== */
+    /* CEREMONIA Y CELEBRACIÓN */
 
     .lugares {
-      padding: 85px 22px;
+      padding: 78px 22px;
       background: var(--crema);
       text-align: center;
     }
@@ -382,8 +363,8 @@
     }
 
     .tarjeta {
-      padding: 45px 25px;
-      margin: 28px auto;
+      padding: 42px 25px;
+      margin: 25px auto;
       background: rgba(255,255,255,.38);
       border: 1px solid rgba(123,41,45,.12);
     }
@@ -461,13 +442,10 @@
       color: var(--crema);
     }
 
-
-    /* ==========================
-       AUTOBUSES
-       ========================== */
+    /* AUTOBUSES */
 
     .autobuses {
-      padding: 85px 25px;
+      padding: 78px 25px;
       background: var(--papel);
       text-align: center;
     }
@@ -493,34 +471,86 @@
     }
 
     .ruta {
-      padding: 22px 10px;
+      position: relative;
+      padding: 27px 10px;
       border: 1px solid rgba(123,41,45,.14);
-      background: rgba(248,241,232,.55);
+      background: rgba(248,241,232,.65);
+    }
+
+    .ruta::before {
+      content: "•";
+      display: block;
+      margin-bottom: 9px;
+      color: var(--terracota);
+      font-size: 22px;
     }
 
     .ruta strong {
       display: block;
       color: var(--granada);
       font-family: 'Cormorant Garamond', serif;
-      font-size: 25px;
+      font-size: 27px;
       font-weight: 500;
-      margin-bottom: 5px;
+      margin-bottom: 7px;
     }
 
     .pendiente {
-      font-size: 11px;
-      letter-spacing: 1px;
+      font-size: 10px;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
       color: #7e7067;
     }
 
+    /* GALERÍA */
 
-    /* ==========================
-       CONFIRMACIÓN
-       ========================== */
+    .galeria {
+      padding: 80px 20px;
+      background: var(--crema);
+      text-align: center;
+    }
+
+    .galeria-contenido {
+      max-width: 780px;
+      margin: auto;
+    }
+
+    .galeria-texto {
+      max-width: 500px;
+      margin: 0 auto 35px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    .fotos {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 12px;
+    }
+
+    .foto {
+      overflow: hidden;
+      background: var(--papel);
+      aspect-ratio: 3 / 4;
+    }
+
+    .foto img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+
+    .foto:hover img {
+      transform: scale(1.04);
+    }
+
+    /* RSVP */
 
     .rsvp {
-      padding: 90px 24px;
-      background: var(--crema);
+      padding: 82px 24px;
+      background: var(--papel);
       text-align: center;
     }
 
@@ -561,17 +591,79 @@
       margin-top: 15px;
       font-size: 11px;
       color: #7e7067;
-      letter-spacing: .4px;
     }
 
+    /* CONTACTO */
 
-    /* ==========================
-       FINAL
-       ========================== */
+    .contacto {
+      padding: 78px 24px;
+      background: var(--crema);
+      text-align: center;
+    }
+
+    .contacto-contenido {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .contacto-texto {
+      max-width: 490px;
+      margin: 0 auto 32px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    .contactos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .contacto-persona {
+      padding: 24px 12px;
+      border: 1px solid rgba(123,41,45,.14);
+      background: rgba(239,226,211,.45);
+    }
+
+    .contacto-persona strong {
+      display: block;
+      margin-bottom: 13px;
+      color: var(--granada);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 27px;
+      font-weight: 500;
+    }
+
+    .whatsapp {
+      display: inline-block;
+      padding: 10px 16px;
+
+      color: var(--granada);
+      text-decoration: none;
+
+      font-size: 10px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+
+      border: 1px solid var(--granada);
+      border-radius: 30px;
+    }
+
+    .telefono {
+      display: block;
+      margin-top: 11px;
+      color: #75675e;
+      font-size: 12px;
+    }
+
+    /* FINAL */
 
     .final {
-      padding: 75px 25px;
-      background: var(--crema);
+      padding: 70px 25px;
+      background: var(--papel);
       text-align: center;
     }
 
@@ -586,7 +678,6 @@
       font-size: 13px;
       color: #77685f;
     }
-
 
     /* ANIMACIONES */
 
@@ -611,7 +702,6 @@
         transform: translateY(8px);
       }
     }
-
 
     /* MÓVIL */
 
@@ -643,18 +733,30 @@
         font-size: 31px;
       }
 
+      .fotos {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .foto {
+        aspect-ratio: 4 / 5;
+      }
+
+      .contactos {
+        grid-template-columns: 1fr;
+      }
+
     }
 
   </style>
+
 </head>
 
 
 <body>
 
 
-  <!-- ==========================
-       APERTURA
-       ========================== -->
+  <!-- APERTURA -->
 
   <section id="inicio">
 
@@ -671,6 +773,7 @@
       >
 
         <div class="sobre-base"></div>
+
         <div class="sobre-tapa"></div>
 
         <img
@@ -685,7 +788,9 @@
         Pulsa el sello para abrir
       </div>
 
-      <div class="ramita">❧</div>
+      <div class="ramita">
+        ❧
+      </div>
 
     </div>
 
@@ -695,9 +800,7 @@
   <main>
 
 
-    <!-- ==========================
-         PORTADA
-         ========================== -->
+    <!-- PORTADA -->
 
     <section class="hero">
 
@@ -735,15 +838,15 @@
     <div class="franja-estampado"></div>
 
 
-    <!-- ==========================
-         PRESENTACIÓN
-         ========================== -->
+    <!-- PRESENTACIÓN -->
 
     <section class="presentacion">
 
       <div class="presentacion-interior">
 
-        <div class="detalle-icono">❦</div>
+        <div class="detalle-icono">
+          ❦
+        </div>
 
         <h2>
           Nuestro gran día
@@ -774,13 +877,13 @@
     </section>
 
 
-    <!-- ==========================
-         CUENTA ATRÁS
-         ========================== -->
+    <!-- CUENTA ATRÁS -->
 
     <section class="cuenta">
 
-      <div class="detalle-icono">✦</div>
+      <div class="detalle-icono">
+        ✦
+      </div>
 
       <h2>
         Falta muy poco
@@ -816,15 +919,15 @@
     <div class="franja-estampado"></div>
 
 
-    <!-- ==========================
-         CEREMONIA + CELEBRACIÓN
-         ========================== -->
+    <!-- EL GRAN DÍA -->
 
     <section class="lugares">
 
       <div class="lugares-contenido">
 
-        <div class="detalle-icono">❦</div>
+        <div class="detalle-icono">
+          ❦
+        </div>
 
         <h2>
           El gran día
@@ -839,22 +942,16 @@
 
           <div class="tarjeta-icono">
 
-            <span class="icono-linea" aria-hidden="true">
+            <span class="icono-linea">
 
               <svg viewBox="0 0 64 64">
 
                 <path d="M12 54h40"/>
-
                 <path d="M16 54V27l16-12 16 12v27"/>
-
                 <path d="M24 54V37h16v17"/>
-
                 <path d="M32 15V7"/>
-
                 <path d="M27 11h10"/>
-
                 <path d="M22 30h4"/>
-
                 <path d="M38 30h4"/>
 
               </svg>
@@ -897,18 +994,14 @@
 
           <div class="tarjeta-icono">
 
-            <span class="icono-linea" aria-hidden="true">
+            <span class="icono-linea">
 
               <svg viewBox="0 0 64 64">
 
                 <path d="M10 54h44"/>
-
                 <path d="M14 54V25h36v29"/>
-
                 <path d="M20 54V36h24v18"/>
-
                 <path d="M20 36c0-6 5-10 12-10s12 4 12 10"/>
-
                 <path d="M14 25l18-10 18 10"/>
 
               </svg>
@@ -948,57 +1041,31 @@
     </section>
 
 
-    <!-- ==========================
-         AUTOBUSES
-         ========================== -->
+    <!-- AUTOBUSES -->
 
     <section class="autobuses">
 
       <div class="autobuses-contenido">
 
-
-        <!-- ICONO AUTOBÚS -->
-
         <div class="detalle-icono">
 
-          <span class="icono-linea" aria-hidden="true">
+          <span class="icono-linea">
 
             <svg viewBox="0 0 64 64">
 
-              <rect
-                x="12"
-                y="12"
-                width="40"
-                height="36"
-                rx="6"
-              />
-
+              <rect x="12" y="12" width="40" height="36" rx="6"/>
               <path d="M16 20h32"/>
-
               <path d="M18 29h28"/>
-
               <path d="M20 48v5"/>
-
               <path d="M44 48v5"/>
-
-              <circle
-                cx="22"
-                cy="43"
-                r="2.5"
-              />
-
-              <circle
-                cx="42"
-                cy="43"
-                r="2.5"
-              />
+              <circle cx="22" cy="43" r="2.5"/>
+              <circle cx="42" cy="43" r="2.5"/>
 
             </svg>
 
           </span>
 
         </div>
-
 
         <h2>
           Autobuses
@@ -1007,9 +1074,9 @@
         <div class="separador"></div>
 
         <p>
-          Queremos que solo tengas que preocuparte
-          de disfrutar. Habrá servicio de autobús
-          desde Sevilla y Tocina para nuestros invitados.
+          Queremos que solo tengas que preocuparte de disfrutar.
+          Habrá servicio de autobús desde Sevilla y Tocina.
+          Publicaremos aquí los horarios cuando estén confirmados.
         </p>
 
         <div class="rutas">
@@ -1025,7 +1092,6 @@
             </span>
 
           </div>
-
 
           <div class="ruta">
 
@@ -1049,9 +1115,58 @@
     <div class="franja-estampado"></div>
 
 
-    <!-- ==========================
-         CONFIRMACIÓN DE ASISTENCIA
-         ========================== -->
+    <!-- GALERÍA -->
+
+    <section class="galeria">
+
+      <div class="galeria-contenido">
+
+        <div class="detalle-icono">
+          ❦
+        </div>
+
+        <h2>
+          Algunos de nuestros momentos
+        </h2>
+
+        <div class="separador"></div>
+
+        <p class="galeria-texto">
+          Un poquito de nosotros antes de comenzar
+          el capítulo más bonito de nuestra historia.
+        </p>
+
+        <div class="fotos">
+
+          <div class="foto">
+            <img
+              src="images/20240616133050505.jpeg"
+              alt="Joaquín y Marina"
+            >
+          </div>
+
+          <div class="foto">
+            <img
+              src="images/20260712_215553.jpg"
+              alt="Joaquín y Marina"
+            >
+          </div>
+
+          <div class="foto">
+            <img
+              src="images/Screenshot_20260807_135313_Gallery.jpg"
+              alt="Joaquín y Marina"
+            >
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONFIRMACIÓN -->
 
     <section class="rsvp">
 
@@ -1091,9 +1206,82 @@
     </section>
 
 
-    <!-- ==========================
-         FINAL
-         ========================== -->
+    <!-- CONTACTO -->
+
+    <section class="contacto">
+
+      <div class="contacto-contenido">
+
+        <div class="detalle-icono">
+          ❦
+        </div>
+
+        <h2>
+          ¿Necesitas algo?
+        </h2>
+
+        <div class="separador"></div>
+
+        <p class="contacto-texto">
+          Si tienes cualquier duda antes del gran día,
+          escríbenos. Estaremos encantados de ayudarte.
+        </p>
+
+        <div class="contactos">
+
+
+          <div class="contacto-persona">
+
+            <strong>
+              Joaquín
+            </strong>
+
+            <a
+              class="whatsapp"
+              href="https://wa.me/34605245594"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Escribir por WhatsApp
+            </a>
+
+            <span class="telefono">
+              605 245 594
+            </span>
+
+          </div>
+
+
+          <div class="contacto-persona">
+
+            <strong>
+              Marina
+            </strong>
+
+            <a
+              class="whatsapp"
+              href="https://wa.me/34605253664"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Escribir por WhatsApp
+            </a>
+
+            <span class="telefono">
+              605 253 664
+            </span>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FINAL -->
 
     <section class="final">
 
@@ -1113,11 +1301,6 @@
 
   <script>
 
-
-    /* ==========================
-       ABRIR INVITACIÓN
-       ========================== */
-
     function abrirInvitacion() {
 
       document
@@ -1127,10 +1310,6 @@
 
     }
 
-
-    /* ==========================
-       CUENTA ATRÁS
-       ========================== */
 
     const fechaBoda =
       new Date('2026-12-19T12:45:00+01:00');
@@ -1147,11 +1326,8 @@
       if (diferencia <= 0) {
 
         document.getElementById('dias').textContent = '0';
-
         document.getElementById('horas').textContent = '0';
-
         document.getElementById('minutos').textContent = '0';
-
         document.getElementById('segundos').textContent = '0';
 
         return;
@@ -1200,16 +1376,14 @@
 
     actualizarContador();
 
-
     setInterval(
       actualizarContador,
       1000
     );
-
 
   </script>
 
 
 </body>
 
-  </html>
+          </html>
