@@ -43,6 +43,7 @@
       overflow-x: hidden;
     }
 
+
     /* ==========================
        APERTURA
        ========================== */
@@ -98,6 +99,7 @@
       letter-spacing: 4px;
       text-transform: uppercase;
     }
+
 
     /* SOBRE */
 
@@ -179,6 +181,7 @@
       font-size: 24px;
     }
 
+
     /* ==========================
        PORTADA
        ========================== */
@@ -244,6 +247,7 @@
       animation: subirBajar 1.6s infinite;
     }
 
+
     /* ==========================
        GRANADAS
        ========================== */
@@ -255,6 +259,7 @@
       background-size: cover;
       background-position: center;
     }
+
 
     /* ==========================
        PRESENTACIÓN
@@ -317,6 +322,7 @@
       font-size: 18px;
     }
 
+
     /* ==========================
        CUENTA ATRÁS
        ========================== */
@@ -359,6 +365,7 @@
       color: #77685f;
     }
 
+
     /* ==========================
        CEREMONIA Y CELEBRACIÓN
        ========================== */
@@ -382,8 +389,26 @@
     }
 
     .tarjeta-icono {
-      font-size: 28px;
       margin-bottom: 15px;
+    }
+
+    .icono-linea {
+      width: 46px;
+      height: 46px;
+      margin: 0 auto;
+      display: block;
+      color: var(--terracota);
+    }
+
+    .icono-linea svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .tarjeta h3 {
@@ -436,6 +461,7 @@
       color: var(--crema);
     }
 
+
     /* ==========================
        AUTOBUSES
        ========================== */
@@ -487,6 +513,58 @@
       color: #7e7067;
     }
 
+
+    /* ==========================
+       CONFIRMACIÓN
+       ========================== */
+
+    .rsvp {
+      padding: 90px 24px;
+      background: var(--crema);
+      text-align: center;
+    }
+
+    .rsvp-contenido {
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .rsvp p {
+      max-width: 530px;
+      margin: 0 auto;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      line-height: 1.65;
+    }
+
+    .boton-rsvp {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 15px 30px;
+      border-radius: 999px;
+      background: var(--granada);
+      color: var(--crema);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid var(--granada);
+      transition: .25s ease;
+    }
+
+    .boton-rsvp:hover {
+      background: transparent;
+      color: var(--granada);
+    }
+
+    .rsvp-nota {
+      margin-top: 15px;
+      font-size: 11px;
+      color: #7e7067;
+      letter-spacing: .4px;
+    }
+
+
     /* ==========================
        FINAL
        ========================== */
@@ -509,6 +587,7 @@
       color: #77685f;
     }
 
+
     /* ANIMACIONES */
 
     @keyframes aparecer {
@@ -516,6 +595,7 @@
         opacity: 0;
         transform: translateY(15px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -526,10 +606,12 @@
       0%,100% {
         transform: translateY(0);
       }
+
       50% {
         transform: translateY(8px);
       }
     }
+
 
     /* MÓVIL */
 
@@ -566,9 +648,13 @@
   </style>
 </head>
 
+
 <body>
 
-  <!-- APERTURA -->
+
+  <!-- ==========================
+       APERTURA
+       ========================== -->
 
   <section id="inicio">
 
@@ -608,7 +694,10 @@
 
   <main>
 
-    <!-- PORTADA -->
+
+    <!-- ==========================
+         PORTADA
+         ========================== -->
 
     <section class="hero">
 
@@ -646,7 +735,9 @@
     <div class="franja-estampado"></div>
 
 
-    <!-- PRESENTACIÓN -->
+    <!-- ==========================
+         PRESENTACIÓN
+         ========================== -->
 
     <section class="presentacion">
 
@@ -683,7 +774,9 @@
     </section>
 
 
-    <!-- CUENTA ATRÁS -->
+    <!-- ==========================
+         CUENTA ATRÁS
+         ========================== -->
 
     <section class="cuenta">
 
@@ -723,7 +816,9 @@
     <div class="franja-estampado"></div>
 
 
-    <!-- CEREMONIA + CELEBRACIÓN -->
+    <!-- ==========================
+         CEREMONIA + CELEBRACIÓN
+         ========================== -->
 
     <section class="lugares">
 
@@ -738,9 +833,35 @@
         <div class="separador"></div>
 
 
+        <!-- CEREMONIA -->
+
         <article class="tarjeta">
 
-          <div class="tarjeta-icono">⛪</div>
+          <div class="tarjeta-icono">
+
+            <span class="icono-linea" aria-hidden="true">
+
+              <svg viewBox="0 0 64 64">
+
+                <path d="M12 54h40"/>
+
+                <path d="M16 54V27l16-12 16 12v27"/>
+
+                <path d="M24 54V37h16v17"/>
+
+                <path d="M32 15V7"/>
+
+                <path d="M27 11h10"/>
+
+                <path d="M22 30h4"/>
+
+                <path d="M38 30h4"/>
+
+              </svg>
+
+            </span>
+
+          </div>
 
           <h3>
             Ceremonia
@@ -770,9 +891,31 @@
         </article>
 
 
+        <!-- CELEBRACIÓN -->
+
         <article class="tarjeta">
 
-          <div class="tarjeta-icono">🥂</div>
+          <div class="tarjeta-icono">
+
+            <span class="icono-linea" aria-hidden="true">
+
+              <svg viewBox="0 0 64 64">
+
+                <path d="M10 54h44"/>
+
+                <path d="M14 54V25h36v29"/>
+
+                <path d="M20 54V36h24v18"/>
+
+                <path d="M20 36c0-6 5-10 12-10s12 4 12 10"/>
+
+                <path d="M14 25l18-10 18 10"/>
+
+              </svg>
+
+            </span>
+
+          </div>
 
           <h3>
             Celebración
@@ -805,13 +948,57 @@
     </section>
 
 
-    <!-- AUTOBUSES -->
+    <!-- ==========================
+         AUTOBUSES
+         ========================== -->
 
     <section class="autobuses">
 
       <div class="autobuses-contenido">
 
-        <div class="detalle-icono">🚌</div>
+
+        <!-- ICONO AUTOBÚS -->
+
+        <div class="detalle-icono">
+
+          <span class="icono-linea" aria-hidden="true">
+
+            <svg viewBox="0 0 64 64">
+
+              <rect
+                x="12"
+                y="12"
+                width="40"
+                height="36"
+                rx="6"
+              />
+
+              <path d="M16 20h32"/>
+
+              <path d="M18 29h28"/>
+
+              <path d="M20 48v5"/>
+
+              <path d="M44 48v5"/>
+
+              <circle
+                cx="22"
+                cy="43"
+                r="2.5"
+              />
+
+              <circle
+                cx="42"
+                cy="43"
+                r="2.5"
+              />
+
+            </svg>
+
+          </span>
+
+        </div>
+
 
         <h2>
           Autobuses
@@ -822,23 +1009,34 @@
         <p>
           Queremos que solo tengas que preocuparte
           de disfrutar. Habrá servicio de autobús
-          para nuestros invitados.
+          desde Sevilla y Tocina para nuestros invitados.
         </p>
 
         <div class="rutas">
 
           <div class="ruta">
-            <strong>Sevilla</strong>
+
+            <strong>
+              Sevilla
+            </strong>
+
             <span class="pendiente">
               Horario pendiente
             </span>
+
           </div>
 
+
           <div class="ruta">
-            <strong>Tocina</strong>
+
+            <strong>
+              Tocina
+            </strong>
+
             <span class="pendiente">
               Horario pendiente
             </span>
+
           </div>
 
         </div>
@@ -851,7 +1049,51 @@
     <div class="franja-estampado"></div>
 
 
-    <!-- FINAL -->
+    <!-- ==========================
+         CONFIRMACIÓN DE ASISTENCIA
+         ========================== -->
+
+    <section class="rsvp">
+
+      <div class="rsvp-contenido">
+
+        <div class="detalle-icono">
+          ❦
+        </div>
+
+        <h2>
+          ¿Nos acompañas?
+        </h2>
+
+        <div class="separador"></div>
+
+        <p>
+          Nos hará muchísima ilusión contar contigo.
+          Confirma tu asistencia y cuéntanos todo lo necesario
+          para que podamos cuidar cada detalle.
+        </p>
+
+        <a
+          class="boton-rsvp"
+          href="https://forms.gle/1RrKdaNcS1fuMRbn9"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Confirmar asistencia
+        </a>
+
+        <div class="rsvp-nota">
+          El formulario se abrirá en una nueva pestaña.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==========================
+         FINAL
+         ========================== -->
 
     <section class="final">
 
@@ -865,10 +1107,16 @@
 
     </section>
 
+
   </main>
 
 
   <script>
+
+
+    /* ==========================
+       ABRIR INVITACIÓN
+       ========================== */
 
     function abrirInvitacion() {
 
@@ -880,7 +1128,9 @@
     }
 
 
-    /* CUENTA ATRÁS */
+    /* ==========================
+       CUENTA ATRÁS
+       ========================== */
 
     const fechaBoda =
       new Date('2026-12-19T12:45:00+01:00');
@@ -897,11 +1147,15 @@
       if (diferencia <= 0) {
 
         document.getElementById('dias').textContent = '0';
+
         document.getElementById('horas').textContent = '0';
+
         document.getElementById('minutos').textContent = '0';
+
         document.getElementById('segundos').textContent = '0';
 
         return;
+
       }
 
 
@@ -946,12 +1200,16 @@
 
     actualizarContador();
 
+
     setInterval(
       actualizarContador,
       1000
     );
 
+
   </script>
 
+
 </body>
-</html>
+
+  </html>
