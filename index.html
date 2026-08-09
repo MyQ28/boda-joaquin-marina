@@ -1253,6 +1253,62 @@
 
 
     /* ==============================
+   UN DETALLE
+   ============================== */
+
+.detalle-regalo {
+  padding: 78px 24px;
+  background: var(--crema);
+  text-align: center;
+}
+
+.detalle-regalo-contenido {
+  max-width: 600px;
+  margin: auto;
+}
+
+.detalle-regalo-texto {
+  max-width: 500px;
+  margin: 0 auto 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.iban-caja {
+  max-width: 470px;
+  margin: 0 auto;
+  padding: 25px 15px;
+  background: rgba(239,226,211,.55);
+  border: 1px solid rgba(123,41,45,.14);
+}
+
+.iban {
+  color: var(--granada);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+
+.copiar-iban {
+  margin-top: 18px;
+  padding: 11px 20px;
+
+  background: transparent;
+  color: var(--granada);
+
+  border: 1px solid var(--granada);
+  border-radius: 30px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+    /* ==============================
        CONTACTO
        ============================== */
 
@@ -2310,6 +2366,48 @@
     </section>
 
 
+    <!-- UN DETALLE -->
+
+<section class="detalle-regalo">
+
+  <div class="detalle-regalo-contenido">
+
+    <div class="detalle-icono">
+      ❦
+    </div>
+
+    <h2>
+      Un detalle
+    </h2>
+
+    <div class="separador"></div>
+
+    <p class="detalle-regalo-texto">
+      Lo más importante para nosotros es poder compartir
+      este día contigo.
+      Si además quieres tener un detalle con nosotros,
+      puedes hacerlo aquí.
+    </p>
+
+    <div class="iban-caja">
+
+      <div class="iban">
+        ES98 1465 0100 91 1743407008
+      </div>
+
+      <button
+        class="copiar-iban"
+        type="button"
+        onclick="copiarIBAN(this)"
+      >
+        Copiar IBAN
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
     <!-- CONTACTO -->
 
     <section class="contacto">
@@ -2596,7 +2694,43 @@
       actualizarContador,
       1000
     );
+actualizarContador();
 
+setInterval(
+    actualizarContador,
+    1000
+);
+
+
+async function copiarIBAN(boton) {
+
+    const iban = 'ES9814650100911743407008';
+
+    try {
+
+        await navigator.clipboard.writeText(iban);
+
+        const textoOriginal = boton.textContent;
+
+        boton.textContent = '¡IBAN copiado!';
+
+        setTimeout(function() {
+            boton.textContent = textoOriginal;
+        }, 2000);
+
+    } catch (error) {
+
+        boton.textContent = 'Copia el IBAN de arriba';
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
   </script>
 
 
