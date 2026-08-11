@@ -464,7 +464,6 @@ font-size:17px;
 
 }
 
-
 .hero-fecha{
 
 position:relative;
@@ -983,7 +982,7 @@ text-transform:uppercase;
 
 
 /* =====================================================
-   NUEVAS TARJETAS CEREMONIA / CELEBRACION
+   CEREMONIA / CELEBRACION
    ===================================================== */
 
 .lugares{
@@ -1004,7 +1003,7 @@ display:grid;
 grid-template-columns:
 1fr 1fr;
 
-gap:20px;
+gap:18px;
 
 align-items:start;
 
@@ -1016,29 +1015,32 @@ position:relative;
 
 width:100%;
 
-background:#fff;
+background:#fdfcf9;
+
+border:1px solid #e8e4dd;
 
 box-shadow:
-0 16px 35px rgba(0,0,0,.09);
+0 12px 28px rgba(0,0,0,.06);
 
-transform-origin:center;
+overflow:hidden;
 
 transition:
-transform .25s ease;
+transform .25s ease,
+box-shadow .25s ease;
 
 }
 
 .tarjeta-imagen-evento:first-child{
 
 transform:
-rotate(-1deg);
+rotate(-.6deg);
 
 }
 
 .tarjeta-imagen-evento:last-child{
 
 transform:
-rotate(1deg);
+rotate(.6deg);
 
 }
 
@@ -1048,41 +1050,20 @@ transform:
 rotate(0deg)
 translateY(-3px);
 
-}
-
-.tarjeta-imagen-evento::before{
-
-content:"";
-
-position:absolute;
-
-top:-11px;
-
-left:50%;
-
-width:82px;
-
-height:23px;
-
-transform:
-translateX(-50%)
-rotate(-2deg);
-
-background:
-rgba(214,205,194,.88);
-
-z-index:4;
-
 box-shadow:
-0 1px 3px rgba(0,0,0,.06);
+0 16px 32px rgba(0,0,0,.09);
 
 }
 
-.tarjeta-imagen-evento:nth-child(2)::before{
+.enlace-evento{
 
-transform:
-translateX(-50%)
-rotate(2deg);
+display:block;
+
+position:relative;
+
+text-decoration:none;
+
+background:#fff;
 
 }
 
@@ -1094,27 +1075,23 @@ height:auto;
 
 display:block;
 
+/*
+   Las aclaramos ligeramente para que se integren
+   con el blanco roto del resto de la web.
+*/
+
+filter:
+brightness(1.08)
+contrast(.92)
+saturate(.76);
+
+opacity:.97;
+
 }
-
-
-/* enlace invisible sobre la zona de ubicación */
-
-.enlace-evento{
-
-display:block;
-
-position:relative;
-
-text-decoration:none;
-
-}
-
-
-/* pequeño detalle inferior */
 
 .evento-pie{
 
-height:22px;
+height:16px;
 
 background:#fff;
 
@@ -1130,12 +1107,14 @@ position:absolute;
 
 left:50%;
 
-top:3px;
+top:1px;
 
 transform:
 translateX(-50%);
 
-font-size:11px;
+font-size:8px;
+
+color:#777;
 
 }
 
@@ -1195,6 +1174,9 @@ background:#fff;
 
 }
 
+
+/* dibujo del autobús */
+
 .bus-ilustracion{
 
 width:115px;
@@ -1220,9 +1202,12 @@ stroke-linejoin:round;
 
 }
 
+
+/* panel principal */
+
 .bus-panel{
 
-max-width:700px;
+max-width:730px;
 
 margin:
 35px auto 0;
@@ -1254,9 +1239,14 @@ border:
 1px solid
 rgba(0,0,0,.15);
 
+pointer-events:none;
+
 }
 
-.bus-grid{
+
+/* imágenes SEV / TC */
+
+.bus-imagenes{
 
 display:grid;
 
@@ -1265,7 +1255,7 @@ grid-template-columns:
 
 gap:12px;
 
-margin-top:28px;
+margin-top:30px;
 
 position:relative;
 
@@ -1273,78 +1263,50 @@ z-index:2;
 
 }
 
-.bus-box{
+.bus-imagen{
 
-padding:
-25px 10px;
+position:relative;
+
+overflow:hidden;
+
+background:#fff;
 
 border:
-1px solid #222;
+1px solid #ddd8d1;
+
+box-shadow:
+0 9px 22px rgba(0,0,0,.06);
 
 }
 
-.bus-box:first-child{
+.bus-imagen img{
 
-background:
+width:100%;
 
-repeating-linear-gradient(
-90deg,
-#fff 0 24px,
-rgba(0,0,0,.07) 24px 29px
-);
-
-}
-
-.bus-box:last-child{
-
-background:
-
-linear-gradient(
-60deg,
-transparent 47%,
-rgba(0,0,0,.13) 48%,
-rgba(0,0,0,.13) 49%,
-transparent 50%
-),
-
-linear-gradient(
--60deg,
-transparent 47%,
-rgba(0,0,0,.13) 48%,
-rgba(0,0,0,.13) 49%,
-transparent 50%
-);
-
-background-size:
-42px 42px;
-
-}
-
-.bus-box strong{
+height:auto;
 
 display:block;
 
-font-family:
-'Cormorant Garamond',
-serif;
+/* mismo tratamiento suave */
 
-font-size:28px;
-
-font-weight:500;
+filter:
+brightness(1.07)
+contrast(.94)
+saturate(.82);
 
 }
 
-.bus-box span{
+.bus-imagen:first-child{
 
-display:block;
+transform:
+rotate(-.6deg);
 
-margin-top:8px;
+}
 
-font-size:8px;
+.bus-imagen:last-child{
 
-letter-spacing:1.5px;
-
-text-transform:uppercase;
+transform:
+rotate(.6deg);
 
 }
 
@@ -2125,7 +2087,7 @@ font-size:30px;
 }
 
 
-/* NUEVAS TARJETAS EN MÓVIL */
+/* EVENTOS */
 
 .lugares-grid{
 
@@ -2141,37 +2103,28 @@ padding:0;
 .tarjeta-imagen-evento{
 
 box-shadow:
-0 8px 18px
-rgba(0,0,0,.08);
-
-}
-
-.tarjeta-imagen-evento::before{
-
-width:48px;
-
-height:15px;
-
-top:-7px;
+0 7px 18px
+rgba(0,0,0,.06);
 
 }
 
 .evento-pie{
 
-height:15px;
-
-}
-
-.evento-pie::before{
-
-font-size:8px;
-
-top:1px;
+height:12px;
 
 }
 
 
-.bus-grid{
+/* AUTOBUSES */
+
+.bus-panel{
+
+padding:
+32px 16px;
+
+}
+
+.bus-imagenes{
 
 grid-template-columns:
 1fr 1fr;
@@ -2180,24 +2133,15 @@ gap:7px;
 
 }
 
-.bus-box{
+.bus-imagen{
 
-padding:
-23px 5px;
-
-}
-
-.bus-box strong{
-
-font-size:23px;
+box-shadow:
+0 6px 15px rgba(0,0,0,.05);
 
 }
 
-.bus-box span{
 
-font-size:7px;
-
-}
+/* HISTORIA */
 
 .infancia{
 
@@ -2236,6 +2180,9 @@ height:170px;
 
 }
 
+
+/* REGALO */
+
 .regalo-grid{
 
 grid-template-columns:1fr;
@@ -2247,6 +2194,9 @@ grid-template-columns:1fr;
 min-height:190px;
 
 }
+
+
+/* CONTACTO */
 
 .contactos{
 
@@ -2505,19 +2455,16 @@ Seg
 
 
 <!-- ==================================================
-     CEREMONIA Y CELEBRACION
+     EL GRAN DÍA
      ================================================== -->
 
 <section class="seccion lugares">
 
 <div class="contenido">
 
+
 <div class="titulo">
 El gran día
-</div>
-
-<div class="script">
-ceremonia & celebración
 </div>
 
 <div class="separador"></div>
@@ -2594,6 +2541,8 @@ alt="Celebracion"
 <div class="contenido">
 
 
+<!-- DIBUJO DEL AUTOBÚS -->
+
 <div class="bus-ilustracion">
 
 <svg viewBox="0 0 120 70">
@@ -2641,32 +2590,33 @@ Publicaremos aquí los horarios cuando estén confirmados.
 </p>
 
 
-<div class="bus-grid">
+<div class="bus-imagenes">
 
-<div class="bus-box">
 
-<strong>
-Sevilla
-</strong>
+<!-- SEVILLA -->
 
-<span>
-Horario pendiente
-</span>
+<div class="bus-imagen">
+
+<img
+src="images/SEV.png"
+alt="Autobús Sevilla"
+>
+
+</div>
+
+
+
+<!-- TOCINA -->
+
+<div class="bus-imagen">
+
+<img
+src="images/TC.png"
+alt="Autobús Tocina"
+>
 
 </div>
 
-
-<div class="bus-box">
-
-<strong>
-Tocina
-</strong>
-
-<span>
-Horario pendiente
-</span>
-
-</div>
 
 </div>
 
@@ -3084,6 +3034,10 @@ Estamos deseando celebrarlo contigo.
 </main>
 
 
+
+<!-- ==================================================
+     JAVASCRIPT
+     ================================================== -->
 
 <script>
 
