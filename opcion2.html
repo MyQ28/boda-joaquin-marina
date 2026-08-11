@@ -4,18 +4,20 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Joaquín & Marina · 19.12.2026</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
 
 <style>
+
+/* =====================================================
+   GENERAL
+   ===================================================== */
 
 *{
 box-sizing:border-box;
@@ -28,24 +30,35 @@ scroll-behavior:smooth;
 }
 
 :root{
+
 --blanco:#ffffff;
 --blanco-roto:#fbfaf8;
 --papel:#f7f6f2;
+
 --negro:#1e1d1b;
 --gris:#66615c;
+
 --linea:#262522;
 --linea-suave:#d9d5ce;
+
 --nude:#d9b8ad;
 --nude-claro:#ecdbd5;
 --nude-oscuro:#bf968a;
+
 --sombra:0 14px 35px rgba(0,0,0,.08);
+
 }
 
 body{
+
 background:var(--blanco-roto);
+
 color:var(--negro);
+
 font-family:'Montserrat',sans-serif;
+
 overflow-x:hidden;
+
 }
 
 img{
@@ -63,76 +76,124 @@ color:inherit;
    ===================================================== */
 
 #inicio{
+
 position:fixed;
+
 inset:0;
+
 z-index:9999;
 
 display:flex;
+
 align-items:center;
+
 justify-content:center;
 
 padding:25px;
 
 background:
+
 linear-gradient(
 rgba(255,255,255,.94),
 rgba(255,255,255,.94)
 ),
+
 url('images/Screenshot_20260709_231219_Gallery.jpg');
 
 background-size:cover;
+
 background-position:center;
 
 transition:
 opacity .9s ease,
 visibility .9s ease;
+
 }
 
 #inicio.abierto{
+
 opacity:0;
+
 visibility:hidden;
+
 pointer-events:none;
+
 }
 
 .inicio-contenido{
+
 width:100%;
+
 max-width:420px;
+
 text-align:center;
+
 }
 
 .inicio-texto{
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:17px;
+
 letter-spacing:4px;
+
 text-transform:uppercase;
+
 margin-bottom:28px;
+
 }
 
+
+/* SOBRE */
+
 .sobre{
+
 position:relative;
+
 width:min(335px,86vw);
+
 height:220px;
+
 margin:auto;
+
 cursor:pointer;
 
 filter:
-drop-shadow(0 18px 24px rgba(0,0,0,.10));
+drop-shadow(
+0 18px 24px
+rgba(0,0,0,.10)
+);
+
 }
 
 .sobre-base{
+
 position:absolute;
+
 inset:0;
+
 overflow:hidden;
+
 background:#f5f4ef;
-border:1px solid #d8d4ce;
+
+border:
+1px solid #d8d4ce;
+
 }
 
 .sobre-base::before{
+
 content:"";
+
 position:absolute;
+
 inset:0;
 
 clip-path:
+
 polygon(
 0 0,
 50% 56%,
@@ -140,14 +201,19 @@ polygon(
 );
 
 background:#eeece6;
+
 }
 
 .sobre-base::after{
+
 content:"";
+
 position:absolute;
+
 inset:0;
 
 clip-path:
+
 polygon(
 100% 0,
 50% 56%,
@@ -155,16 +221,23 @@ polygon(
 );
 
 background:#e8e6df;
+
 }
 
 .sobre-tapa{
+
 position:absolute;
+
 top:0;
+
 left:0;
+
 width:100%;
+
 height:63%;
 
 clip-path:
+
 polygon(
 0 0,
 100% 0,
@@ -172,31 +245,44 @@ polygon(
 );
 
 background:#f0eee8;
+
 z-index:2;
+
 }
 
+
+/* SELLO NUDE */
+
 .sello-nude{
+
 position:absolute;
 
 left:50%;
+
 top:54%;
 
-transform:translate(-50%,-50%);
+transform:
+translate(-50%,-50%);
 
 width:94px;
+
 height:94px;
 
 border-radius:
+
 46% 54% 48% 52% /
 53% 48% 52% 47%;
 
 z-index:8;
 
 display:flex;
+
 align-items:center;
+
 justify-content:center;
 
 background:
+
 radial-gradient(
 circle at 35% 30%,
 var(--nude-claro) 0%,
@@ -205,33 +291,66 @@ var(--nude-oscuro) 100%
 );
 
 box-shadow:
-inset 2px 3px 5px rgba(255,255,255,.35),
-inset -4px -5px 8px rgba(111,73,64,.13),
-0 8px 14px rgba(0,0,0,.13);
+
+inset
+2px 3px 5px
+rgba(255,255,255,.35),
+
+inset
+-4px -5px 8px
+rgba(111,73,64,.13),
+
+0 8px 14px
+rgba(0,0,0,.13);
+
 }
 
 .sello-nude::before{
+
 content:"";
+
 position:absolute;
+
 inset:9px;
+
 border-radius:50%;
-border:1px solid rgba(105,73,66,.28);
+
+border:
+1px solid
+rgba(105,73,66,.28);
+
 }
 
 .sello-nude::after{
+
 content:"J · M";
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:23px;
+
 letter-spacing:2px;
+
 color:#795c54;
+
 }
 
 .pulsa{
+
 margin-top:30px;
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:15px;
+
 letter-spacing:3px;
+
 text-transform:uppercase;
+
 }
 
 
@@ -240,122 +359,233 @@ text-transform:uppercase;
    ===================================================== */
 
 .hero{
-padding:65px 16px 50px;
+
+padding:
+65px 16px
+50px;
+
 background:#fff;
+
 }
 
 .hero-grid{
+
 max-width:960px;
+
 margin:auto;
 
 display:grid;
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:34px;
+
 align-items:center;
+
 }
 
+
+/* TARJETÓN */
+
 .hero-card{
+
 position:relative;
-padding:50px 30px;
+
+padding:
+50px 30px;
+
 text-align:center;
+
 background:#fff;
-border:1px solid var(--linea);
-box-shadow:var(--sombra);
+
+border:
+1px solid var(--linea);
+
+box-shadow:
+var(--sombra);
+
 }
 
 .hero-card::before{
+
 content:"";
+
 position:absolute;
+
 inset:11px;
-border:1px solid rgba(0,0,0,.18);
+
+border:
+1px solid
+rgba(0,0,0,.18);
+
 pointer-events:none;
+
 }
 
 .hero-card-linea{
+
 position:relative;
+
 height:20px;
+
 margin-bottom:20px;
+
 }
 
 .hero-card-linea::before{
+
 content:"";
+
 position:absolute;
+
 left:12%;
+
 right:12%;
+
 top:9px;
+
 height:1px;
+
 background:#222;
+
 }
 
 .hero-card-linea::after{
+
 content:"◇";
+
 position:absolute;
+
 left:50%;
+
 top:-2px;
-transform:translateX(-50%);
+
+transform:
+translateX(-50%);
+
 background:#fff;
+
 padding:0 10px;
+
 font-size:17px;
+
 }
 
 .hero-fecha{
+
 position:relative;
+
 z-index:2;
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:21px;
+
 letter-spacing:6px;
+
 margin-bottom:25px;
+
 }
 
 .hero-nombres{
+
 position:relative;
+
 z-index:2;
-font-family:'Parisienne',cursive;
-font-size:clamp(58px,10vw,90px);
+
+font-family:
+'Parisienne',
+cursive;
+
+font-size:
+clamp(58px,10vw,90px);
+
 line-height:.9;
+
 margin-bottom:28px;
+
 }
 
 .hero-nos-casamos{
+
 position:relative;
+
 z-index:2;
+
 font-size:10px;
+
 letter-spacing:4px;
+
 text-transform:uppercase;
+
 margin-bottom:12px;
+
 }
 
 .hero-frase{
+
 position:relative;
+
 z-index:2;
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:20px;
+
 font-style:italic;
+
 }
 
 
 /* FOTO POLAROID */
 
 .hero-foto{
+
 width:90%;
+
 margin:auto;
+
 position:relative;
-padding:11px 11px 28px;
+
+padding:
+11px 11px 28px;
+
 background:#fff;
-border:1px solid #e0ddd7;
-box-shadow:0 15px 30px rgba(0,0,0,.10);
-transform:rotate(2deg);
+
+border:
+1px solid #e0ddd7;
+
+box-shadow:
+
+0 15px 30px
+rgba(0,0,0,.10);
+
+transform:
+rotate(2deg);
+
 }
 
 .hero-foto::before{
+
 content:"";
+
 position:absolute;
+
 top:-12px;
+
 left:50%;
+
 width:88px;
+
 height:25px;
 
 transform:
+
 translateX(-50%)
 rotate(-2deg);
 
@@ -363,15 +593,25 @@ background:
 rgba(215,205,193,.92);
 
 box-shadow:
-0 1px 2px rgba(0,0,0,.05);
+0 1px 2px
+rgba(0,0,0,.05);
+
 }
 
 .hero-foto img{
+
 width:100%;
+
 height:545px;
+
 object-fit:cover;
-object-position:60% center;
-filter:grayscale(1);
+
+object-position:
+60% center;
+
+filter:
+grayscale(1);
+
 }
 
 
@@ -379,106 +619,189 @@ filter:grayscale(1);
    GRANADAS
    ===================================================== */
 
+
+/* CENEFA GRANDE */
+
 .granadas-banner{
+
 width:100%;
+
 height:120px;
 
 display:block;
 
 background-image:
-url('images/granadas-banner.jpg?v=3');
+url('images/granadas-banner.jpg?v=5');
 
-background-repeat:repeat-x;
-background-position:center center;
-background-size:auto 150px;
+background-repeat:
+repeat-x;
 
-border-top:1px solid rgba(0,0,0,.08);
-border-bottom:1px solid rgba(0,0,0,.08);
+background-position:
+center center;
+
+background-size:
+auto 150px;
+
+border-top:
+1px solid rgba(0,0,0,.08);
+
+border-bottom:
+1px solid rgba(0,0,0,.08);
 
 overflow:hidden;
+
 }
 
+
+/* CENEFA FINA */
+
 .granadas-banner-fino{
+
 width:100%;
+
 height:70px;
 
 display:block;
 
 background-image:
-url('images/granadas-banner.jpg?v=3');
+url('images/granadas-banner.jpg?v=5');
 
-background-repeat:repeat-x;
-background-position:center center;
-background-size:auto 95px;
+background-repeat:
+repeat-x;
 
-border-top:1px solid rgba(0,0,0,.05);
-border-bottom:1px solid rgba(0,0,0,.05);
+background-position:
+center center;
+
+background-size:
+auto 95px;
+
+border-top:
+1px solid rgba(0,0,0,.05);
+
+border-bottom:
+1px solid rgba(0,0,0,.05);
 
 overflow:hidden;
+
 }
 
 
 /* =====================================================
-   SECCIONES GENERALES
+   SECCIONES
    ===================================================== */
 
 .seccion{
-padding:78px 20px;
+
+padding:
+78px 20px;
+
 text-align:center;
+
 }
 
 .contenido{
+
 max-width:850px;
+
 margin:auto;
+
 }
 
 .titulo{
-font-family:'Cormorant Garamond',serif;
-font-size:clamp(42px,9vw,60px);
+
+font-family:
+'Cormorant Garamond',
+serif;
+
+font-size:
+clamp(42px,9vw,60px);
+
 font-weight:500;
+
 line-height:1;
+
 }
 
 .script{
-font-family:'Parisienne',cursive;
+
+font-family:
+'Parisienne',
+cursive;
+
 font-size:31px;
+
 margin-top:8px;
+
 }
 
 .separador{
+
 width:110px;
+
 height:22px;
-margin:17px auto 28px;
+
+margin:
+17px auto 28px;
+
 position:relative;
+
 }
 
 .separador::before{
+
 content:"";
+
 position:absolute;
+
 left:0;
+
 right:0;
+
 top:10px;
+
 height:1px;
+
 background:#222;
+
 }
 
 .separador::after{
+
 content:"◇";
+
 position:absolute;
+
 left:50%;
+
 top:-1px;
-transform:translateX(-50%);
-background:var(--blanco-roto);
-padding:0 10px;
+
+transform:
+translateX(-50%);
+
+background:
+var(--blanco-roto);
+
+padding:
+0 10px;
+
 font-size:15px;
+
 }
 
 .texto{
+
 max-width:600px;
+
 margin:auto;
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:21px;
+
 line-height:1.6;
+
 }
 
 
@@ -487,75 +810,132 @@ line-height:1.6;
    ===================================================== */
 
 .gran-dia{
+
 background:#fff;
+
 }
 
 .marco-ilustrado{
+
 position:relative;
+
 max-width:760px;
+
 margin:auto;
-padding:55px 34px;
+
+padding:
+55px 34px;
+
 background:#fff;
-border:1px solid #dedad4;
-box-shadow:var(--sombra);
+
+border:
+1px solid #dedad4;
+
+box-shadow:
+var(--sombra);
+
 }
 
 .marco-ilustrado::before{
+
 content:"";
+
 position:absolute;
+
 inset:16px;
-border:1px solid rgba(0,0,0,.64);
+
+border:
+1px solid
+rgba(0,0,0,.64);
+
 pointer-events:none;
+
 }
 
 .marco-ilustrado::after{
+
 content:"◇";
+
 position:absolute;
+
 top:7px;
+
 left:50%;
-transform:translateX(-50%);
+
+transform:
+translateX(-50%);
+
 background:#fff;
-padding:0 13px;
+
+padding:
+0 13px;
+
 font-size:18px;
+
 }
 
 .esquinas{
+
 position:absolute;
+
 inset:25px;
+
 pointer-events:none;
+
 }
 
 .esquinas::before,
 .esquinas::after{
+
 content:"";
+
 position:absolute;
+
 width:43px;
+
 height:43px;
-border-top:1px solid #222;
-border-left:1px solid #222;
+
+border-top:
+1px solid #222;
+
+border-left:
+1px solid #222;
+
 }
 
 .esquinas::before{
+
 top:0;
+
 left:0;
+
 }
 
 .esquinas::after{
+
 bottom:0;
+
 right:0;
-transform:rotate(180deg);
+
+transform:
+rotate(180deg);
+
 }
 
 
 /* =====================================================
-   CUENTA ATRÁS EDITORIAL
+   CUENTA ATRÁS
    ===================================================== */
 
 .cuenta{
-background:var(--papel);
+
+background:
+var(--papel);
+
 }
 
 .contador{
+
 max-width:700px;
 
 margin:
@@ -564,29 +944,40 @@ margin:
 display:grid;
 
 grid-template-columns:
-1fr auto 1fr auto 1fr auto 1fr;
+
+1fr auto
+1fr auto
+1fr auto
+1fr;
 
 align-items:center;
 
 gap:10px;
+
 }
 
 .contador-caja{
+
 padding:
 19px 4px;
 
-background:transparent;
+background:
+transparent;
 
 border-top:
-1px solid rgba(0,0,0,.35);
+1px solid
+rgba(0,0,0,.35);
 
 border-bottom:
-1px solid rgba(0,0,0,.35);
+1px solid
+rgba(0,0,0,.35);
 
 text-align:center;
+
 }
 
 .numero{
+
 display:block;
 
 font-family:
@@ -598,9 +989,11 @@ font-size:44px;
 font-weight:500;
 
 line-height:1;
+
 }
 
 .unidad{
+
 display:block;
 
 margin-top:7px;
@@ -610,34 +1003,19 @@ font-size:8px;
 letter-spacing:1.8px;
 
 text-transform:uppercase;
+
 }
 
 .contador-rombo{
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:17px;
+
 opacity:.52;
-}
 
-.contador-onda{
-width:215px;
-height:16px;
-
-margin:
-27px auto 0;
-
-background:
-radial-gradient(
-circle at 12px -1px,
-transparent 12px,
-rgba(0,0,0,.45) 13px,
-transparent 14px
-)
-repeat-x;
-
-background-size:
-28px 16px;
-
-opacity:.42;
 }
 
 
@@ -646,83 +1024,135 @@ opacity:.42;
    ===================================================== */
 
 .lugares{
+
 background:#fff;
+
 }
 
 .lugares-grid{
+
 max-width:900px;
-margin:38px auto 0;
+
+margin:
+38px auto 0;
 
 display:grid;
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:18px;
+
 align-items:start;
+
 }
 
 .tarjeta-imagen-evento{
+
 position:relative;
+
 width:100%;
+
 background:#fdfcf9;
-border:1px solid #e8e4dd;
-box-shadow:0 12px 28px rgba(0,0,0,.06);
+
+border:
+1px solid #e8e4dd;
+
+box-shadow:
+0 12px 28px
+rgba(0,0,0,.06);
+
 overflow:hidden;
 
 transition:
 transform .25s ease,
 box-shadow .25s ease;
+
 }
 
 .tarjeta-imagen-evento:first-child{
-transform:rotate(-.6deg);
+
+transform:
+rotate(-.6deg);
+
 }
 
 .tarjeta-imagen-evento:last-child{
-transform:rotate(.6deg);
+
+transform:
+rotate(.6deg);
+
 }
 
 .tarjeta-imagen-evento:hover{
+
 transform:
 rotate(0deg)
 translateY(-3px);
 
 box-shadow:
-0 16px 32px rgba(0,0,0,.09);
+0 16px 32px
+rgba(0,0,0,.09);
+
 }
 
 .enlace-evento{
+
 display:block;
+
 position:relative;
+
 text-decoration:none;
+
 background:#fff;
+
 }
 
 .tarjeta-imagen-evento img{
+
 width:100%;
+
 height:auto;
+
 display:block;
 
 filter:
+
 brightness(1.08)
 contrast(.92)
 saturate(.76);
 
 opacity:.97;
+
 }
 
 .evento-pie{
+
 height:16px;
+
 background:#fff;
+
 position:relative;
+
 }
 
 .evento-pie::before{
+
 content:"◇";
+
 position:absolute;
+
 left:50%;
+
 top:1px;
-transform:translateX(-50%);
+
+transform:
+translateX(-50%);
+
 font-size:8px;
+
 color:#777;
+
 }
 
 
@@ -731,30 +1161,50 @@ color:#777;
    ===================================================== */
 
 .onda{
+
 height:42px;
+
 position:relative;
+
 background:#fff;
+
 }
 
 .onda::before{
+
 content:"";
+
 position:absolute;
+
 left:8%;
+
 right:8%;
+
 top:13px;
+
 height:18px;
 
 background:
+
 radial-gradient(
+
 circle at 13px -2px,
+
 transparent 13px,
+
 rgba(0,0,0,.55) 14px,
+
 transparent 15px
+
 )
+
 repeat-x;
 
-background-size:31px 18px;
+background-size:
+31px 18px;
+
 opacity:.38;
+
 }
 
 
@@ -763,75 +1213,136 @@ opacity:.38;
    ===================================================== */
 
 .autobuses{
+
 background:#fff;
+
 }
 
 .bus-ilustracion{
+
 width:115px;
-margin:0 auto 18px;
+
+margin:
+0 auto 18px;
+
 }
 
 .bus-ilustracion svg{
+
 width:100%;
+
 fill:none;
+
 stroke:#222;
+
 stroke-width:1.4;
+
 stroke-linecap:round;
+
 stroke-linejoin:round;
+
 }
 
 .bus-panel{
+
 max-width:730px;
-margin:35px auto 0;
-padding:38px 25px;
-border:1px solid #222;
+
+margin:
+35px auto 0;
+
+padding:
+38px 25px;
+
+border:
+1px solid #222;
+
 position:relative;
+
 background:#fff;
-box-shadow:var(--sombra);
+
+box-shadow:
+var(--sombra);
+
 }
 
 .bus-panel::before{
+
 content:"";
+
 position:absolute;
+
 inset:11px;
-border:1px solid rgba(0,0,0,.15);
+
+border:
+1px solid
+rgba(0,0,0,.15);
+
 pointer-events:none;
+
 }
 
 .bus-imagenes{
+
 display:grid;
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:12px;
+
 margin-top:30px;
+
 position:relative;
+
 z-index:2;
+
 }
 
 .bus-imagen{
+
 position:relative;
+
 overflow:hidden;
+
 background:#fff;
-border:1px solid #ddd8d1;
-box-shadow:0 9px 22px rgba(0,0,0,.06);
+
+border:
+1px solid #ddd8d1;
+
+box-shadow:
+0 9px 22px
+rgba(0,0,0,.06);
+
 }
 
 .bus-imagen img{
+
 width:100%;
+
 height:auto;
+
 display:block;
 
 filter:
+
 brightness(1.07)
 contrast(.94)
 saturate(.82);
+
 }
 
 .bus-imagen:first-child{
-transform:rotate(-.6deg);
+
+transform:
+rotate(-.6deg);
+
 }
 
 .bus-imagen:last-child{
-transform:rotate(.6deg);
+
+transform:
+rotate(.6deg);
+
 }
 
 
@@ -840,82 +1351,144 @@ transform:rotate(.6deg);
    ===================================================== */
 
 .historia{
-background:var(--papel);
+
+background:
+var(--papel);
+
 }
 
 .historia-intro{
-font-family:'Parisienne',cursive;
+
+font-family:
+'Parisienne',
+cursive;
+
 font-size:39px;
-margin:10px auto 38px;
+
+margin:
+10px auto 38px;
+
 }
 
 .infancia{
+
 max-width:560px;
+
 margin:auto;
 
 display:grid;
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:10px;
+
 }
 
 .foto-papel{
+
 position:relative;
+
 padding:9px;
+
 background:#fff;
-border:1px solid #ddd9d2;
-box-shadow:0 10px 25px rgba(0,0,0,.09);
+
+border:
+1px solid #ddd9d2;
+
+box-shadow:
+0 10px 25px
+rgba(0,0,0,.09);
+
 }
 
 .infancia .foto-papel:first-child{
-transform:rotate(-3deg);
+
+transform:
+rotate(-3deg);
+
 }
 
 .infancia .foto-papel:last-child{
-transform:rotate(3deg);
+
+transform:
+rotate(3deg);
+
 }
 
 .foto-papel img{
+
 width:100%;
+
 height:300px;
+
 object-fit:cover;
+
 }
 
 .historia-frase{
-font-family:'Parisienne',cursive;
+
+font-family:
+'Parisienne',
+cursive;
+
 font-size:38px;
-margin:55px auto 40px;
+
+margin:
+55px auto 40px;
+
 }
 
 .actuales{
+
 max-width:760px;
+
 margin:auto;
 
 display:grid;
-grid-template-columns:repeat(3,1fr);
+
+grid-template-columns:
+repeat(3,1fr);
+
 gap:7px;
 
 align-items:center;
+
 }
 
 .actuales .foto-papel{
+
 padding:6px;
+
 }
 
 .actuales .foto-papel:nth-child(1){
-transform:rotate(-3deg);
+
+transform:
+rotate(-3deg);
+
 }
 
 .actuales .foto-papel:nth-child(2){
-transform:rotate(1deg);
+
+transform:
+rotate(1deg);
+
 }
 
 .actuales .foto-papel:nth-child(3){
-transform:rotate(3deg);
+
+transform:
+rotate(3deg);
+
 }
 
 .actuales img{
+
 height:220px;
+
 object-fit:cover;
+
 }
 
 
@@ -924,61 +1497,113 @@ object-fit:cover;
    ===================================================== */
 
 .rsvp{
+
 background:#fff;
+
 }
 
 .rsvp-tarjeta{
+
 max-width:700px;
-margin:35px auto 0;
-padding:50px 30px;
+
+margin:
+35px auto 0;
+
+padding:
+50px 30px;
+
 position:relative;
-border:1px solid #222;
+
+border:
+1px solid #222;
+
 background:#fff;
-box-shadow:var(--sombra);
+
+box-shadow:
+var(--sombra);
+
 }
 
 .rsvp-tarjeta::before{
+
 content:"";
+
 position:absolute;
+
 inset:13px;
-border:1px solid rgba(0,0,0,.18);
+
+border:
+1px solid
+rgba(0,0,0,.18);
+
 }
 
 .rsvp-tarjeta > *{
+
 position:relative;
+
 z-index:2;
+
 }
 
 .rsvp-mini{
+
 font-size:8px;
+
 letter-spacing:3px;
+
 text-transform:uppercase;
+
 margin-bottom:10px;
+
 }
 
 .rsvp-script{
-font-family:'Parisienne',cursive;
+
+font-family:
+'Parisienne',
+cursive;
+
 font-size:35px;
+
 margin-bottom:15px;
+
 }
 
 .boton-negro{
+
 display:inline-block;
+
 margin-top:28px;
-padding:14px 27px;
+
+padding:
+14px 27px;
+
 background:#222;
+
 color:#fff;
-border:1px solid #222;
+
+border:
+1px solid #222;
+
 text-decoration:none;
+
 font-size:9px;
+
 letter-spacing:1.8px;
+
 text-transform:uppercase;
+
 }
 
 .nota{
+
 margin-top:13px;
+
 font-size:9px;
+
 color:#777;
+
 }
 
 
@@ -987,59 +1612,113 @@ color:#777;
    ===================================================== */
 
 .regalo{
-background:var(--papel);
+
+background:
+var(--papel);
+
 }
 
 .regalo-simple{
+
 max-width:650px;
-margin:38px auto 0;
+
+margin:
+38px auto 0;
+
 }
 
 .regalo-tarjeta{
-padding:42px 30px;
+
+padding:
+42px 30px;
+
 background:#fff;
-border:1px solid #222;
-box-shadow:var(--sombra);
+
+border:
+1px solid #222;
+
+box-shadow:
+var(--sombra);
+
 position:relative;
+
 }
 
 .regalo-tarjeta::before{
+
 content:"";
+
 position:absolute;
+
 inset:12px;
-border:1px solid rgba(0,0,0,.14);
+
+border:
+1px solid
+rgba(0,0,0,.14);
+
 pointer-events:none;
+
 }
 
 .regalo-tarjeta > *{
+
 position:relative;
+
 z-index:2;
+
 }
 
 .regalo-tarjeta .texto{
+
 font-size:19px;
+
 }
 
 .iban-box{
+
 margin-top:25px;
-padding:20px 9px;
-border-top:1px solid #222;
-border-bottom:1px solid #222;
-font-family:'Cormorant Garamond',serif;
+
+padding:
+20px 9px;
+
+border-top:
+1px solid #222;
+
+border-bottom:
+1px solid #222;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:22px;
+
 letter-spacing:1.5px;
+
 line-height:1.5;
+
 }
 
 .copiar{
+
 margin-top:20px;
-padding:11px 18px;
-border:1px solid #222;
+
+padding:
+11px 18px;
+
+border:
+1px solid #222;
+
 background:#fff;
+
 font-size:8px;
+
 letter-spacing:1.4px;
+
 text-transform:uppercase;
+
 cursor:pointer;
+
 }
 
 
@@ -1048,32 +1727,56 @@ cursor:pointer;
    ===================================================== */
 
 .contacto{
+
 background:#fff;
+
 }
 
 .contactos{
+
 max-width:520px;
-margin:35px auto 0;
+
+margin:
+35px auto 0;
 
 display:grid;
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:12px;
+
 }
 
 .contacto-persona{
+
 position:relative;
-padding:34px 10px 25px;
+
+padding:
+34px 10px 25px;
+
 background:#fff;
-border:1px solid #ddd9d2;
-box-shadow:var(--sombra);
+
+border:
+1px solid #ddd9d2;
+
+box-shadow:
+var(--sombra);
+
 }
 
 .contacto-persona::before{
+
 content:"";
+
 position:absolute;
+
 top:-10px;
+
 left:50%;
+
 width:75px;
+
 height:20px;
 
 transform:
@@ -1082,111 +1785,189 @@ rotate(-2deg);
 
 background:
 rgba(210,201,190,.90);
+
 }
 
 .contacto-persona:nth-child(2)::before{
+
 transform:
 translateX(-50%)
 rotate(2deg);
+
 }
 
 .contacto-persona strong{
+
 display:block;
-font-family:'Parisienne',cursive;
+
+font-family:
+'Parisienne',
+cursive;
+
 font-size:35px;
+
 font-weight:400;
+
 margin-bottom:12px;
+
 }
 
 .whatsapp{
+
 width:46px;
+
 height:46px;
+
 margin:auto;
 
 display:flex;
+
 align-items:center;
+
 justify-content:center;
 
-border:1px solid #222;
+border:
+1px solid #222;
+
 border-radius:50%;
+
 text-decoration:none;
+
 }
 
 .whatsapp svg{
+
 width:25px;
+
 height:25px;
+
 fill:none;
+
 stroke:currentColor;
+
 stroke-width:1.5;
+
 }
 
 .telefono{
+
 display:block;
+
 margin-top:11px;
+
 font-size:10px;
+
 letter-spacing:.8px;
+
 }
 
 
 /* =====================================================
-   FINAL NEGRO + GRANADAS
+   FINAL NEGRO CON GRANADAS INVERTIDAS
    ===================================================== */
 
 .final{
+
 position:relative;
-padding:105px 20px 75px;
+
+padding:
+112px 20px
+75px;
+
 background:#20201e;
+
 color:#fff;
+
 text-align:center;
+
 overflow:hidden;
+
 }
 
+
+/*
+La imagen original tiene fondo claro.
+Al invertirla:
+fondo claro -> negro
+dibujos oscuros -> claros.
+
+Así desaparece el rectángulo gris.
+*/
+
 .final::before{
+
 content:"";
 
 position:absolute;
 
 top:0;
+
 left:0;
+
 right:0;
 
-height:78px;
+height:84px;
 
 background-image:
-url('images/granadas-banner.jpg?v=3');
+url('images/granadas-banner.jpg?v=5');
 
-background-repeat:repeat-x;
-background-position:center center;
-background-size:auto 105px;
+background-repeat:
+repeat-x;
+
+background-position:
+center center;
+
+background-size:
+auto 112px;
 
 filter:
-grayscale(1)
-brightness(2.4)
-contrast(.7);
 
-opacity:.22;
+grayscale(1)
+invert(1)
+contrast(1.45)
+brightness(.85);
+
+opacity:.32;
+
+mix-blend-mode:screen;
 
 pointer-events:none;
+
 }
 
 .final-frase{
+
 position:relative;
+
 z-index:2;
 
-font-family:'Parisienne',cursive;
-font-size:clamp(40px,9vw,60px);
+font-family:
+'Parisienne',
+cursive;
+
+font-size:
+clamp(40px,9vw,60px);
+
 line-height:1.1;
+
 }
 
 .final-fecha{
+
 position:relative;
+
 z-index:2;
 
 margin-top:25px;
 
-font-family:'Cormorant Garamond',serif;
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:26px;
+
 letter-spacing:5px;
+
 }
 
 
@@ -1197,195 +1978,299 @@ letter-spacing:5px;
 @media(max-width:650px){
 
 .hero{
-padding:52px 10px 40px;
+
+padding:
+52px 10px
+40px;
+
 }
 
 .hero-grid{
-grid-template-columns:1fr;
+
+grid-template-columns:
+1fr;
+
 gap:30px;
+
 }
 
 .hero-card{
-padding:42px 17px;
+
+padding:
+42px 17px;
+
 }
 
 .hero-fecha{
+
 font-size:18px;
+
 letter-spacing:4px;
+
 }
 
 .hero-nombres{
-font-size:clamp(58px,18vw,82px);
+
+font-size:
+clamp(58px,18vw,82px);
+
 }
 
 .hero-foto{
+
 width:83%;
+
 }
 
 .hero-foto img{
+
 height:410px;
+
 }
 
 
 /* GRANADAS */
 
 .granadas-banner{
+
 height:95px;
-background-size:auto 125px;
+
+background-size:
+auto 125px;
+
 }
 
 .granadas-banner-fino{
+
 height:58px;
-background-size:auto 78px;
+
+background-size:
+auto 78px;
+
 }
 
 
+/* SECCIONES */
+
 .seccion{
-padding:65px 14px;
+
+padding:
+65px 14px;
+
 }
 
 .marco-ilustrado{
-padding:48px 20px;
+
+padding:
+48px 20px;
+
 }
 
 
-/* CONTADOR EDITORIAL */
+/* CONTADOR */
 
 .contador{
+
 grid-template-columns:
-1fr auto 1fr auto 1fr auto 1fr;
+
+1fr auto
+1fr auto
+1fr auto
+1fr;
 
 gap:5px;
+
 }
 
 .contador-caja{
-padding:16px 2px;
+
+padding:
+16px 2px;
+
 }
 
 .numero{
+
 font-size:30px;
+
 }
 
 .unidad{
+
 font-size:6.5px;
+
 letter-spacing:1px;
+
 }
 
 .contador-rombo{
-font-size:11px;
-}
 
-.contador-onda{
-width:170px;
-margin-top:23px;
+font-size:11px;
+
 }
 
 
 /* EVENTOS */
 
 .lugares-grid{
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:8px;
+
 padding:0;
+
 }
 
 .tarjeta-imagen-evento{
+
 box-shadow:
-0 7px 18px rgba(0,0,0,.06);
+0 7px 18px
+rgba(0,0,0,.06);
+
 }
 
 .evento-pie{
+
 height:12px;
+
 }
 
 
 /* AUTOBUSES */
 
 .bus-panel{
-padding:32px 16px;
+
+padding:
+32px 16px;
+
 }
 
 .bus-imagenes{
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:7px;
+
 }
 
 .bus-imagen{
+
 box-shadow:
-0 6px 15px rgba(0,0,0,.05);
+0 6px 15px
+rgba(0,0,0,.05);
+
 }
 
 
 /* HISTORIA */
 
 .infancia{
+
 gap:7px;
+
 }
 
 .foto-papel{
+
 padding:6px;
+
 }
 
 .foto-papel img{
+
 height:220px;
+
 }
 
 .historia-intro,
 .historia-frase{
+
 font-size:34px;
+
 }
 
 .actuales{
+
 gap:4px;
+
 }
 
 .actuales img{
+
 height:170px;
+
 }
 
 
 /* REGALO */
 
 .regalo-simple{
+
 max-width:100%;
+
 }
 
 .regalo-tarjeta{
-padding:38px 22px;
+
+padding:
+38px 22px;
+
 }
 
 
-/* CONTACTO */
+/* CONTACTOS */
 
 .contactos{
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:8px;
+
 }
 
 .contacto-persona{
-padding:32px 5px 22px;
+
+padding:
+32px 5px 22px;
+
 }
 
 .contacto-persona strong{
+
 font-size:30px;
+
 }
 
 .telefono{
+
 font-size:8.5px;
+
 }
 
 
 /* FINAL */
 
 .final{
+
 padding:
-90px 20px
+94px 20px
 70px;
+
 }
 
 .final::before{
-height:66px;
-background-size:auto 88px;
+
+height:68px;
+
+background-size:
+auto 92px;
+
+opacity:.34;
+
 }
 
 }
@@ -1454,11 +2339,17 @@ Pulsa el sello para abrir
 </div>
 
 <div class="hero-nombres">
+
 Joaquín
+
 <br>
+
 &
+
 <br>
+
 Marina
+
 </div>
 
 <div class="hero-nos-casamos">
@@ -1470,6 +2361,7 @@ y queremos compartirlo contigo
 </div>
 
 </div>
+
 
 
 <div class="hero-foto">
@@ -1544,9 +2436,11 @@ y comenzar juntos esta nueva etapa.
 
 <div class="contenido">
 
+
 <div class="titulo">
 Falta muy poco
 </div>
+
 
 <div class="separador"></div>
 
@@ -1556,7 +2450,10 @@ Falta muy poco
 
 <div class="contador-caja">
 
-<span class="numero" id="dias">
+<span
+class="numero"
+id="dias"
+>
 0
 </span>
 
@@ -1574,7 +2471,10 @@ Días
 
 <div class="contador-caja">
 
-<span class="numero" id="horas">
+<span
+class="numero"
+id="horas"
+>
 0
 </span>
 
@@ -1592,7 +2492,10 @@ Horas
 
 <div class="contador-caja">
 
-<span class="numero" id="minutos">
+<span
+class="numero"
+id="minutos"
+>
 0
 </span>
 
@@ -1610,7 +2513,10 @@ Min
 
 <div class="contador-caja">
 
-<span class="numero" id="segundos">
+<span
+class="numero"
+id="segundos"
+>
 0
 </span>
 
@@ -1624,16 +2530,16 @@ Seg
 </div>
 
 
-<div class="contador-onda"></div>
-
-
 </div>
 
 </section>
 
 
 
-<!-- CENEFA FINA -->
+<!--
+YA NO HAY ONDA AQUÍ.
+PASAMOS DIRECTAMENTE A GRANADAS.
+-->
 
 <div class="granadas-banner-fino"></div>
 
@@ -1647,15 +2553,19 @@ Seg
 
 <div class="contenido">
 
+
 <div class="titulo">
 El gran día
 </div>
+
 
 <div class="separador"></div>
 
 
 <div class="lugares-grid">
 
+
+<!-- CEREMONIA -->
 
 <div class="tarjeta-imagen-evento">
 
@@ -1667,7 +2577,7 @@ rel="noopener noreferrer"
 >
 
 <img
-src="images/ceremonia-icono.png?v=3"
+src="images/ceremonia-icono.png?v=5"
 alt="Ceremonia"
 >
 
@@ -1679,6 +2589,8 @@ alt="Ceremonia"
 
 
 
+<!-- CELEBRACION -->
+
 <div class="tarjeta-imagen-evento">
 
 <a
@@ -1689,7 +2601,7 @@ rel="noopener noreferrer"
 >
 
 <img
-src="images/celebracion-icono.png?v=3"
+src="images/celebracion-icono.png?v=5"
 alt="Celebracion"
 >
 
@@ -1707,8 +2619,6 @@ alt="Celebracion"
 </section>
 
 
-
-<!-- CENEFA FINA -->
 
 <div class="granadas-banner-fino"></div>
 
@@ -1752,14 +2662,17 @@ alt="Celebracion"
 Autobuses
 </div>
 
+
 <div class="script">
 solo preocúpate de disfrutar
 </div>
+
 
 <div class="separador"></div>
 
 
 <div class="bus-panel">
+
 
 <p class="texto">
 
@@ -1776,18 +2689,17 @@ Publicaremos aquí los horarios cuando estén confirmados.
 <div class="bus-imagen">
 
 <img
-src="images/SEV.png?v=3"
+src="images/SEV.png?v=5"
 alt="Autobús Sevilla"
 >
 
 </div>
 
 
-
 <div class="bus-imagen">
 
 <img
-src="images/TC.png?v=3"
+src="images/TC.png?v=5"
 alt="Autobús Tocina"
 >
 
@@ -1817,13 +2729,13 @@ alt="Autobús Tocina"
 Nuestra historia
 </div>
 
+
 <div class="separador"></div>
 
 
 <div class="historia-intro">
 Quién nos iba a decir…
 </div>
-
 
 
 <div class="infancia">
@@ -1900,7 +2812,7 @@ alt="Joaquín y Marina"
 
 
 
-<!-- SEGUNDO BANNER GRANDE -->
+<!-- BANNER GRANDE -->
 
 <div class="granadas-banner"></div>
 
@@ -1919,10 +2831,12 @@ alt="Joaquín y Marina"
 ¿Nos acompañas?
 </div>
 
+
 <div class="separador"></div>
 
 
 <div class="rsvp-tarjeta">
+
 
 <div class="rsvp-mini">
 19 · 12 · 2026
@@ -1956,6 +2870,7 @@ Confirmar asistencia
 El formulario se abrirá en una nueva pestaña.
 </div>
 
+
 </div>
 
 </div>
@@ -1981,14 +2896,17 @@ El formulario se abrirá en una nueva pestaña.
 Un detalle
 </div>
 
+
 <div class="script">
 lo importante es compartir el día contigo
 </div>
+
 
 <div class="separador"></div>
 
 
 <div class="regalo-simple">
+
 
 <div class="regalo-tarjeta">
 
@@ -2049,6 +2967,7 @@ Copiar IBAN
 ¿Necesitas algo?
 </div>
 
+
 <div class="separador"></div>
 
 
@@ -2062,9 +2981,10 @@ Estaremos encantados de ayudarte.
 </p>
 
 
-
 <div class="contactos">
 
+
+<!-- JOAQUÍN -->
 
 <div class="contacto-persona">
 
@@ -2122,6 +3042,8 @@ Z
 </div>
 
 
+
+<!-- MARINA -->
 
 <div class="contacto-persona">
 
@@ -2193,13 +3115,16 @@ Z
 
 <section class="final">
 
+
 <div class="final-frase">
 Estamos deseando celebrarlo contigo.
 </div>
 
+
 <div class="final-fecha">
 19 · 12 · 2026
 </div>
+
 
 </section>
 
@@ -2210,6 +3135,8 @@ Estamos deseando celebrarlo contigo.
 
 <script>
 
+
+/* ABRIR INVITACIÓN */
 
 function abrirInvitacion(){
 
@@ -2222,11 +3149,12 @@ document
 
 
 
+/* CUENTA ATRÁS */
+
 const fechaBoda =
 new Date(
 '2026-12-19T12:45:00+01:00'
 );
-
 
 
 function actualizarContador(){
@@ -2296,13 +3224,16 @@ document
 .getElementById('dias')
 .textContent=dias;
 
+
 document
 .getElementById('horas')
 .textContent=horas;
 
+
 document
 .getElementById('minutos')
 .textContent=minutos;
+
 
 document
 .getElementById('segundos')
@@ -2320,6 +3251,8 @@ actualizarContador,
 );
 
 
+
+/* COPIAR IBAN */
 
 async function copiarIBAN(boton){
 
