@@ -66,9 +66,11 @@ color:inherit;
 position:fixed;
 inset:0;
 z-index:9999;
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 padding:25px;
 
 background:
@@ -114,9 +116,7 @@ margin:auto;
 cursor:pointer;
 
 filter:
-drop-shadow(
-0 18px 24px rgba(0,0,0,.10)
-);
+drop-shadow(0 18px 24px rgba(0,0,0,.10));
 }
 
 .sobre-base{
@@ -131,12 +131,14 @@ border:1px solid #d8d4ce;
 content:"";
 position:absolute;
 inset:0;
+
 clip-path:
 polygon(
 0 0,
 50% 56%,
 0 100%
 );
+
 background:#eeece6;
 }
 
@@ -144,12 +146,14 @@ background:#eeece6;
 content:"";
 position:absolute;
 inset:0;
+
 clip-path:
 polygon(
 100% 0,
 50% 56%,
 100% 100%
 );
+
 background:#e8e6df;
 }
 
@@ -173,8 +177,10 @@ z-index:2;
 
 .sello-nude{
 position:absolute;
+
 left:50%;
 top:54%;
+
 transform:translate(-50%,-50%);
 
 width:94px;
@@ -295,33 +301,40 @@ font-size:17px;
 .hero-fecha{
 position:relative;
 z-index:2;
+
 font-family:'Cormorant Garamond',serif;
 font-size:21px;
 letter-spacing:6px;
+
 margin-bottom:25px;
 }
 
 .hero-nombres{
 position:relative;
 z-index:2;
+
 font-family:'Parisienne',cursive;
 font-size:clamp(58px,10vw,90px);
 line-height:.9;
+
 margin-bottom:28px;
 }
 
 .hero-nos-casamos{
 position:relative;
 z-index:2;
+
 font-size:10px;
 letter-spacing:4px;
 text-transform:uppercase;
+
 margin-bottom:12px;
 }
 
 .hero-frase{
 position:relative;
 z-index:2;
+
 font-family:'Cormorant Garamond',serif;
 font-size:20px;
 font-style:italic;
@@ -339,6 +352,7 @@ position:relative;
 padding:11px 11px 28px;
 
 background:#fff;
+
 border:1px solid #e0ddd7;
 
 box-shadow:
@@ -349,7 +363,9 @@ transform:rotate(2deg);
 
 .hero-foto::before{
 content:"";
+
 position:absolute;
+
 top:-12px;
 left:50%;
 
@@ -370,8 +386,10 @@ box-shadow:
 .hero-foto img{
 width:100%;
 height:545px;
+
 object-fit:cover;
 object-position:60% center;
+
 filter:grayscale(1);
 }
 
@@ -381,21 +399,25 @@ filter:grayscale(1);
    ===================================================== */
 
 .granadas-banner{
-height:120px;
 width:100%;
+height:120px;
+
+display:block;
 
 background-image:
-url('images/granadas-banner.jpg');
+url('images/granadas-banner.jpg?v=3');
 
 background-repeat:repeat-x;
-background-position:center;
-background-size:auto 160px;
+
+background-position:center center;
+
+background-size:auto 150px;
 
 border-top:
-1px solid rgba(0,0,0,.06);
+1px solid rgba(0,0,0,.08);
 
 border-bottom:
-1px solid rgba(0,0,0,.06);
+1px solid rgba(0,0,0,.08);
 
 overflow:hidden;
 }
@@ -431,36 +453,51 @@ margin-top:8px;
 .separador{
 width:110px;
 height:22px;
+
 margin:17px auto 28px;
+
 position:relative;
 }
 
 .separador::before{
 content:"";
+
 position:absolute;
+
 left:0;
 right:0;
 top:10px;
+
 height:1px;
+
 background:#222;
 }
 
 .separador::after{
 content:"◇";
+
 position:absolute;
+
 left:50%;
 top:-1px;
+
 transform:translateX(-50%);
+
 background:var(--blanco-roto);
+
 padding:0 10px;
+
 font-size:15px;
 }
 
 .texto{
 max-width:600px;
 margin:auto;
+
 font-family:'Cormorant Garamond',serif;
+
 font-size:21px;
+
 line-height:1.6;
 }
 
@@ -475,30 +512,48 @@ background:#fff;
 
 .marco-ilustrado{
 position:relative;
+
 max-width:760px;
+
 margin:auto;
+
 padding:55px 34px;
+
 background:#fff;
+
 border:1px solid #dedad4;
+
 box-shadow:var(--sombra);
 }
 
 .marco-ilustrado::before{
 content:"";
+
 position:absolute;
+
 inset:16px;
-border:1px solid rgba(0,0,0,.64);
+
+border:
+1px solid rgba(0,0,0,.64);
+
 pointer-events:none;
 }
 
 .marco-ilustrado::after{
 content:"◇";
+
 position:absolute;
+
 top:7px;
 left:50%;
-transform:translateX(-50%);
+
+transform:
+translateX(-50%);
+
 background:#fff;
+
 padding:0 13px;
+
 font-size:18px;
 }
 
@@ -511,9 +566,12 @@ pointer-events:none;
 .esquinas::before,
 .esquinas::after{
 content:"";
+
 position:absolute;
+
 width:43px;
 height:43px;
+
 border-top:1px solid #222;
 border-left:1px solid #222;
 }
@@ -540,34 +598,49 @@ background:var(--papel);
 
 .contador{
 max-width:620px;
+
 margin:38px auto 0;
 
 display:grid;
-grid-template-columns:repeat(4,1fr);
+
+grid-template-columns:
+repeat(4,1fr);
+
 gap:10px;
 }
 
 .contador-caja{
 position:relative;
+
 padding:27px 6px 20px;
+
 background:#fff;
+
 border:1px solid #222;
 }
 
 .contador-caja::before{
 content:"◇";
+
 position:absolute;
+
 top:-9px;
 left:50%;
+
 transform:translateX(-50%);
+
 background:var(--papel);
+
 padding:0 7px;
+
 font-size:12px;
 }
 
 .numero{
 display:block;
+
 font-family:'Cormorant Garamond',serif;
+
 font-size:39px;
 }
 
@@ -588,16 +661,22 @@ background:#fff;
 
 .lugares-grid{
 max-width:900px;
+
 margin:38px auto 0;
 
 display:grid;
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:18px;
+
 align-items:start;
 }
 
 .tarjeta-imagen-evento{
 position:relative;
+
 width:100%;
 
 background:#fdfcf9;
@@ -641,6 +720,7 @@ background:#fff;
 .tarjeta-imagen-evento img{
 width:100%;
 height:auto;
+
 display:block;
 
 filter:
@@ -659,17 +739,23 @@ position:relative;
 
 .evento-pie::before{
 content:"◇";
+
 position:absolute;
+
 left:50%;
 top:1px;
-transform:translateX(-50%);
+
+transform:
+translateX(-50%);
+
 font-size:8px;
+
 color:#777;
 }
 
 
 /* =====================================================
-   ONDAS
+   ONDA
    ===================================================== */
 
 .onda{
@@ -680,6 +766,7 @@ background:#fff;
 
 .onda::before{
 content:"";
+
 position:absolute;
 
 left:8%;
@@ -697,7 +784,8 @@ transparent 15px
 )
 repeat-x;
 
-background-size:31px 18px;
+background-size:
+31px 18px;
 
 opacity:.38;
 }
@@ -718,10 +806,15 @@ margin:0 auto 18px;
 
 .bus-ilustracion svg{
 width:100%;
+
 fill:none;
+
 stroke:#222;
+
 stroke-width:1.4;
+
 stroke-linecap:round;
+
 stroke-linejoin:round;
 }
 
@@ -743,26 +836,35 @@ box-shadow:var(--sombra);
 
 .bus-panel::before{
 content:"";
+
 position:absolute;
+
 inset:11px;
-border:1px solid rgba(0,0,0,.15);
+
+border:
+1px solid rgba(0,0,0,.15);
+
 pointer-events:none;
 }
 
 .bus-imagenes{
 display:grid;
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
 
 gap:12px;
 
 margin-top:30px;
 
 position:relative;
+
 z-index:2;
 }
 
 .bus-imagen{
 position:relative;
+
 overflow:hidden;
 
 background:#fff;
@@ -775,7 +877,9 @@ box-shadow:
 
 .bus-imagen img{
 width:100%;
+
 height:auto;
+
 display:block;
 
 filter:
@@ -812,14 +916,20 @@ max-width:560px;
 margin:auto;
 
 display:grid;
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:10px;
 }
 
 .foto-papel{
 position:relative;
+
 padding:9px;
+
 background:#fff;
+
 border:1px solid #ddd9d2;
 
 box-shadow:
@@ -836,22 +946,30 @@ transform:rotate(3deg);
 
 .foto-papel img{
 width:100%;
+
 height:300px;
+
 object-fit:cover;
 }
 
 .historia-frase{
 font-family:'Parisienne',cursive;
+
 font-size:38px;
+
 margin:55px auto 40px;
 }
 
 .actuales{
 max-width:760px;
+
 margin:auto;
 
 display:grid;
-grid-template-columns:repeat(3,1fr);
+
+grid-template-columns:
+repeat(3,1fr);
+
 gap:7px;
 
 align-items:center;
@@ -889,6 +1007,7 @@ background:#fff;
 
 .rsvp-tarjeta{
 max-width:700px;
+
 margin:35px auto 0;
 
 padding:50px 30px;
@@ -904,7 +1023,9 @@ box-shadow:var(--sombra);
 
 .rsvp-tarjeta::before{
 content:"";
+
 position:absolute;
+
 inset:13px;
 
 border:
@@ -937,6 +1058,7 @@ margin-top:28px;
 padding:14px 27px;
 
 background:#222;
+
 color:#fff;
 
 border:1px solid #222;
@@ -944,7 +1066,9 @@ border:1px solid #222;
 text-decoration:none;
 
 font-size:9px;
+
 letter-spacing:1.8px;
+
 text-transform:uppercase;
 }
 
@@ -956,7 +1080,7 @@ color:#777;
 
 
 /* =====================================================
-   REGALO - SIN CENEFA
+   REGALO
    ===================================================== */
 
 .regalo{
@@ -982,9 +1106,14 @@ position:relative;
 
 .regalo-tarjeta::before{
 content:"";
+
 position:absolute;
+
 inset:12px;
-border:1px solid rgba(0,0,0,.14);
+
+border:
+1px solid rgba(0,0,0,.14);
+
 pointer-events:none;
 }
 
@@ -1048,7 +1177,8 @@ margin:35px auto 0;
 
 display:grid;
 
-grid-template-columns:1fr 1fr;
+grid-template-columns:
+1fr 1fr;
 
 gap:12px;
 }
@@ -1109,7 +1239,6 @@ height:46px;
 margin:auto;
 
 display:flex;
-
 align-items:center;
 justify-content:center;
 
@@ -1123,15 +1252,21 @@ text-decoration:none;
 .whatsapp svg{
 width:25px;
 height:25px;
+
 fill:none;
+
 stroke:currentColor;
+
 stroke-width:1.5;
 }
 
 .telefono{
 display:block;
+
 margin-top:11px;
+
 font-size:10px;
+
 letter-spacing:.8px;
 }
 
@@ -1183,12 +1318,16 @@ rgba(255,255,255,.18) 49%,
 transparent 50%
 );
 
-background-size:45px 45px;
+background-size:
+45px 45px;
 }
 
 .final-frase{
 font-family:'Parisienne',cursive;
-font-size:clamp(40px,9vw,60px);
+
+font-size:
+clamp(40px,9vw,60px);
+
 line-height:1.1;
 }
 
@@ -1210,7 +1349,9 @@ letter-spacing:5px;
 @media(max-width:650px){
 
 .hero{
-padding:52px 10px 40px;
+padding:
+52px 10px
+40px;
 }
 
 .hero-grid{
@@ -1228,7 +1369,8 @@ letter-spacing:4px;
 }
 
 .hero-nombres{
-font-size:clamp(58px,18vw,82px);
+font-size:
+clamp(58px,18vw,82px);
 }
 
 .hero-foto{
@@ -1239,10 +1381,19 @@ width:83%;
 height:410px;
 }
 
+
+/* BANNER */
+
 .granadas-banner{
-height:90px;
-background-size:auto 120px;
+height:95px;
+
+background-size:
+auto 125px;
+
+background-position:
+center center;
 }
+
 
 .seccion{
 padding:65px 14px;
@@ -1257,7 +1408,9 @@ gap:5px;
 }
 
 .contador-caja{
-padding:23px 3px 18px;
+padding:
+23px 3px
+18px;
 }
 
 .numero{
@@ -1268,14 +1421,18 @@ font-size:30px;
 /* EVENTOS */
 
 .lugares-grid{
-grid-template-columns:1fr 1fr;
+grid-template-columns:
+1fr 1fr;
+
 gap:8px;
+
 padding:0;
 }
 
 .tarjeta-imagen-evento{
 box-shadow:
-0 7px 18px rgba(0,0,0,.06);
+0 7px 18px
+rgba(0,0,0,.06);
 }
 
 .evento-pie{
@@ -1286,17 +1443,21 @@ height:12px;
 /* AUTOBUSES */
 
 .bus-panel{
-padding:32px 16px;
+padding:
+32px 16px;
 }
 
 .bus-imagenes{
-grid-template-columns:1fr 1fr;
+grid-template-columns:
+1fr 1fr;
+
 gap:7px;
 }
 
 .bus-imagen{
 box-shadow:
-0 6px 15px rgba(0,0,0,.05);
+0 6px 15px
+rgba(0,0,0,.05);
 }
 
 
@@ -1335,19 +1496,24 @@ max-width:100%;
 }
 
 .regalo-tarjeta{
-padding:38px 22px;
+padding:
+38px 22px;
 }
 
 
 /* CONTACTO */
 
 .contactos{
-grid-template-columns:1fr 1fr;
+grid-template-columns:
+1fr 1fr;
+
 gap:8px;
 }
 
 .contacto-persona{
-padding:32px 5px 22px;
+padding:
+32px 5px
+22px;
 }
 
 .contacto-persona strong{
@@ -1460,7 +1626,9 @@ alt="Joaquín y Marina"
 
 
 
-<!-- BANNER NUEVO DE GRANADAS -->
+<!-- ==================================================
+     BANNER GRANADAS
+     ================================================== -->
 
 <div class="granadas-banner"></div>
 
@@ -1596,6 +1764,7 @@ Seg
 
 <div class="contenido">
 
+
 <div class="titulo">
 El gran día
 </div>
@@ -1723,7 +1892,7 @@ Publicaremos aquí los horarios cuando estén confirmados.
 <div class="bus-imagen">
 
 <img
-src="images/SEV.png"
+src="images/SEV.png?v=3"
 alt="Autobús Sevilla"
 >
 
@@ -1734,7 +1903,7 @@ alt="Autobús Sevilla"
 <div class="bus-imagen">
 
 <img
-src="images/TC.png"
+src="images/TC.png?v=3"
 alt="Autobús Tocina"
 >
 
@@ -1847,7 +2016,9 @@ alt="Joaquín y Marina"
 
 
 
-<!-- SEGUNDA CENEFA GRANADAS -->
+<!-- ==================================================
+     SEGUNDO BANNER GRANADAS
+     ================================================== -->
 
 <div class="granadas-banner"></div>
 
@@ -2157,6 +2328,7 @@ Estamos deseando celebrarlo contigo.
 
 <script>
 
+
 function abrirInvitacion(){
 
 document
@@ -2167,10 +2339,12 @@ document
 }
 
 
+
 const fechaBoda =
 new Date(
 '2026-12-19T12:45:00+01:00'
 );
+
 
 
 function actualizarContador(){
@@ -2240,13 +2414,16 @@ document
 .getElementById('dias')
 .textContent=dias;
 
+
 document
 .getElementById('horas')
 .textContent=horas;
 
+
 document
 .getElementById('minutos')
 .textContent=minutos;
+
 
 document
 .getElementById('segundos')
@@ -2262,6 +2439,7 @@ setInterval(
 actualizarContador,
 1000
 );
+
 
 
 async function copiarIBAN(boton){
@@ -2306,6 +2484,7 @@ boton.textContent =
 }
 
 }
+
 
 </script>
 
