@@ -803,8 +803,7 @@ padding:
 background:#fff;
 
 border:
-1px solid
-#dedad4;
+1px solid #dedad4;
 
 box-shadow:
 var(--sombra);
@@ -984,7 +983,7 @@ text-transform:uppercase;
 
 
 /* =====================================================
-   CEREMONIA / CELEBRACIÓN
+   NUEVAS TARJETAS CEREMONIA / CELEBRACION
    ===================================================== */
 
 .lugares{
@@ -1005,171 +1004,138 @@ display:grid;
 grid-template-columns:
 1fr 1fr;
 
-gap:14px;
+gap:20px;
+
+align-items:start;
 
 }
 
-.tarjeta-lugar{
+.tarjeta-imagen-evento{
 
 position:relative;
 
-min-height:390px;
+width:100%;
 
-padding:
-42px 20px;
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-justify-content:center;
-
-overflow:hidden;
-
-background:
-
-repeating-linear-gradient(
-90deg,
-
-#fff 0,
-#fff 26px,
-
-rgba(0,0,0,.095) 26px,
-rgba(0,0,0,.095) 31px
-
-);
-
-border:
-1px solid #dedad4;
+background:#fff;
 
 box-shadow:
-var(--sombra);
+0 16px 35px rgba(0,0,0,.09);
+
+transform-origin:center;
+
+transition:
+transform .25s ease;
 
 }
 
-.tarjeta-lugar::before{
+.tarjeta-imagen-evento:first-child{
+
+transform:
+rotate(-1deg);
+
+}
+
+.tarjeta-imagen-evento:last-child{
+
+transform:
+rotate(1deg);
+
+}
+
+.tarjeta-imagen-evento:hover{
+
+transform:
+rotate(0deg)
+translateY(-3px);
+
+}
+
+.tarjeta-imagen-evento::before{
 
 content:"";
 
 position:absolute;
 
-inset:13px;
+top:-11px;
 
-border:
-1px solid rgba(0,0,0,.35);
+left:50%;
 
-pointer-events:none;
+width:82px;
 
-}
+height:23px;
 
-.tarjeta-lugar > *{
+transform:
+translateX(-50%)
+rotate(-2deg);
 
-position:relative;
+background:
+rgba(214,205,194,.88);
 
-z-index:2;
+z-index:4;
 
-}
-
-.icono-linea{
-
-width:58px;
-
-height:58px;
-
-margin-bottom:12px;
+box-shadow:
+0 1px 3px rgba(0,0,0,.06);
 
 }
 
-.icono-linea svg{
+.tarjeta-imagen-evento:nth-child(2)::before{
+
+transform:
+translateX(-50%)
+rotate(2deg);
+
+}
+
+.tarjeta-imagen-evento img{
 
 width:100%;
 
-height:100%;
+height:auto;
 
-fill:none;
-
-stroke:
-var(--linea);
-
-stroke-width:1.3;
-
-stroke-linecap:round;
-
-stroke-linejoin:round;
+display:block;
 
 }
 
-.tarjeta-lugar h3{
 
-font-family:
-'Cormorant Garamond',
-serif;
+/* enlace invisible sobre la zona de ubicación */
 
-font-size:33px;
+.enlace-evento{
 
-font-weight:500;
+display:block;
 
-margin-bottom:12px;
+position:relative;
 
-}
-
-.hora{
-
-font-family:
-'Cormorant Garamond',
-serif;
-
-font-size:25px;
-
-margin-bottom:13px;
+text-decoration:none;
 
 }
 
-.lugar{
 
-font-family:
-'Cormorant Garamond',
-serif;
+/* pequeño detalle inferior */
 
-font-size:18px;
+.evento-pie{
 
-line-height:1.4;
-
-}
-
-.localidad{
-
-font-size:9px;
-
-letter-spacing:.7px;
-
-margin-top:8px;
-
-}
-
-.boton{
-
-display:inline-block;
-
-margin-top:22px;
-
-padding:
-11px 18px;
+height:22px;
 
 background:#fff;
 
-border:
-1px solid #222;
+position:relative;
 
-font-size:8px;
+}
 
-letter-spacing:1.4px;
+.evento-pie::before{
 
-text-transform:uppercase;
+content:"◇";
 
-text-decoration:none;
+position:absolute;
+
+left:50%;
+
+top:3px;
+
+transform:
+translateX(-50%);
+
+font-size:11px;
 
 }
 
@@ -2158,81 +2124,52 @@ font-size:30px;
 
 }
 
+
+/* NUEVAS TARJETAS EN MÓVIL */
+
 .lugares-grid{
 
 grid-template-columns:
 1fr 1fr;
 
-gap:7px;
+gap:8px;
+
+padding:0;
 
 }
 
-.tarjeta-lugar{
+.tarjeta-imagen-evento{
 
-min-height:330px;
-
-padding:
-28px 7px;
-
-background:
-
-repeating-linear-gradient(
-90deg,
-
-#fff 0,
-#fff 18px,
-
-rgba(0,0,0,.10) 18px,
-rgba(0,0,0,.10) 23px
-
-);
+box-shadow:
+0 8px 18px
+rgba(0,0,0,.08);
 
 }
 
-.icono-linea{
+.tarjeta-imagen-evento::before{
 
-width:40px;
+width:48px;
 
-height:40px;
+height:15px;
 
-}
-
-.tarjeta-lugar h3{
-
-font-size:23px;
+top:-7px;
 
 }
 
-.hora{
+.evento-pie{
 
-font-size:18px;
-
-}
-
-.lugar{
-
-font-size:14px;
-
-line-height:1.25;
+height:15px;
 
 }
 
-.localidad{
+.evento-pie::before{
 
-font-size:7px;
+font-size:8px;
 
-}
-
-.boton{
-
-padding:
-9px 6px;
-
-font-size:6.8px;
-
-letter-spacing:.7px;
+top:1px;
 
 }
+
 
 .bus-grid{
 
@@ -2441,8 +2378,6 @@ alt="Joaquín y Marina"
 
 
 
-<!-- ROMBOS CON PUNTOS -->
-
 <div class="rombos-puntos"></div>
 
 
@@ -2508,10 +2443,7 @@ Falta muy poco
 
 <div class="contador-caja">
 
-<span
-class="numero"
-id="dias"
->
+<span class="numero" id="dias">
 0
 </span>
 
@@ -2524,10 +2456,7 @@ Días
 
 <div class="contador-caja">
 
-<span
-class="numero"
-id="horas"
->
+<span class="numero" id="horas">
 0
 </span>
 
@@ -2540,10 +2469,7 @@ Horas
 
 <div class="contador-caja">
 
-<span
-class="numero"
-id="minutos"
->
+<span class="numero" id="minutos">
 0
 </span>
 
@@ -2556,10 +2482,7 @@ Min
 
 <div class="contador-caja">
 
-<span
-class="numero"
-id="segundos"
->
+<span class="numero" id="segundos">
 0
 </span>
 
@@ -2582,7 +2505,7 @@ Seg
 
 
 <!-- ==================================================
-     CEREMONIA Y CELEBRACIÓN
+     CEREMONIA Y CELEBRACION
      ================================================== -->
 
 <section class="seccion lugares">
@@ -2605,125 +2528,49 @@ ceremonia & celebración
 
 <!-- CEREMONIA -->
 
-<article class="tarjeta-lugar">
-
-<div class="icono-linea">
-
-<svg viewBox="0 0 64 64">
-
-<path d="M10 55h44"/>
-
-<path d="M16 55V28l16-12 16 12v27"/>
-
-<path d="M24 55V39h16v16"/>
-
-<path d="M32 16V7"/>
-
-<path d="M27 11h10"/>
-
-<path d="M19 30h26"/>
-
-</svg>
-
-</div>
-
-
-<h3>
-Ceremonia
-</h3>
-
-
-<div class="hora">
-12:45 h
-</div>
-
-
-<div class="lugar">
-
-Iglesia de San Buenaventura
-
-<br>
-
-Calle Carlos Cañal, 30
-
-</div>
-
-
-<div class="localidad">
-Sevilla
-</div>
-
+<div class="tarjeta-imagen-evento">
 
 <a
-class="boton"
+class="enlace-evento"
 href="https://www.google.com/maps/search/?api=1&query=Calle+Carlos+Canal+30+Sevilla"
 target="_blank"
 rel="noopener noreferrer"
 >
-Cómo llegar
+
+<img
+src="images/ceremonia-icono.png"
+alt="Ceremonia"
+>
+
 </a>
 
-</article>
-
-
-
-<!-- CELEBRACIÓN -->
-
-<article class="tarjeta-lugar">
-
-<div class="icono-linea">
-
-<svg viewBox="0 0 64 64">
-
-<path d="M9 55h46"/>
-
-<path d="M13 55V28h38v27"/>
-
-<path d="M13 28L32 15l19 13"/>
-
-<path d="M20 55V38h24v17"/>
-
-<path d="M25 38v17"/>
-
-<path d="M39 38v17"/>
-
-<path d="M9 55c5-6 8-10 10-14"/>
-
-</svg>
+<div class="evento-pie"></div>
 
 </div>
 
 
-<h3>
-Celebración
-</h3>
 
+<!-- CELEBRACION -->
 
-<div class="hora">
-14:30 h aprox.
-</div>
-
-
-<div class="lugar">
-Hacienda Torre de las Arcas
-</div>
-
-
-<div class="localidad">
-Bollullos de la Mitación
-</div>
-
+<div class="tarjeta-imagen-evento">
 
 <a
-class="boton"
+class="enlace-evento"
 href="https://www.google.com/maps/search/?api=1&query=Hacienda+Torre+de+las+Arcas+Bollullos+de+la+Mitacion"
 target="_blank"
 rel="noopener noreferrer"
 >
-Cómo llegar
+
+<img
+src="images/celebracion-icono.png"
+alt="Celebracion"
+>
+
 </a>
 
-</article>
+<div class="evento-pie"></div>
+
+</div>
 
 
 </div>
@@ -3096,8 +2943,6 @@ Estaremos encantados de ayudarte.
 <div class="contactos">
 
 
-<!-- JOAQUÍN -->
-
 <div class="contacto-persona">
 
 
@@ -3154,8 +2999,6 @@ Z
 </div>
 
 
-
-<!-- MARINA -->
 
 <div class="contacto-persona">
 
@@ -3241,10 +3084,6 @@ Estamos deseando celebrarlo contigo.
 </main>
 
 
-
-<!-- ==================================================
-     JAVASCRIPT
-     ================================================== -->
 
 <script>
 
@@ -3411,4 +3250,4 @@ boton.textContent =
 
 </body>
 
-  </html>
+</html>
