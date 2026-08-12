@@ -942,17 +942,37 @@ font-size:35px;
 margin-bottom:15px;
 }
 
+
+/* BOTÓN CONFIRMAR */
+
 .boton-negro{
 display:inline-block;
+position:relative;
+
 margin-top:28px;
 padding:14px 27px;
+
 background:#222;
 color:#fff;
+
 border:1px solid #222;
+
 text-decoration:none;
+
 font-size:9px;
 letter-spacing:1.8px;
 text-transform:uppercase;
+}
+
+.boton-negro::after{
+content:"";
+position:absolute;
+inset:4px;
+
+border:
+1px solid rgba(255,255,255,.55);
+
+pointer-events:none;
 }
 
 .nota{
@@ -1083,20 +1103,26 @@ margin-bottom:12px;
 width:46px;
 height:46px;
 margin:auto;
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 border:1px solid #222;
 border-radius:50%;
+
 text-decoration:none;
 }
 
 .whatsapp svg{
 width:25px;
 height:25px;
+
 fill:none;
 stroke:currentColor;
-stroke-width:1.5;
+stroke-width:1.35;
+stroke-linecap:round;
+stroke-linejoin:round;
 }
 
 .telefono{
@@ -1146,6 +1172,46 @@ mix-blend-mode:screen;
 pointer-events:none;
 }
 
+.final-agradecimiento{
+position:relative;
+z-index:2;
+
+max-width:540px;
+
+margin:
+0 auto 16px;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
+font-size:21px;
+line-height:1.55;
+
+font-weight:400;
+
+color:
+rgba(255,255,255,.86);
+}
+
+.final-gracias{
+position:relative;
+z-index:2;
+
+font-family:
+'Parisienne',
+cursive;
+
+font-size:
+clamp(60px,14vw,90px);
+
+line-height:1;
+
+margin-top:4px;
+
+color:#fff;
+}
+
 .final-fecha{
 position:relative;
 z-index:2;
@@ -1162,6 +1228,7 @@ letter-spacing:5px;
 
 .sobre-tapa{
 transform-origin:50% 0%;
+
 transition:
 transform .72s cubic-bezier(.22,.7,.25,1),
 opacity .55s ease;
@@ -1266,31 +1333,6 @@ scale:1.03;
 }
 
 
-/* CIERRE NUEVO */
-
-.final-agradecimiento{
-position:relative;
-z-index:2;
-max-width:540px;
-margin:0 auto 16px;
-font-family:'Cormorant Garamond',serif;
-font-size:21px;
-line-height:1.55;
-font-weight:400;
-color:rgba(255,255,255,.86);
-}
-
-.final-gracias{
-position:relative;
-z-index:2;
-font-family:'Parisienne',cursive;
-font-size:clamp(60px,14vw,90px);
-line-height:1;
-margin-top:4px;
-color:#fff;
-}
-
-
 /* MENOS MOVIMIENTO */
 
 @media (prefers-reduced-motion:reduce){
@@ -1340,7 +1382,8 @@ letter-spacing:4px;
 }
 
 .hero-nombres{
-font-size:clamp(58px,18vw,82px);
+font-size:
+clamp(58px,18vw,82px);
 }
 
 .hero-foto{
@@ -1417,7 +1460,9 @@ padding:32px 16px;
 }
 
 .bus-imagenes{
-grid-template-columns:1fr 1fr;
+grid-template-columns:
+1fr 1fr;
+
 gap:7px;
 }
 
@@ -1467,7 +1512,9 @@ padding:38px 22px;
 }
 
 .contactos{
-grid-template-columns:1fr 1fr;
+grid-template-columns:
+1fr 1fr;
+
 gap:8px;
 }
 
@@ -1484,7 +1531,8 @@ font-size:8.5px;
 }
 
 .final{
-padding:94px 20px 70px;
+padding:
+94px 20px 70px;
 }
 
 .final::before{
@@ -1502,7 +1550,9 @@ opacity:.34;
 <body>
 
 
-<!-- APERTURA -->
+<!-- =====================================================
+     APERTURA
+     ===================================================== -->
 
 <section id="inicio">
 
@@ -1536,7 +1586,9 @@ Pulsa el sello para abrir
 <main>
 
 
-<!-- PORTADA -->
+<!-- =====================================================
+     PORTADA
+     ===================================================== -->
 
 <section class="hero">
 
@@ -1592,7 +1644,9 @@ alt="Joaquín y Marina"
 
 
 
-<!-- NUESTRO GRAN DÍA -->
+<!-- =====================================================
+     NUESTRO GRAN DÍA
+     ===================================================== -->
 
 <section class="seccion gran-dia">
 
@@ -1632,7 +1686,9 @@ y comenzar juntos esta nueva etapa.
 
 
 
-<!-- CUENTA ATRÁS -->
+<!-- =====================================================
+     CUENTA ATRÁS
+     ===================================================== -->
 
 <section class="seccion cuenta">
 
@@ -1736,7 +1792,9 @@ Seg
 
 
 
-<!-- EL GRAN DÍA -->
+<!-- =====================================================
+     EL GRAN DÍA
+     ===================================================== -->
 
 <section class="seccion lugares">
 
@@ -1809,7 +1867,9 @@ alt="Celebración"
 
 
 
-<!-- AUTOBUSES -->
+<!-- =====================================================
+     AUTOBUSES
+     ===================================================== -->
 
 <section class="seccion autobuses">
 
@@ -1865,6 +1925,7 @@ alt="Autobús Sevilla"
 
 </div>
 
+
 <div class="bus-imagen">
 
 <img
@@ -1884,7 +1945,9 @@ alt="Autobús Tocina"
 
 
 
-<!-- HISTORIA -->
+<!-- =====================================================
+     HISTORIA
+     ===================================================== -->
 
 <section class="seccion historia">
 
@@ -1910,6 +1973,7 @@ alt="Joaquín de pequeño"
 >
 
 </div>
+
 
 <div class="foto-papel">
 
@@ -1939,6 +2003,7 @@ alt="Joaquín y Marina"
 
 </div>
 
+
 <div class="foto-papel">
 
 <img
@@ -1947,6 +2012,7 @@ alt="Joaquín y Marina"
 >
 
 </div>
+
 
 <div class="foto-papel">
 
@@ -1969,7 +2035,9 @@ alt="Joaquín y Marina"
 
 
 
-<!-- RSVP -->
+<!-- =====================================================
+     RSVP
+     ===================================================== -->
 
 <section class="seccion rsvp">
 
@@ -2023,7 +2091,9 @@ El formulario se abrirá en una nueva pestaña.
 
 
 
-<!-- REGALO -->
+<!-- =====================================================
+     REGALO
+     ===================================================== -->
 
 <section class="seccion regalo">
 
@@ -2083,7 +2153,9 @@ Copiar IBAN
 
 
 
-<!-- CONTACTO -->
+<!-- =====================================================
+     CONTACTO
+     ===================================================== -->
 
 <section class="seccion contacto">
 
@@ -2108,6 +2180,8 @@ Estaremos encantados de ayudarte.
 <div class="contactos">
 
 
+<!-- JOAQUÍN -->
+
 <div class="contacto-persona">
 
 <strong>
@@ -2122,30 +2196,45 @@ rel="noopener noreferrer"
 aria-label="WhatsApp Joaquín"
 >
 
-<svg viewBox="0 0 32 32">
+<svg
+viewBox="0 0 32 32"
+aria-hidden="true"
+>
 
 <path
 d="
-M16 3
-A12 12 0 0 0 5.7 21.2
-L4 28
-L11 26.4
-A12 12 0 1 0 16 3Z
+M16 4
+a11 11 0 0 0
+-9.4 16.7
+L5 27
+l6.5-1.6
+A11 11 0 1 0
+16 4Z
 "
 />
 
 <path
 d="
-M11 10
-C10 12 11 15 13 18
-C15 20 18 22 21 22
-C22 22 23 21 24 20
-L21 18
-L19 20
-C17 19 14 17 13 15
-L15 13
-L13 10
-Z
+M11.3 10.5
+c.4-.5.8-.6 1.2-.6
+h.4
+c.3 0 .5.1.7.6
+l1.1 2.7
+c.2.4.1.7-.1 1
+l-.9 1.1
+c-.2.2-.2.5 0 .8
+1 1.7 2.4 3 4 3.9
+.3.2.6.2.8 0
+l1.1-1.3
+c.2-.3.6-.4.9-.2
+l2.6 1.2
+c.4.2.6.4.6.7
+0 .8-.4 1.8-1.1 2.5
+-.8.8-1.8 1.2-3 1.2
+-1.4 0-3.1-.5-5.4-1.8
+-2.9-1.6-5.2-4-6.3-6.4
+-1-2.2-.2-4.2 1-5.4
+.8-.8 1.6-1.2 2.4-1.2Z
 "
 />
 
@@ -2161,6 +2250,8 @@ Z
 
 
 
+<!-- MARINA -->
+
 <div class="contacto-persona">
 
 <strong>
@@ -2175,30 +2266,45 @@ rel="noopener noreferrer"
 aria-label="WhatsApp Marina"
 >
 
-<svg viewBox="0 0 32 32">
+<svg
+viewBox="0 0 32 32"
+aria-hidden="true"
+>
 
 <path
 d="
-M16 3
-A12 12 0 0 0 5.7 21.2
-L4 28
-L11 26.4
-A12 12 0 1 0 16 3Z
+M16 4
+a11 11 0 0 0
+-9.4 16.7
+L5 27
+l6.5-1.6
+A11 11 0 1 0
+16 4Z
 "
 />
 
 <path
 d="
-M11 10
-C10 12 11 15 13 18
-C15 20 18 22 21 22
-C22 22 23 21 24 20
-L21 18
-L19 20
-C17 19 14 17 13 15
-L15 13
-L13 10
-Z
+M11.3 10.5
+c.4-.5.8-.6 1.2-.6
+h.4
+c.3 0 .5.1.7.6
+l1.1 2.7
+c.2.4.1.7-.1 1
+l-.9 1.1
+c-.2.2-.2.5 0 .8
+1 1.7 2.4 3 4 3.9
+.3.2.6.2.8 0
+l1.1-1.3
+c.2-.3.6-.4.9-.2
+l2.6 1.2
+c.4.2.6.4.6.7
+0 .8-.4 1.8-1.1 2.5
+-.8.8-1.8 1.2-3 1.2
+-1.4 0-3.1-.5-5.4-1.8
+-2.9-1.6-5.2-4-6.3-6.4
+-1-2.2-.2-4.2 1-5.4
+.8-.8 1.6-1.2 2.4-1.2Z
 "
 />
 
@@ -2220,13 +2326,16 @@ Z
 
 
 
-<!-- FINAL -->
+<!-- =====================================================
+     FINAL
+     ===================================================== -->
 
 <section class="final">
 
 <div class="final-agradecimiento">
 
-Agradecemos mucho que nos acompañéis en este día tan bonito para nosotros.
+Agradecemos mucho que nos acompañéis
+en este día tan bonito para nosotros.
 
 </div>
 
@@ -2248,7 +2357,9 @@ Gracias
 <script>
 
 
-/* APERTURA */
+/* =====================================================
+   APERTURA
+   ===================================================== */
 
 function abrirInvitacion(){
 
@@ -2277,7 +2388,9 @@ inicio.classList.add('abierto');
 
 
 
-/* CUENTA ATRÁS */
+/* =====================================================
+   CUENTA ATRÁS
+   ===================================================== */
 
 const fechaBoda =
 new Date(
@@ -2376,7 +2489,9 @@ actualizarContador,
 
 
 
-/* COPIAR IBAN */
+/* =====================================================
+   COPIAR IBAN
+   ===================================================== */
 
 async function copiarIBAN(boton){
 
@@ -2550,9 +2665,11 @@ elemento.style.transitionDelay =
 
 
 
-/* EL GRAN DÍA:
+/* =====================================================
+   EL GRAN DÍA
    CEREMONIA PRIMERO
-   Y 1,2 SEGUNDOS DESPUÉS CELEBRACIÓN */
+   CELEBRACIÓN 750 MS DESPUÉS
+   ===================================================== */
 
 document
 .querySelectorAll(
@@ -2562,7 +2679,7 @@ document
 function(elemento,indice){
 
 elemento.style.transitionDelay =
-(indice * 1200) + 'ms';
+(indice * 750) + 'ms';
 
 }
 );
