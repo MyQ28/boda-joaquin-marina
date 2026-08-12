@@ -785,16 +785,12 @@ position:relative;
 z-index:2;
 }
 
-
-/* NUEVO: BORDES REDONDEADOS SEVILLA / TOCINA */
-
 .bus-imagen{
 position:relative;
 overflow:hidden;
 background:#fff;
 border:1px solid #ddd8d1;
 box-shadow:0 9px 22px rgba(0,0,0,.06);
-
 border-radius:26px;
 }
 
@@ -802,7 +798,6 @@ border-radius:26px;
 width:100%;
 height:auto;
 display:block;
-
 border-radius:26px;
 
 filter:
@@ -1221,9 +1216,7 @@ translate:0 0;
 }
 
 
-/* EL GRAN DÍA:
-   CEREMONIA PRIMERO,
-   CELEBRACIÓN DESPUÉS */
+/* CEREMONIA PRIMERO / CELEBRACIÓN DESPUÉS */
 
 .tarjeta-imagen-evento.reveal:first-child{
 translate:-28px 0;
@@ -2558,7 +2551,8 @@ elemento.style.transitionDelay =
 
 
 /* EL GRAN DÍA:
-   CEREMONIA Y DESPUÉS CELEBRACIÓN */
+   CEREMONIA PRIMERO
+   Y 1,2 SEGUNDOS DESPUÉS CELEBRACIÓN */
 
 document
 .querySelectorAll(
@@ -2568,7 +2562,7 @@ document
 function(elemento,indice){
 
 elemento.style.transitionDelay =
-(indice * 550) + 'ms';
+(indice * 1200) + 'ms';
 
 }
 );
