@@ -33,9 +33,20 @@ scroll-behavior:smooth;
 --gris:#66615c;
 --linea:#262522;
 --linea-suave:#d9d5ce;
+
 --nude:#d9b8ad;
 --nude-claro:#ecdbd5;
 --nude-oscuro:#bf968a;
+
+/* NUEVO SOBRE */
+--sobre:#d8cec5;
+--sobre-claro:#e3dbd4;
+--sobre-oscuro:#c7bab0;
+
+--lacre:#752b36;
+--lacre-oscuro:#541a24;
+--lacre-claro:#954350;
+
 --sombra:0 14px 35px rgba(0,0,0,.08);
 }
 
@@ -57,22 +68,24 @@ color:inherit;
 
 
 /* =====================================================
-   APERTURA
+   NUEVA APERTURA
    ===================================================== */
 
 #inicio{
 position:fixed;
 inset:0;
 z-index:9999;
+
 display:flex;
 align-items:center;
 justify-content:center;
-padding:25px;
+
+padding:24px;
 
 background:
 linear-gradient(
-rgba(255,255,255,.94),
-rgba(255,255,255,.94)
+rgba(251,250,248,.95),
+rgba(251,250,248,.95)
 ),
 url('images/Screenshot_20260709_231219_Gallery.jpg');
 
@@ -80,8 +93,8 @@ background-size:cover;
 background-position:center;
 
 transition:
-opacity .9s ease,
-visibility .9s ease;
+opacity 1s ease,
+visibility 1s ease;
 }
 
 #inicio.abierto{
@@ -92,7 +105,7 @@ pointer-events:none;
 
 .inicio-contenido{
 width:100%;
-max-width:420px;
+max-width:470px;
 text-align:center;
 }
 
@@ -101,99 +114,289 @@ font-family:'Cormorant Garamond',serif;
 font-size:17px;
 letter-spacing:4px;
 text-transform:uppercase;
-margin-bottom:28px;
+
+margin-bottom:31px;
+
+transition:
+opacity .4s ease,
+translate .5s ease;
 }
 
 
-/* SOBRE */
+/* =====================================================
+   SOBRE NUEVO
+   ===================================================== */
 
 .sobre{
 position:relative;
-width:min(335px,86vw);
-height:220px;
+
+width:min(370px,88vw);
+aspect-ratio:1.26 / 1;
+
 margin:auto;
+
 cursor:pointer;
+
+perspective:1200px;
 
 filter:
 drop-shadow(
-0 18px 24px
-rgba(0,0,0,.10)
+0 22px 26px
+rgba(0,0,0,.12)
 );
 }
 
-.sobre-base{
+
+/* CUERPO */
+
+.sobre-cuerpo{
 position:absolute;
 inset:0;
+
 overflow:hidden;
-background:#f5f4ef;
-border:1px solid #d8d4ce;
+
+border-radius:4px;
+
+background:
+linear-gradient(
+145deg,
+var(--sobre-claro) 0%,
+var(--sobre) 45%,
+var(--sobre-oscuro) 100%
+);
+
+border:
+1px solid rgba(100,85,76,.18);
 }
 
-.sobre-base::before{
+
+/* textura muy sutil */
+
+.sobre-cuerpo::after{
 content:"";
+
 position:absolute;
 inset:0;
+
+opacity:.25;
+
+background-image:
+repeating-linear-gradient(
+24deg,
+rgba(255,255,255,.12) 0,
+rgba(255,255,255,.12) 1px,
+transparent 1px,
+transparent 4px
+);
+
+pointer-events:none;
+}
+
+
+/* SOLAPA INFERIOR */
+
+.sobre-inferior{
+position:absolute;
+
+left:0;
+right:0;
+bottom:0;
+
+height:55%;
+
+z-index:2;
+
+background:
+linear-gradient(
+180deg,
+var(--sobre-claro),
+var(--sobre)
+);
+
+clip-path:
+path(
+"M 0 100
+L 0 67
+C 37 63, 53 48, 78 23
+C 104 0, 134 0, 162 17
+C 187 33, 204 50, 234 67
+C 271 88, 314 91, 370 83
+L 370 100
+Z"
+);
+
+opacity:.88;
+}
+
+
+/* laterales dibujados */
+
+.sobre-lateral-izq,
+.sobre-lateral-der{
+position:absolute;
+bottom:0;
+
+width:54%;
+height:71%;
+
+z-index:3;
+
+background:
+linear-gradient(
+145deg,
+var(--sobre-claro),
+var(--sobre)
+);
+
+opacity:.94;
+}
+
+.sobre-lateral-izq{
+left:0;
 
 clip-path:
 polygon(
-0 0,
-50% 56%,
+0 12%,
+100% 100%,
 0 100%
 );
-
-background:#eeece6;
 }
 
-.sobre-base::after{
-content:"";
-position:absolute;
-inset:0;
+.sobre-lateral-der{
+right:0;
 
 clip-path:
 polygon(
-100% 0,
-50% 56%,
+100% 12%,
+0 100%,
 100% 100%
 );
-
-background:#e8e6df;
 }
+
+
+/* =====================================================
+   SOLAPA CURVA
+   ===================================================== */
 
 .sobre-tapa{
 position:absolute;
-top:0;
+
 left:0;
-width:100%;
-height:63%;
+right:0;
+top:0;
+
+height:61%;
+
+z-index:6;
+
+transform-origin:50% 0%;
+
+backface-visibility:hidden;
+
+transition:
+transform 1.15s cubic-bezier(.18,.68,.25,1),
+opacity .75s ease;
+
+filter:
+drop-shadow(
+0 4px 3px
+rgba(0,0,0,.05)
+);
+}
+
+
+/*
+   Creamos una solapa rectangular y luego
+   dibujamos el borde inferior orgánico.
+*/
+
+.sobre-tapa-interior{
+position:absolute;
+inset:0;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+160deg,
+var(--sobre-claro),
+var(--sobre)
+);
+
+border:
+1px solid rgba(100,85,76,.14);
 
 clip-path:
 polygon(
 0 0,
 100% 0,
-50% 100%
+100% 34%,
+97% 37%,
+94% 44%,
+91% 56%,
+87% 68%,
+81% 78%,
+74% 84%,
+65% 89%,
+55% 92%,
+50% 93%,
+45% 92%,
+35% 89%,
+26% 84%,
+19% 78%,
+13% 68%,
+9% 56%,
+6% 44%,
+3% 37%,
+0 34%
 );
-
-background:#f0eee8;
-z-index:2;
 }
 
 
-/* SELLO */
+/* borde fino de la curva */
+
+.sobre-tapa-interior::after{
+content:"";
+
+position:absolute;
+
+left:5%;
+right:5%;
+bottom:15px;
+
+height:80px;
+
+border-bottom:
+1px solid rgba(100,81,72,.30);
+
+border-radius:
+0 0 50% 50%;
+
+opacity:.75;
+}
+
+
+/* =====================================================
+   LACRE
+   ===================================================== */
 
 .sello-nude{
 position:absolute;
-left:50%;
-top:54%;
-transform:translate(-50%,-50%);
 
-width:94px;
-height:94px;
+left:50%;
+top:55%;
+
+transform:
+translate(-50%,-50%);
+
+width:96px;
+height:96px;
+
+z-index:15;
 
 border-radius:
-46% 54% 48% 52% /
-53% 48% 52% 47%;
-
-z-index:8;
+48% 52% 46% 54% /
+51% 47% 53% 49%;
 
 display:flex;
 align-items:center;
@@ -201,40 +404,105 @@ justify-content:center;
 
 background:
 radial-gradient(
-circle at 35% 30%,
-var(--nude-claro) 0%,
-var(--nude) 44%,
-var(--nude-oscuro) 100%
+circle at 35% 28%,
+var(--lacre-claro) 0%,
+var(--lacre) 48%,
+var(--lacre-oscuro) 100%
 );
 
 box-shadow:
-inset 2px 3px 5px rgba(255,255,255,.35),
-inset -4px -5px 8px rgba(111,73,64,.13),
-0 8px 14px rgba(0,0,0,.13);
+inset 3px 4px 6px rgba(255,255,255,.18),
+inset -5px -6px 10px rgba(40,0,8,.27),
+0 9px 17px rgba(0,0,0,.18);
+
+transition:
+transform .55s cubic-bezier(.2,.7,.3,1),
+opacity .5s ease;
 }
 
 .sello-nude::before{
 content:"";
+
 position:absolute;
-inset:9px;
+inset:10px;
+
 border-radius:50%;
-border:1px solid rgba(105,73,66,.28);
+
+border:
+1px solid rgba(255,225,225,.27);
+
+box-shadow:
+inset 0 0 0 2px
+rgba(45,0,7,.10);
 }
 
 .sello-nude::after{
 content:"J · M";
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:23px;
+font-weight:500;
 letter-spacing:2px;
-color:#795c54;
+
+color:
+rgba(245,223,217,.88);
+
+text-shadow:
+0 1px 0
+rgba(80,10,18,.65);
 }
 
+
 .pulsa{
-margin-top:30px;
-font-family:'Cormorant Garamond',serif;
+margin-top:31px;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:15px;
 letter-spacing:3px;
 text-transform:uppercase;
+
+transition:
+opacity .4s ease,
+translate .5s ease;
+}
+
+
+/* =====================================================
+   SECUENCIA DE APERTURA
+   ===================================================== */
+
+#inicio.abriendo .sello-nude{
+transform:
+translate(-50%,-50%)
+scale(.74);
+
+opacity:0;
+}
+
+#inicio.abriendo .inicio-texto,
+#inicio.abriendo .pulsa{
+opacity:0;
+translate:0 6px;
+}
+
+
+/*
+   El JS añade "solapa-abierta"
+   un poco después del sello.
+*/
+
+#inicio.solapa-abierta .sobre-tapa{
+transform:
+rotateX(178deg)
+translateY(-2px);
+
+opacity:.82;
 }
 
 
@@ -250,82 +518,122 @@ background:#fff;
 .hero-grid{
 max-width:960px;
 margin:auto;
+
 display:grid;
 grid-template-columns:1fr 1fr;
+
 gap:34px;
 align-items:center;
 }
 
 .hero-card{
 position:relative;
+
 padding:50px 30px;
+
 text-align:center;
+
 background:#fff;
-border:1px solid var(--linea);
-box-shadow:var(--sombra);
+
+border:
+1px solid var(--linea);
+
+box-shadow:
+var(--sombra);
 }
 
 .hero-card::before{
 content:"";
+
 position:absolute;
 inset:11px;
-border:1px solid rgba(0,0,0,.18);
+
+border:
+1px solid rgba(0,0,0,.18);
+
 pointer-events:none;
 }
 
 .hero-card-linea{
 position:relative;
+
 height:20px;
+
 margin-bottom:20px;
 }
 
 .hero-card-linea::before{
 content:"";
+
 position:absolute;
+
 left:12%;
 right:12%;
 top:9px;
+
 height:1px;
+
 background:#222;
 }
 
 .hero-card-linea::after{
 content:"◇";
+
 position:absolute;
+
 left:50%;
 top:-2px;
-transform:translateX(-50%);
+
+transform:
+translateX(-50%);
+
 background:#fff;
-padding:0 10px;
+
+padding:
+0 10px;
+
 font-size:17px;
 }
 
 .hero-fecha{
 position:relative;
 z-index:2;
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:21px;
 letter-spacing:6px;
+
 margin-bottom:25px;
 }
 
 .hero-nombres{
 position:relative;
 z-index:2;
-font-family:'Parisienne',cursive;
-font-size:clamp(58px,10vw,90px);
+
+font-family:
+'Parisienne',
+cursive;
+
+font-size:
+clamp(58px,10vw,90px);
+
 line-height:.9;
+
 margin-bottom:28px;
 }
-
-
-/* & MÁS SEPARADO Y ALGO MÁS GRANDE */
 
 .hero-ampersand{
 display:block;
 
-font-family:'Cormorant Garamond',serif;
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:.42em;
+
 font-style:italic;
 font-weight:400;
 
@@ -337,43 +645,62 @@ margin:
 letter-spacing:0;
 }
 
-
 .hero-nos-casamos{
 position:relative;
 z-index:2;
+
 font-size:10px;
 letter-spacing:4px;
 text-transform:uppercase;
+
 margin-bottom:12px;
 }
 
 .hero-frase{
 position:relative;
 z-index:2;
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:20px;
 font-style:italic;
 }
 
 
-/* FOTO POLAROID */
+/* FOTO PORTADA */
 
 .hero-foto{
 width:90%;
 margin:auto;
+
 position:relative;
-padding:11px 11px 28px;
+
+padding:
+11px 11px 28px;
+
 background:#fff;
-border:1px solid #e0ddd7;
-box-shadow:0 15px 30px rgba(0,0,0,.10);
-transform:rotate(2deg);
+
+border:
+1px solid #e0ddd7;
+
+box-shadow:
+0 15px 30px
+rgba(0,0,0,.10);
+
+transform:
+rotate(2deg);
 }
 
 .hero-foto::before{
 content:"";
+
 position:absolute;
+
 top:-12px;
 left:50%;
+
 width:88px;
 height:25px;
 
@@ -381,7 +708,8 @@ transform:
 translateX(-50%)
 rotate(-2deg);
 
-background:rgba(215,205,193,.92);
+background:
+rgba(215,205,193,.92);
 
 box-shadow:
 0 1px 2px
@@ -391,9 +719,12 @@ rgba(0,0,0,.05);
 .hero-foto img{
 width:100%;
 height:545px;
+
 object-fit:cover;
 object-position:60% center;
-filter:grayscale(1);
+
+filter:
+grayscale(1);
 }
 
 
@@ -404,6 +735,7 @@ filter:grayscale(1);
 .granadas-banner{
 width:100%;
 height:120px;
+
 display:block;
 
 background-image:
@@ -413,8 +745,11 @@ background-repeat:repeat-x;
 background-position:center center;
 background-size:auto 150px;
 
-border-top:1px solid rgba(0,0,0,.08);
-border-bottom:1px solid rgba(0,0,0,.08);
+border-top:
+1px solid rgba(0,0,0,.08);
+
+border-bottom:
+1px solid rgba(0,0,0,.08);
 
 overflow:hidden;
 }
@@ -422,6 +757,7 @@ overflow:hidden;
 .granadas-banner-fino{
 width:100%;
 height:70px;
+
 display:block;
 
 background-image:
@@ -431,8 +767,11 @@ background-repeat:repeat-x;
 background-position:center center;
 background-size:auto 95px;
 
-border-top:1px solid rgba(0,0,0,.05);
-border-bottom:1px solid rgba(0,0,0,.05);
+border-top:
+1px solid rgba(0,0,0,.05);
+
+border-bottom:
+1px solid rgba(0,0,0,.05);
 
 overflow:hidden;
 }
@@ -443,7 +782,9 @@ overflow:hidden;
    ===================================================== */
 
 .seccion{
-padding:78px 20px;
+padding:
+78px 20px;
+
 text-align:center;
 }
 
@@ -453,50 +794,79 @@ margin:auto;
 }
 
 .titulo{
-font-family:'Cormorant Garamond',serif;
-font-size:clamp(42px,9vw,60px);
+font-family:
+'Cormorant Garamond',
+serif;
+
+font-size:
+clamp(42px,9vw,60px);
+
 font-weight:500;
 line-height:1;
 }
 
 .script{
-font-family:'Parisienne',cursive;
+font-family:
+'Parisienne',
+cursive;
+
 font-size:31px;
+
 margin-top:8px;
 }
 
 .separador{
 width:110px;
 height:22px;
-margin:17px auto 28px;
+
+margin:
+17px auto 28px;
+
 position:relative;
 }
 
 .separador::before{
 content:"";
+
 position:absolute;
+
 left:0;
 right:0;
 top:10px;
+
 height:1px;
+
 background:#222;
 }
 
 .separador::after{
 content:"◇";
+
 position:absolute;
+
 left:50%;
 top:-1px;
-transform:translateX(-50%);
-background:var(--blanco-roto);
-padding:0 10px;
+
+transform:
+translateX(-50%);
+
+background:
+var(--blanco-roto);
+
+padding:
+0 10px;
+
 font-size:15px;
 }
 
 .texto{
 max-width:600px;
 margin:auto;
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:21px;
 line-height:1.6;
 }
@@ -512,47 +882,75 @@ background:#fff;
 
 .marco-ilustrado{
 position:relative;
+
 max-width:760px;
+
 margin:auto;
-padding:55px 34px;
+
+padding:
+55px 34px;
+
 background:#fff;
-border:1px solid #dedad4;
-box-shadow:var(--sombra);
+
+border:
+1px solid #dedad4;
+
+box-shadow:
+var(--sombra);
 }
 
 .marco-ilustrado::before{
 content:"";
+
 position:absolute;
 inset:16px;
-border:1px solid rgba(0,0,0,.64);
+
+border:
+1px solid rgba(0,0,0,.64);
+
 pointer-events:none;
 }
 
 .marco-ilustrado::after{
 content:"◇";
+
 position:absolute;
+
 top:7px;
 left:50%;
-transform:translateX(-50%);
+
+transform:
+translateX(-50%);
+
 background:#fff;
-padding:0 13px;
+
+padding:
+0 13px;
+
 font-size:18px;
 }
 
 .esquinas{
 position:absolute;
 inset:25px;
+
 pointer-events:none;
 }
 
 .esquinas::before,
 .esquinas::after{
 content:"";
+
 position:absolute;
+
 width:43px;
 height:43px;
-border-top:1px solid #222;
-border-left:1px solid #222;
+
+border-top:
+1px solid #222;
+
+border-left:
+1px solid #222;
 }
 
 .esquinas::before{
@@ -563,7 +961,9 @@ left:0;
 .esquinas::after{
 bottom:0;
 right:0;
-transform:rotate(180deg);
+
+transform:
+rotate(180deg);
 }
 
 
@@ -572,12 +972,15 @@ transform:rotate(180deg);
    ===================================================== */
 
 .cuenta{
-background:var(--papel);
+background:
+var(--papel);
 }
 
 .contador{
 max-width:700px;
-margin:38px auto 0;
+
+margin:
+38px auto 0;
 
 display:grid;
 
@@ -588,20 +991,32 @@ grid-template-columns:
 1fr;
 
 align-items:center;
+
 gap:10px;
 }
 
 .contador-caja{
-padding:19px 4px;
+padding:
+19px 4px;
+
 background:transparent;
-border-top:1px solid rgba(0,0,0,.35);
-border-bottom:1px solid rgba(0,0,0,.35);
+
+border-top:
+1px solid rgba(0,0,0,.35);
+
+border-bottom:
+1px solid rgba(0,0,0,.35);
+
 text-align:center;
 }
 
 .numero{
 display:block;
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:44px;
 font-weight:500;
 line-height:1;
@@ -609,21 +1024,28 @@ line-height:1;
 
 .unidad{
 display:block;
+
 margin-top:7px;
+
 font-size:8px;
 letter-spacing:1.8px;
+
 text-transform:uppercase;
 }
 
 .contador-rombo{
-font-family:'Cormorant Garamond',serif;
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:17px;
+
 opacity:.52;
 }
 
 
 /* =====================================================
-   CEREMONIA / CELEBRACIÓN
+   EL GRAN DÍA
    ===================================================== */
 
 .lugares{
@@ -632,20 +1054,29 @@ background:#fff;
 
 .lugares-grid{
 max-width:900px;
-margin:38px auto 0;
+
+margin:
+38px auto 0;
 
 display:grid;
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
 
 gap:18px;
+
 align-items:start;
 }
 
 .tarjeta-imagen-evento{
 position:relative;
+
 width:100%;
+
 background:#fdfcf9;
-border:1px solid #e8e4dd;
+
+border:
+1px solid #e8e4dd;
 
 box-shadow:
 0 12px 28px
@@ -659,11 +1090,13 @@ box-shadow .25s ease;
 }
 
 .tarjeta-imagen-evento:first-child{
-transform:rotate(-.6deg);
+transform:
+rotate(-.6deg);
 }
 
 .tarjeta-imagen-evento:last-child{
-transform:rotate(.6deg);
+transform:
+rotate(.6deg);
 }
 
 .tarjeta-imagen-evento:hover{
@@ -678,14 +1111,18 @@ rgba(0,0,0,.09);
 
 .enlace-evento{
 display:block;
+
 position:relative;
+
 text-decoration:none;
+
 background:#fff;
 }
 
 .tarjeta-imagen-evento img{
 width:100%;
 height:auto;
+
 display:block;
 
 filter:
@@ -698,17 +1135,25 @@ opacity:.97;
 
 .evento-pie{
 height:16px;
+
 background:#fff;
+
 position:relative;
 }
 
 .evento-pie::before{
 content:"◇";
+
 position:absolute;
+
 left:50%;
 top:1px;
-transform:translateX(-50%);
+
+transform:
+translateX(-50%);
+
 font-size:8px;
+
 color:#777;
 }
 
@@ -719,16 +1164,21 @@ color:#777;
 
 .onda{
 height:42px;
+
 position:relative;
+
 background:#fff;
 }
 
 .onda::before{
 content:"";
+
 position:absolute;
+
 left:8%;
 right:8%;
 top:13px;
+
 height:18px;
 
 background:
@@ -740,7 +1190,9 @@ transparent 15px
 )
 repeat-x;
 
-background-size:31px 18px;
+background-size:
+31px 18px;
+
 opacity:.38;
 }
 
@@ -755,58 +1207,94 @@ background:#fff;
 
 .bus-ilustracion{
 width:115px;
-margin:0 auto 18px;
+
+margin:
+0 auto 18px;
 }
 
 .bus-ilustracion svg{
 width:100%;
+
 fill:none;
+
 stroke:#222;
 stroke-width:1.4;
+
 stroke-linecap:round;
 stroke-linejoin:round;
 }
 
 .bus-panel{
 max-width:730px;
-margin:35px auto 0;
-padding:38px 25px;
-border:1px solid #222;
+
+margin:
+35px auto 0;
+
+padding:
+38px 25px;
+
+border:
+1px solid #222;
+
 position:relative;
+
 background:#fff;
-box-shadow:var(--sombra);
+
+box-shadow:
+var(--sombra);
 }
 
 .bus-panel::before{
 content:"";
+
 position:absolute;
+
 inset:11px;
-border:1px solid rgba(0,0,0,.15);
+
+border:
+1px solid rgba(0,0,0,.15);
+
 pointer-events:none;
 }
 
 .bus-imagenes{
 display:grid;
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:12px;
+
 margin-top:30px;
+
 position:relative;
+
 z-index:2;
 }
 
 .bus-imagen{
 position:relative;
+
 overflow:hidden;
+
 background:#fff;
-border:1px solid #ddd8d1;
-box-shadow:0 9px 22px rgba(0,0,0,.06);
+
+border:
+1px solid #ddd8d1;
+
+box-shadow:
+0 9px 22px
+rgba(0,0,0,.06);
+
 border-radius:26px;
 }
 
 .bus-imagen img{
 width:100%;
 height:auto;
+
 display:block;
+
 border-radius:26px;
 
 filter:
@@ -816,11 +1304,13 @@ saturate(.82);
 }
 
 .bus-imagen:first-child{
-transform:rotate(-.6deg);
+transform:
+rotate(-.6deg);
 }
 
 .bus-imagen:last-child{
-transform:rotate(.6deg);
+transform:
+rotate(.6deg);
 }
 
 
@@ -829,82 +1319,235 @@ transform:rotate(.6deg);
    ===================================================== */
 
 .historia{
-background:var(--papel);
+background:
+var(--papel);
 }
 
 .historia-intro{
-font-family:'Parisienne',cursive;
+font-family:
+'Parisienne',
+cursive;
+
 font-size:39px;
-margin:10px auto 38px;
+
+margin:
+10px auto 38px;
 }
+
+
+/* INFANCIA SE MANTIENE */
 
 .infancia{
 max-width:560px;
+
 margin:auto;
+
 display:grid;
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:10px;
 }
 
 .foto-papel{
 position:relative;
+
 padding:9px;
+
 background:#fff;
-border:1px solid #ddd9d2;
-box-shadow:0 10px 25px rgba(0,0,0,.09);
+
+border:
+1px solid #ddd9d2;
+
+box-shadow:
+0 10px 25px
+rgba(0,0,0,.09);
 }
 
 .infancia .foto-papel:first-child{
-transform:rotate(-3deg);
+transform:
+rotate(-3deg);
 }
 
 .infancia .foto-papel:last-child{
-transform:rotate(3deg);
+transform:
+rotate(3deg);
 }
 
 .foto-papel img{
 width:100%;
 height:300px;
+
 object-fit:cover;
 }
+
+
+/* FRASE NUEVA */
 
 .historia-frase{
-font-family:'Parisienne',cursive;
-font-size:38px;
-margin:55px auto 40px;
+max-width:690px;
+
+font-family:
+'Parisienne',
+cursive;
+
+font-size:
+clamp(31px,7vw,42px);
+
+line-height:1.25;
+
+margin:
+58px auto 42px;
 }
 
-.actuales{
-max-width:760px;
-margin:auto;
 
-display:grid;
-grid-template-columns:
-repeat(3,1fr);
+/* =====================================================
+   CARRUSEL HISTORIA
+   ===================================================== */
 
-gap:7px;
+.carrusel-historia{
+position:relative;
+
+width:
+calc(100% + 40px);
+
+margin-left:-20px;
+
+overflow:hidden;
+
+padding:
+20px 0 34px;
+}
+
+
+/* degradado lateral muy sutil */
+
+.carrusel-historia::before,
+.carrusel-historia::after{
+content:"";
+
+position:absolute;
+
+top:0;
+bottom:0;
+
+width:45px;
+
+z-index:5;
+
+pointer-events:none;
+}
+
+.carrusel-historia::before{
+left:0;
+
+background:
+linear-gradient(
+90deg,
+var(--papel),
+rgba(247,246,242,0)
+);
+}
+
+.carrusel-historia::after{
+right:0;
+
+background:
+linear-gradient(
+270deg,
+var(--papel),
+rgba(247,246,242,0)
+);
+}
+
+
+.carrusel-pista{
+display:flex;
+
+width:max-content;
+
+gap:16px;
+
 align-items:center;
+
+animation:
+historiaCarrusel
+19s linear infinite;
+
+will-change:transform;
 }
 
-.actuales .foto-papel{
-padding:6px;
+
+/*
+   Hay dos copias de las tres fotos.
+   Así el movimiento es continuo.
+*/
+
+.carrusel-foto{
+position:relative;
+
+flex:
+0 0 245px;
+
+padding:
+8px 8px 24px;
+
+background:#fff;
+
+border:
+1px solid #ddd9d2;
+
+box-shadow:
+0 12px 25px
+rgba(0,0,0,.09);
 }
 
-.actuales .foto-papel:nth-child(1){
-transform:rotate(-3deg);
+.carrusel-foto:nth-child(3n+1){
+transform:
+rotate(-2.4deg);
 }
 
-.actuales .foto-papel:nth-child(2){
-transform:rotate(1deg);
+.carrusel-foto:nth-child(3n+2){
+transform:
+rotate(1deg);
 }
 
-.actuales .foto-papel:nth-child(3){
-transform:rotate(3deg);
+.carrusel-foto:nth-child(3n+3){
+transform:
+rotate(2.2deg);
 }
 
-.actuales img{
-height:220px;
+.carrusel-foto img{
+width:100%;
+height:290px;
+
 object-fit:cover;
+}
+
+.carrusel-historia:hover .carrusel-pista{
+animation-play-state:paused;
+}
+
+.carrusel-historia:active .carrusel-pista{
+animation-play-state:paused;
+}
+
+
+@keyframes historiaCarrusel{
+
+from{
+transform:
+translateX(0);
+}
+
+to{
+transform:
+translateX(
+calc(-50% - 8px)
+);
+}
+
 }
 
 
@@ -918,19 +1561,32 @@ background:#fff;
 
 .rsvp-tarjeta{
 max-width:700px;
-margin:35px auto 0;
-padding:50px 30px;
+
+margin:
+35px auto 0;
+
+padding:
+50px 30px;
+
 position:relative;
-border:1px solid #222;
+
+border:
+1px solid #222;
+
 background:#fff;
-box-shadow:var(--sombra);
+
+box-shadow:
+var(--sombra);
 }
 
 .rsvp-tarjeta::before{
 content:"";
+
 position:absolute;
 inset:13px;
-border:1px solid rgba(0,0,0,.18);
+
+border:
+1px solid rgba(0,0,0,.18);
 }
 
 .rsvp-tarjeta > *{
@@ -942,12 +1598,17 @@ z-index:2;
 font-size:8px;
 letter-spacing:3px;
 text-transform:uppercase;
+
 margin-bottom:10px;
 }
 
 .rsvp-script{
-font-family:'Parisienne',cursive;
+font-family:
+'Parisienne',
+cursive;
+
 font-size:35px;
+
 margin-bottom:15px;
 }
 
@@ -956,15 +1617,19 @@ margin-bottom:15px;
 
 .boton-negro{
 display:inline-block;
+
 position:relative;
 
 margin-top:28px;
-padding:14px 27px;
+
+padding:
+14px 27px;
 
 background:#222;
 color:#fff;
 
-border:1px solid #222;
+border:
+1px solid #222;
 
 text-decoration:none;
 
@@ -975,18 +1640,23 @@ text-transform:uppercase;
 
 .boton-negro::after{
 content:"";
+
 position:absolute;
+
 inset:4px;
 
 border:
-1px solid rgba(255,255,255,.55);
+1px solid
+rgba(255,255,255,.55);
 
 pointer-events:none;
 }
 
 .nota{
 margin-top:13px;
+
 font-size:9px;
+
 color:#777;
 }
 
@@ -996,27 +1666,42 @@ color:#777;
    ===================================================== */
 
 .regalo{
-background:var(--papel);
+background:
+var(--papel);
 }
 
 .regalo-simple{
 max-width:650px;
-margin:38px auto 0;
+
+margin:
+38px auto 0;
 }
 
 .regalo-tarjeta{
-padding:42px 30px;
+padding:
+42px 30px;
+
 background:#fff;
-border:1px solid #222;
-box-shadow:var(--sombra);
+
+border:
+1px solid #222;
+
+box-shadow:
+var(--sombra);
+
 position:relative;
 }
 
 .regalo-tarjeta::before{
 content:"";
+
 position:absolute;
+
 inset:12px;
-border:1px solid rgba(0,0,0,.14);
+
+border:
+1px solid rgba(0,0,0,.14);
+
 pointer-events:none;
 }
 
@@ -1031,23 +1716,41 @@ font-size:19px;
 
 .iban-box{
 margin-top:25px;
-padding:20px 9px;
-border-top:1px solid #222;
-border-bottom:1px solid #222;
-font-family:'Cormorant Garamond',serif;
+
+padding:
+20px 9px;
+
+border-top:
+1px solid #222;
+
+border-bottom:
+1px solid #222;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:22px;
 letter-spacing:1.5px;
+
 line-height:1.5;
 }
 
 .copiar{
 margin-top:20px;
-padding:11px 18px;
-border:1px solid #222;
+
+padding:
+11px 18px;
+
+border:
+1px solid #222;
+
 background:#fff;
+
 font-size:8px;
 letter-spacing:1.4px;
 text-transform:uppercase;
+
 cursor:pointer;
 }
 
@@ -1062,27 +1765,41 @@ background:#fff;
 
 .contactos{
 max-width:520px;
-margin:35px auto 0;
+
+margin:
+35px auto 0;
 
 display:grid;
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
 
 gap:12px;
 }
 
 .contacto-persona{
 position:relative;
-padding:34px 10px 25px;
+
+padding:
+34px 10px 25px;
+
 background:#fff;
-border:1px solid #ddd9d2;
-box-shadow:var(--sombra);
+
+border:
+1px solid #ddd9d2;
+
+box-shadow:
+var(--sombra);
 }
 
 .contacto-persona::before{
 content:"";
+
 position:absolute;
+
 top:-10px;
 left:50%;
+
 width:75px;
 height:20px;
 
@@ -1102,18 +1819,25 @@ rotate(2deg);
 
 .contacto-persona strong{
 display:block;
-font-family:'Parisienne',cursive;
+
+font-family:
+'Parisienne',
+cursive;
+
 font-size:35px;
+
 font-weight:400;
+
 margin-bottom:12px;
 }
 
 
-/* BOTÓN WHATSAPP */
+/* WHATSAPP */
 
 .whatsapp{
 width:48px;
 height:48px;
+
 margin:auto;
 
 display:flex;
@@ -1137,12 +1861,15 @@ height:28px;
 display:block;
 
 fill:currentColor;
+
 stroke:none;
 }
 
 .telefono{
 display:block;
+
 margin-top:11px;
+
 font-size:10px;
 letter-spacing:.8px;
 }
@@ -1154,19 +1881,28 @@ letter-spacing:.8px;
 
 .final{
 position:relative;
-padding:112px 20px 75px;
+
+padding:
+112px 20px 75px;
+
 background:#20201e;
+
 color:#fff;
+
 text-align:center;
+
 overflow:hidden;
 }
 
 .final::before{
 content:"";
+
 position:absolute;
+
 top:0;
 left:0;
 right:0;
+
 height:84px;
 
 background-image:
@@ -1183,7 +1919,9 @@ contrast(1.45)
 brightness(.85);
 
 opacity:.32;
+
 mix-blend-mode:screen;
+
 pointer-events:none;
 }
 
@@ -1230,58 +1968,27 @@ color:#fff;
 .final-fecha{
 position:relative;
 z-index:2;
+
 margin-top:25px;
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',
+serif;
+
 font-size:26px;
 letter-spacing:5px;
 }
 
 
 /* =====================================================
-   INTERACCIONES
+   REVEALS
    ===================================================== */
-
-.sobre-tapa{
-transform-origin:50% 0%;
-
-transition:
-transform .72s cubic-bezier(.22,.7,.25,1),
-opacity .55s ease;
-
-backface-visibility:hidden;
-}
-
-.sello-nude{
-transition:
-transform .45s ease,
-opacity .4s ease;
-}
-
-#inicio.abriendo .sobre-tapa{
-transform:rotateX(180deg);
-opacity:.92;
-}
-
-#inicio.abriendo .sello-nude{
-transform:
-translate(-50%,-50%)
-scale(.72);
-
-opacity:0;
-}
-
-#inicio.abriendo .inicio-texto,
-#inicio.abriendo .pulsa{
-opacity:0;
-transition:opacity .3s ease;
-}
-
-
-/* APARICIONES */
 
 .reveal{
 opacity:0;
-translate:0 24px;
+
+translate:
+0 24px;
 
 transition:
 opacity .78s ease,
@@ -1294,26 +2001,33 @@ translate;
 
 .reveal.visible{
 opacity:1;
-translate:0 0;
+
+translate:
+0 0;
 }
 
 
 /* CEREMONIA PRIMERO / CELEBRACIÓN DESPUÉS */
 
 .tarjeta-imagen-evento.reveal:first-child{
-translate:-28px 0;
+translate:
+-28px 0;
 }
 
 .tarjeta-imagen-evento.reveal:last-child{
-translate:28px 0;
+translate:
+28px 0;
 }
 
 .tarjeta-imagen-evento.reveal.visible{
-translate:0 0;
+translate:
+0 0;
 }
 
 
-/* MICROINTERACCIONES */
+/* =====================================================
+   MICROINTERACCIONES
+   ===================================================== */
 
 .tarjeta-imagen-evento,
 .bus-imagen,
@@ -1348,7 +2062,9 @@ scale:1.03;
 }
 
 
-/* MENOS MOVIMIENTO */
+/* =====================================================
+   ACCESIBILIDAD
+   ===================================================== */
 
 @media (prefers-reduced-motion:reduce){
 
@@ -1357,6 +2073,10 @@ scale:1.03;
 opacity:1 !important;
 translate:none !important;
 transition:none !important;
+}
+
+.carrusel-pista{
+animation:none !important;
 }
 
 .sobre-tapa,
@@ -1378,17 +2098,47 @@ transition:none !important;
 
 @media(max-width:650px){
 
+#inicio{
+padding:18px;
+}
+
+.inicio-texto{
+font-size:14px;
+letter-spacing:3px;
+
+margin-bottom:25px;
+}
+
+.sobre{
+width:min(350px,91vw);
+}
+
+.sello-nude{
+width:88px;
+height:88px;
+}
+
+.pulsa{
+font-size:13px;
+letter-spacing:2.5px;
+}
+
+
 .hero{
-padding:52px 10px 40px;
+padding:
+52px 10px 40px;
 }
 
 .hero-grid{
-grid-template-columns:1fr;
+grid-template-columns:
+1fr;
+
 gap:30px;
 }
 
 .hero-card{
-padding:42px 17px;
+padding:
+42px 17px;
 }
 
 .hero-fecha{
@@ -1401,16 +2151,12 @@ font-size:
 clamp(58px,18vw,82px);
 }
 
-
-/* EN MÓVIL DAMOS MÁS AIRE AL & */
-
 .hero-ampersand{
 font-size:.42em;
 
 margin:
 21px 0 17px;
 }
-
 
 .hero-foto{
 width:83%;
@@ -1420,23 +2166,38 @@ width:83%;
 height:410px;
 }
 
+
+/* GRANADAS */
+
 .granadas-banner{
 height:95px;
-background-size:auto 125px;
+
+background-size:
+auto 125px;
 }
 
 .granadas-banner-fino{
 height:58px;
-background-size:auto 78px;
+
+background-size:
+auto 78px;
 }
 
+
+/* SECCIONES */
+
 .seccion{
-padding:65px 14px;
+padding:
+65px 14px;
 }
 
 .marco-ilustrado{
-padding:48px 20px;
+padding:
+48px 20px;
 }
+
+
+/* CONTADOR */
 
 .contador{
 grid-template-columns:
@@ -1449,7 +2210,8 @@ gap:5px;
 }
 
 .contador-caja{
-padding:16px 2px;
+padding:
+16px 2px;
 }
 
 .numero{
@@ -1465,9 +2227,15 @@ letter-spacing:1px;
 font-size:11px;
 }
 
+
+/* EL GRAN DÍA */
+
 .lugares-grid{
-grid-template-columns:1fr 1fr;
+grid-template-columns:
+1fr 1fr;
+
 gap:8px;
+
 padding:0;
 }
 
@@ -1481,8 +2249,12 @@ rgba(0,0,0,.06);
 height:12px;
 }
 
+
+/* AUTOBÚS */
+
 .bus-panel{
-padding:32px 16px;
+padding:
+32px 16px;
 }
 
 .bus-imagenes{
@@ -1504,6 +2276,9 @@ border-radius:26px;
 border-radius:26px;
 }
 
+
+/* HISTORIA */
+
 .infancia{
 gap:7px;
 }
@@ -1516,26 +2291,77 @@ padding:6px;
 height:220px;
 }
 
-.historia-intro,
-.historia-frase{
+.historia-intro{
 font-size:34px;
 }
 
-.actuales{
-gap:4px;
+.historia-frase{
+font-size:
+clamp(29px,8vw,36px);
+
+padding:
+0 12px;
+
+margin:
+51px auto 35px;
 }
 
-.actuales img{
-height:170px;
+
+/*
+   En móvil se ve una foto grande
+   y parte de la siguiente.
+*/
+
+.carrusel-historia{
+width:
+calc(100% + 28px);
+
+margin-left:-14px;
+
+padding:
+17px 0 30px;
 }
+
+.carrusel-pista{
+gap:12px;
+
+animation-duration:
+17s;
+}
+
+.carrusel-foto{
+flex:
+0 0 68vw;
+
+max-width:265px;
+
+padding:
+7px 7px 21px;
+}
+
+.carrusel-foto img{
+height:300px;
+}
+
+.carrusel-historia::before,
+.carrusel-historia::after{
+width:24px;
+}
+
+
+/* REGALO */
 
 .regalo-simple{
 max-width:100%;
 }
 
 .regalo-tarjeta{
-padding:38px 22px;
+padding:
+38px 22px;
 }
+
+
+/* CONTACTOS */
 
 .contactos{
 grid-template-columns:
@@ -1545,7 +2371,8 @@ gap:8px;
 }
 
 .contacto-persona{
-padding:32px 5px 22px;
+padding:
+32px 5px 22px;
 }
 
 .contacto-persona strong{
@@ -1566,6 +2393,9 @@ height:28px;
 font-size:8.5px;
 }
 
+
+/* FINAL */
+
 .final{
 padding:
 94px 20px 70px;
@@ -1573,7 +2403,10 @@ padding:
 
 .final::before{
 height:68px;
-background-size:auto 92px;
+
+background-size:
+auto 92px;
+
 opacity:.34;
 }
 
@@ -1582,6 +2415,7 @@ opacity:.34;
 </style>
 
 </head>
+
 
 <body>
 
@@ -1598,16 +2432,35 @@ opacity:.34;
 Una invitación para ti
 </div>
 
+
 <div
 class="sobre"
 onclick="abrirInvitacion()"
+aria-label="Abrir invitación"
 >
 
-<div class="sobre-base"></div>
-<div class="sobre-tapa"></div>
-<div class="sello-nude"></div>
+
+<div class="sobre-cuerpo"></div>
+
+<div class="sobre-inferior"></div>
+
+<div class="sobre-lateral-izq"></div>
+
+<div class="sobre-lateral-der"></div>
+
+
+<div class="sobre-tapa">
+
+<div class="sobre-tapa-interior"></div>
 
 </div>
+
+
+<div class="sello-nude"></div>
+
+
+</div>
+
 
 <div class="pulsa">
 Pulsa el sello para abrir
@@ -1630,13 +2483,16 @@ Pulsa el sello para abrir
 
 <div class="hero-grid">
 
+
 <div class="hero-card">
 
 <div class="hero-card-linea"></div>
 
+
 <div class="hero-fecha">
 19 · 12 · 2026
 </div>
+
 
 <div class="hero-nombres">
 
@@ -1650,15 +2506,18 @@ Marina
 
 </div>
 
+
 <div class="hero-nos-casamos">
 Nos casamos
 </div>
+
 
 <div class="hero-frase">
 y queremos compartirlo contigo
 </div>
 
 </div>
+
 
 
 <div class="hero-foto">
@@ -1669,6 +2528,7 @@ alt="Joaquín y Marina"
 >
 
 </div>
+
 
 </div>
 
@@ -1688,19 +2548,24 @@ alt="Joaquín y Marina"
 
 <div class="contenido">
 
+
 <div class="marco-ilustrado">
 
 <div class="esquinas"></div>
+
 
 <div class="titulo">
 Nuestro gran día
 </div>
 
+
 <div class="script">
 una fecha para recordar
 </div>
 
+
 <div class="separador"></div>
+
 
 <p class="texto">
 
@@ -1713,6 +2578,7 @@ Nos hace muchísima ilusión celebrar este día contigo
 y comenzar juntos esta nueva etapa.
 
 </p>
+
 
 </div>
 
@@ -1730,13 +2596,17 @@ y comenzar juntos esta nueva etapa.
 
 <div class="contenido">
 
+
 <div class="titulo">
 Falta muy poco
 </div>
 
+
 <div class="separador"></div>
 
+
 <div class="contador">
+
 
 <div class="contador-caja">
 
@@ -1816,6 +2686,7 @@ Seg
 
 </div>
 
+
 </div>
 
 </div>
@@ -1836,11 +2707,14 @@ Seg
 
 <div class="contenido">
 
+
 <div class="titulo">
 El gran día
 </div>
 
+
 <div class="separador"></div>
+
 
 <div class="lugares-grid">
 
@@ -1891,6 +2765,7 @@ alt="Celebración"
 
 </div>
 
+
 </div>
 
 </div>
@@ -1911,17 +2786,23 @@ alt="Celebración"
 
 <div class="contenido">
 
+
 <div class="bus-ilustracion">
 
 <svg viewBox="0 0 120 70">
 
 <path d="M15 20c0-7 5-10 14-10h58c12 0 18 6 18 17v25H15Z"/>
+
 <path d="M23 18h20v17H23Z"/>
+
 <path d="M48 18h19v17H48Z"/>
+
 <path d="M72 18h20v17H72Z"/>
+
 <path d="M15 41h90"/>
 
 <circle cx="31" cy="53" r="8"/>
+
 <circle cx="86" cy="53" r="8"/>
 
 <path d="M39 53h39"/>
@@ -1930,17 +2811,23 @@ alt="Celebración"
 
 </div>
 
+
+
 <div class="titulo">
 Autobuses
 </div>
+
 
 <div class="script">
 solo preocúpate de disfrutar
 </div>
 
+
 <div class="separador"></div>
 
+
 <div class="bus-panel">
+
 
 <p class="texto">
 
@@ -1950,7 +2837,9 @@ Publicaremos aquí los horarios cuando estén confirmados.
 
 </p>
 
+
 <div class="bus-imagenes">
+
 
 <div class="bus-imagen">
 
@@ -1971,6 +2860,7 @@ alt="Autobús Tocina"
 
 </div>
 
+
 </div>
 
 </div>
@@ -1982,24 +2872,32 @@ alt="Autobús Tocina"
 
 
 <!-- =====================================================
-     HISTORIA
+     NUESTRA HISTORIA
      ===================================================== -->
 
 <section class="seccion historia">
 
 <div class="contenido">
 
+
 <div class="titulo">
 Nuestra historia
 </div>
 
+
 <div class="separador"></div>
+
 
 <div class="historia-intro">
 Quién nos iba a decir…
 </div>
 
+
+
+<!-- FOTOS INFANCIA -->
+
 <div class="infancia">
+
 
 <div class="foto-papel">
 
@@ -2020,17 +2918,36 @@ alt="Marina de pequeña"
 
 </div>
 
+
 </div>
 
+
+
+<!-- NUEVA FRASE -->
 
 <div class="historia-frase">
-…que acabaríamos llegando hasta aquí.
+
+aquel 28 de febrero de 2014
+que acabaríamos llegando hasta aquí.
+
 </div>
 
 
-<div class="actuales">
 
-<div class="foto-papel">
+<!-- =====================================================
+     CARRUSEL DE LAS TRES FOTOS ACTUALES
+     ===================================================== -->
+
+<div class="carrusel-historia">
+
+
+<div class="carrusel-pista">
+
+
+<!-- PRIMERA COPIA -->
+
+
+<div class="carrusel-foto">
 
 <img
 src="images/20240616133050505.jpeg"
@@ -2040,7 +2957,7 @@ alt="Joaquín y Marina"
 </div>
 
 
-<div class="foto-papel">
+<div class="carrusel-foto">
 
 <img
 src="images/20260712_215553.jpg"
@@ -2050,7 +2967,7 @@ alt="Joaquín y Marina"
 </div>
 
 
-<div class="foto-papel">
+<div class="carrusel-foto">
 
 <img
 src="images/Screenshot_20260807_135313_Gallery.jpg"
@@ -2059,7 +2976,48 @@ alt="Joaquín y Marina"
 
 </div>
 
+
+
+<!-- SEGUNDA COPIA PARA HACER EL BUCLE -->
+
+
+<div class="carrusel-foto">
+
+<img
+src="images/20240616133050505.jpeg"
+alt=""
+aria-hidden="true"
+>
+
 </div>
+
+
+<div class="carrusel-foto">
+
+<img
+src="images/20260712_215553.jpg"
+alt=""
+aria-hidden="true"
+>
+
+</div>
+
+
+<div class="carrusel-foto">
+
+<img
+src="images/Screenshot_20260807_135313_Gallery.jpg"
+alt=""
+aria-hidden="true"
+>
+
+</div>
+
+
+</div>
+
+</div>
+
 
 </div>
 
@@ -2079,21 +3037,27 @@ alt="Joaquín y Marina"
 
 <div class="contenido">
 
+
 <div class="titulo">
 ¿Nos acompañas?
 </div>
 
+
 <div class="separador"></div>
 
+
 <div class="rsvp-tarjeta">
+
 
 <div class="rsvp-mini">
 19 · 12 · 2026
 </div>
 
+
 <div class="rsvp-script">
 Nos hará muchísima ilusión
 </div>
+
 
 <p class="texto">
 
@@ -2102,18 +3066,23 @@ para que podamos cuidar cada detalle.
 
 </p>
 
+
 <a
 class="boton-negro"
 href="https://forms.gle/1RrKdaNcS1fuMRbn9"
 target="_blank"
 rel="noopener noreferrer"
 >
+
 Confirmar asistencia
+
 </a>
+
 
 <div class="nota">
 El formulario se abrirá en una nueva pestaña.
 </div>
+
 
 </div>
 
@@ -2135,19 +3104,25 @@ El formulario se abrirá en una nueva pestaña.
 
 <div class="contenido">
 
+
 <div class="titulo">
 Un detalle
 </div>
+
 
 <div class="script">
 lo importante es compartir el día contigo
 </div>
 
+
 <div class="separador"></div>
+
 
 <div class="regalo-simple">
 
+
 <div class="regalo-tarjeta">
+
 
 <p class="texto">
 
@@ -2161,6 +3136,7 @@ puedes hacerlo aquí.
 
 </p>
 
+
 <div class="iban-box">
 
 ES98 1465 0100 91
@@ -2171,13 +3147,17 @@ ES98 1465 0100 91
 
 </div>
 
+
 <button
 class="copiar"
 type="button"
 onclick="copiarIBAN(this)"
 >
+
 Copiar IBAN
+
 </button>
+
 
 </div>
 
@@ -2197,11 +3177,14 @@ Copiar IBAN
 
 <div class="contenido">
 
+
 <div class="titulo">
 ¿Necesitas algo?
 </div>
 
+
 <div class="separador"></div>
+
 
 <p class="texto">
 
@@ -2213,6 +3196,7 @@ Estaremos encantados de ayudarte.
 </p>
 
 
+
 <div class="contactos">
 
 
@@ -2220,9 +3204,11 @@ Estaremos encantados de ayudarte.
 
 <div class="contacto-persona">
 
+
 <strong>
 Joaquín
 </strong>
+
 
 <a
 class="whatsapp"
@@ -2232,6 +3218,7 @@ rel="noopener noreferrer"
 aria-label="WhatsApp Joaquín"
 >
 
+
 <svg
 viewBox="0 0 32 32"
 aria-hidden="true"
@@ -2243,11 +3230,14 @@ d="M16.04 3.2c-7.04 0-12.76 5.66-12.76 12.63 0 2.23.59 4.41 1.71 6.33L3.2 28.8l6
 
 </svg>
 
+
 </a>
+
 
 <span class="telefono">
 605 245 594
 </span>
+
 
 </div>
 
@@ -2257,9 +3247,11 @@ d="M16.04 3.2c-7.04 0-12.76 5.66-12.76 12.63 0 2.23.59 4.41 1.71 6.33L3.2 28.8l6
 
 <div class="contacto-persona">
 
+
 <strong>
 Marina
 </strong>
+
 
 <a
 class="whatsapp"
@@ -2268,6 +3260,7 @@ target="_blank"
 rel="noopener noreferrer"
 aria-label="WhatsApp Marina"
 >
+
 
 <svg
 viewBox="0 0 32 32"
@@ -2280,13 +3273,17 @@ d="M16.04 3.2c-7.04 0-12.76 5.66-12.76 12.63 0 2.23.59 4.41 1.71 6.33L3.2 28.8l6
 
 </svg>
 
+
 </a>
+
 
 <span class="telefono">
 605 253 664
 </span>
 
+
 </div>
+
 
 </div>
 
@@ -2302,6 +3299,7 @@ d="M16.04 3.2c-7.04 0-12.76 5.66-12.76 12.63 0 2.23.59 4.41 1.71 6.33L3.2 28.8l6
 
 <section class="final">
 
+
 <div class="final-agradecimiento">
 
 Agradecemos mucho que nos acompañéis
@@ -2309,13 +3307,16 @@ en este día tan bonito para nosotros.
 
 </div>
 
+
 <div class="final-gracias">
 Gracias
 </div>
 
+
 <div class="final-fecha">
 19 · 12 · 2026
 </div>
+
 
 </section>
 
@@ -2328,13 +3329,14 @@ Gracias
 
 
 /* =====================================================
-   APERTURA
+   APERTURA DEL NUEVO SOBRE
    ===================================================== */
 
 function abrirInvitacion(){
 
 const inicio =
 document.getElementById('inicio');
+
 
 if(
 inicio.classList.contains('abriendo') ||
@@ -2343,15 +3345,39 @@ inicio.classList.contains('abierto')
 return;
 }
 
-inicio.classList.add('abriendo');
+
+/* 1. desaparece el sello */
+
+inicio.classList.add(
+'abriendo'
+);
+
+
+/* 2. se abre la solapa */
 
 setTimeout(
 function(){
 
-inicio.classList.add('abierto');
+inicio.classList.add(
+'solapa-abierta'
+);
 
 },
-820
+420
+);
+
+
+/* 3. desaparece la portada */
+
+setTimeout(
+function(){
+
+inicio.classList.add(
+'abierto'
+);
+
+},
+1750
 );
 
 }
@@ -2435,13 +3461,16 @@ document
 .getElementById('dias')
 .textContent=dias;
 
+
 document
 .getElementById('horas')
 .textContent=horas;
 
+
 document
 .getElementById('minutos')
 .textContent=minutos;
+
 
 document
 .getElementById('segundos')
@@ -2451,6 +3480,7 @@ document
 
 
 actualizarContador();
+
 
 setInterval(
 actualizarContador,
@@ -2482,6 +3512,7 @@ boton.textContent;
 
 boton.textContent =
 '✓ Copiado';
+
 
 boton.classList.add(
 'copiado'
@@ -2559,7 +3590,7 @@ const selectores = [
 
 '.historia-frase',
 
-'.historia .actuales .foto-papel',
+'.carrusel-historia',
 
 '.rsvp .titulo',
 
@@ -2604,7 +3635,7 @@ elemento.classList.add(
 
 
 
-/* HISTORIA */
+/* INFANCIA */
 
 document
 .querySelectorAll(
@@ -2615,20 +3646,6 @@ function(elemento,indice){
 
 elemento.style.transitionDelay =
 (indice * 120) + 'ms';
-
-}
-);
-
-
-document
-.querySelectorAll(
-'.historia .actuales .foto-papel'
-)
-.forEach(
-function(elemento,indice){
-
-elemento.style.transitionDelay =
-(indice * 110) + 'ms';
 
 }
 );
@@ -2697,6 +3714,7 @@ document.querySelector(
 '.final-gracias'
 );
 
+
 const finalFecha =
 document.querySelector(
 '.final-fecha'
@@ -2740,6 +3758,7 @@ entrada.isIntersecting
 entrada.target
 .classList
 .add('visible');
+
 
 observer.unobserve(
 entrada.target
@@ -2798,4 +3817,4 @@ elemento.classList.add(
 
 </body>
 
-</html>
+   </html>
