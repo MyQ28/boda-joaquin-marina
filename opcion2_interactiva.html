@@ -1017,9 +1017,6 @@ margin:
 10px auto 38px;
 }
 
-
-/* INFANCIA */
-
 .infancia{
 max-width:560px;
 
@@ -1061,9 +1058,6 @@ height:300px;
 
 object-fit:cover;
 }
-
-
-/* FRASE */
 
 .historia-frase{
 max-width:690px;
@@ -1355,37 +1349,32 @@ opacity:.38;
 
 /* =====================================================
    UN DETALLE
-   AHORA SIN CAJA
+   IMAGEN FUERA DEL CONTENEDOR
    ===================================================== */
 
 .regalo{
 background:var(--papel);
-}
-
-.regalo-libre{
-max-width:760px;
-
-margin:
-38px auto 0;
-
 text-align:center;
+overflow:hidden;
 }
 
+.regalo-cabecera{
+max-width:850px;
+margin:auto;
+padding:0 20px;
+}
 
-/* LA IMAGEN SE CONVIERTE EN LA PROTAGONISTA */
+.regalo-imagen-grande{
+width:100%;
+margin:34px auto 0;
+}
 
-.regalo-img-sola{
-width:min(100%,650px);
-
+.regalo-imagen-grande img{
+width:min(960px,96vw);
 height:auto;
-
 display:block;
-
 margin:0 auto;
 }
-
-
-/* BOTÓN COPIAR IBAN */
 
 .copiar{
 position:relative;
@@ -1398,7 +1387,6 @@ padding:
 border:1px solid #222;
 
 background:#222;
-
 color:#fff;
 
 font-size:8px;
@@ -1595,7 +1583,6 @@ pointer-events:none;
 
 .final-agradecimiento{
 position:relative;
-
 z-index:2;
 
 max-width:540px;
@@ -1606,7 +1593,6 @@ margin:
 font-family:'Cormorant Garamond',serif;
 
 font-size:21px;
-
 line-height:1.55;
 
 color:
@@ -1615,7 +1601,6 @@ rgba(255,255,255,.86);
 
 .final-gracias{
 position:relative;
-
 z-index:2;
 
 font-family:'Parisienne',cursive;
@@ -1630,7 +1615,6 @@ margin-top:4px;
 
 .final-fecha{
 position:relative;
-
 z-index:2;
 
 margin-top:25px;
@@ -1974,17 +1958,26 @@ width:24px;
 
 /* UN DETALLE */
 
-.regalo-libre{
-margin-top:30px;
+.regalo{
+padding-left:0;
+padding-right:0;
 }
 
-.regalo-img-sola{
-width:100%;
-max-width:620px;
+.regalo-cabecera{
+padding:0 14px;
+}
+
+.regalo-imagen-grande{
+margin-top:28px;
+}
+
+.regalo-imagen-grande img{
+width:96vw;
+max-width:none;
 }
 
 .copiar{
-margin-top:21px;
+margin-top:20px;
 }
 
 
@@ -2529,9 +2522,6 @@ alt="Joaquín y Marina"
 </div>
 
 
-<!-- REPETIDAS PARA EL BUCLE -->
-
-
 <div class="carrusel-foto">
 
 <img
@@ -2645,27 +2635,25 @@ El formulario se abrirá en una nueva pestaña.
 
 <section class="seccion regalo">
 
-<div class="contenido">
+<div class="regalo-cabecera">
 
 <div class="titulo">
 Un detalle
 </div>
 
-<div class="script">
-lo importante es compartir el día contigo
-</div>
-
 <div class="separador"></div>
 
+</div>
 
-<div class="regalo-libre">
 
+<div class="regalo-imagen-grande">
 
 <img
-class="regalo-img-sola"
 src="images/White Black and Blue Wedding Table Number Card_20260820_141035_0000.png"
 alt="Información para tener un detalle con Joaquín y Marina"
 >
+
+</div>
 
 
 <button
@@ -2678,10 +2666,6 @@ Copiar IBAN
 
 </button>
 
-
-</div>
-
-</div>
 
 </section>
 
@@ -2842,41 +2826,27 @@ inicio.classList.add('abriendo');
 
 setTimeout(
 function(){
-
-inicio.classList.add(
-'carta-visible'
-);
-
+inicio.classList.add('carta-visible');
 },
 350
 );
 
 setTimeout(
 function(){
-
-inicio.classList.add(
-'saliendo'
-);
-
+inicio.classList.add('saliendo');
 },
 1150
 );
 
 setTimeout(
 function(){
-
-inicio.classList.add(
-'abierto'
-);
-
+inicio.classList.add('abierto');
 },
 2050
 );
 
 }
 
-
-/* ABRIR CON TECLADO */
 
 const sobreAbrir =
 document.querySelector('.sobre-real');
@@ -2904,16 +2874,9 @@ abrirInvitacion();
 }
 
 
-
 /* =====================================================
    CUENTA ATRÁS
-   META:
-   19 DICIEMBRE 2026
-   12:45 EN SEVILLA
-
-   Sevilla está en UTC+1 ese día.
-   Por tanto:
-   12:45 Sevilla = 11:45 UTC
+   19 DICIEMBRE 2026 · 12:45 SEVILLA
    ===================================================== */
 
 const fechaBoda =
@@ -2940,21 +2903,10 @@ if(
 diferencia <= 0
 ){
 
-document
-.getElementById('dias')
-.textContent='0';
-
-document
-.getElementById('horas')
-.textContent='0';
-
-document
-.getElementById('minutos')
-.textContent='0';
-
-document
-.getElementById('segundos')
-.textContent='0';
+document.getElementById('dias').textContent='0';
+document.getElementById('horas').textContent='00';
+document.getElementById('minutos').textContent='00';
+document.getElementById('segundos').textContent='00';
 
 return;
 
@@ -3019,12 +2971,10 @@ String(segundos).padStart(2,'0');
 
 actualizarContador();
 
-
 setInterval(
 actualizarContador,
 1000
 );
-
 
 
 /* =====================================================
@@ -3075,8 +3025,6 @@ boton.classList.remove(
 
 
 catch(error){
-
-/* FALLBACK PARA ALGUNOS MÓVILES */
 
 const area =
 document.createElement('textarea');
@@ -3135,7 +3083,6 @@ document.body.removeChild(area);
 }
 
 
-
 /* =====================================================
    ANIMACIONES AL HACER SCROLL
    ===================================================== */
@@ -3187,9 +3134,9 @@ const selectores = [
 
 '.regalo .titulo',
 
-'.regalo .script',
+'.regalo-imagen-grande',
 
-'.regalo-libre',
+'.copiar',
 
 '.contacto .titulo',
 
@@ -3223,7 +3170,6 @@ elemento.classList.add(
 );
 
 
-
 /* INFANCIA */
 
 document
@@ -3238,7 +3184,6 @@ elemento.style.transitionDelay =
 
 }
 );
-
 
 
 /* CEREMONIA → CELEBRACIÓN */
@@ -3257,7 +3202,6 @@ elemento.style.transitionDelay =
 );
 
 
-
 /* AUTOBUSES */
 
 document
@@ -3272,7 +3216,6 @@ elemento.style.transitionDelay =
 
 }
 );
-
 
 
 /* CONTACTOS */
@@ -3291,7 +3234,6 @@ elemento.style.transitionDelay =
 );
 
 
-
 /* FINAL */
 
 const finalGracias =
@@ -3307,20 +3249,15 @@ document.querySelector(
 
 
 if(finalGracias){
-
 finalGracias.style.transitionDelay =
 '120ms';
-
 }
 
 
 if(finalFecha){
-
 finalFecha.style.transitionDelay =
 '230ms';
-
 }
-
 
 
 /* OBSERVER */
@@ -3403,4 +3340,4 @@ elemento.classList.add(
 
 </body>
 
-</html>
+   </html>
