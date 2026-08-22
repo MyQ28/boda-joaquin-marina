@@ -376,7 +376,7 @@ z-index:850;
 display:flex;
 flex-direction:column;
 align-items:center;
-gap:1px;
+gap:2px;
 pointer-events:none;
 opacity:1;
 transition:
@@ -387,24 +387,24 @@ transform .45s ease;
 .scroll-indicador::before{
 content:"";
 display:block;
-width:1px;
-height:15px;
-margin-bottom:3px;
+width:2px;
+height:19px;
+margin-bottom:4px;
 background:linear-gradient(
 to bottom,
-rgba(30,29,27,0),
-rgba(30,29,27,.42)
+rgba(191,166,134,0),
+rgba(191,166,134,.88)
 );
 }
 
 .scroll-indicador span{
 display:block;
-width:11px;
-height:11px;
-border-right:1px solid rgba(30,29,27,.58);
-border-bottom:1px solid rgba(30,29,27,.58);
+width:15px;
+height:15px;
+border-right:2px solid rgba(191,166,134,.95);
+border-bottom:2px solid rgba(191,166,134,.95);
 transform:rotate(45deg);
-opacity:.12;
+opacity:.28;
 animation:flechaElegante 2.3s ease-in-out infinite;
 }
 
@@ -424,21 +424,21 @@ transform:translateX(-50%) translateY(9px);
 @keyframes flechaElegante{
 
 0%{
-opacity:.08;
+opacity:.28;
 translate:0 -3px;
 }
 
 38%{
-opacity:.78;
+opacity:1;
 }
 
 65%{
-opacity:.34;
+opacity:.65;
 translate:0 4px;
 }
 
 100%{
-opacity:.08;
+opacity:.25;
 translate:0 7px;
 }
 
@@ -1147,12 +1147,15 @@ bottom:26px;
 }
 
 .scroll-indicador::before{
-height:13px;
+width:2px;
+height:17px;
 }
 
 .scroll-indicador span{
-width:10px;
-height:10px;
+width:14px;
+height:14px;
+border-right-width:2px;
+border-bottom-width:2px;
 }
 
 
@@ -1397,7 +1400,7 @@ animation-duration:40s;
 
 .scroll-indicador span{
 animation:none;
-opacity:.42;
+opacity:.65;
 }
 
 }
