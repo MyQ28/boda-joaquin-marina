@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#fbfaf8">
@@ -9,24 +10,42 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&family=Parisienne&display=swap"
+rel="stylesheet"
+>
 
 <style>
 
+/* =========================================================
+   COLORES
+========================================================= */
+
 :root{
+
 --blanco:#ffffff;
 --blanco-roto:#fbfaf8;
 --papel:#f7f6f2;
+
 --negro:#1e1d1b;
 --gris:#66615c;
+
 --linea:#262522;
 --linea-suave:#d9d5ce;
+
 --nude:#d9b8ad;
 --nude-claro:#ecdbd5;
 --nude-oscuro:#bf968a;
---burdeos:#7c2533;
+
 --sombra:0 14px 35px rgba(0,0,0,.08);
+
 }
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
 
 *{
 box-sizing:border-box;
@@ -115,12 +134,19 @@ top:50%;
 margin:-4px 0 0 -4px;
 }
 
+
+/* =========================================================
+   ANIMACIONES SCROLL
+========================================================= */
+
 .reveal{
 opacity:0;
 translate:0 24px;
+
 transition:
 opacity .78s ease,
 translate .78s cubic-bezier(.22,.7,.25,1);
+
 will-change:opacity,translate;
 }
 
@@ -131,21 +157,30 @@ translate:0 0;
 
 
 /* =========================================================
-   INTRO SOBRE
+   INTRO
 ========================================================= */
 
 #inicio{
+
 position:fixed;
 inset:0;
 z-index:9999;
+
 display:flex;
 align-items:center;
 justify-content:center;
-background:var(--blanco-roto);
+
+background:#fbfaf8;
+
 overflow:hidden;
+
 opacity:1;
 visibility:visible;
-transition:opacity .85s ease;
+
+transition:
+opacity .9s ease,
+visibility .9s ease;
+
 }
 
 #inicio.saliendo{
@@ -158,341 +193,490 @@ display:none;
 }
 
 .inicio-contenido{
+
 position:relative;
+
 width:100%;
 height:100%;
+
 display:flex;
 align-items:center;
 justify-content:center;
-perspective:1300px;
+
 overflow:hidden;
+
 }
+
+
+/* Texto superior */
 
 .inicio-texto{
+
 position:absolute;
+
 top:8%;
+
 left:0;
 right:0;
+
 z-index:30;
+
 text-align:center;
+
 font-family:'Cormorant Garamond',serif;
+
 font-size:14px;
 letter-spacing:4px;
+
 text-transform:uppercase;
-transition:
-opacity .5s ease,
-transform .5s ease;
-}
 
-.pulsa{
-position:absolute;
-bottom:7%;
-left:0;
-right:0;
-z-index:30;
-text-align:center;
-font-family:'Cormorant Garamond',serif;
-font-size:11px;
-letter-spacing:3px;
-text-transform:uppercase;
 transition:
-opacity .45s ease,
-transform .45s ease;
-}
-
-.escena-sobre{
-position:relative;
-width:min(720px,118vw);
-aspect-ratio:1/1;
-display:flex;
-align-items:center;
-justify-content:center;
-transform:scale(1);
-transition:transform 2.8s cubic-bezier(.2,.75,.2,1);
-}
-
-.sobre-foto{
-position:absolute;
-inset:0;
-width:100%;
-height:100%;
-object-fit:contain;
-display:block;
-z-index:2;
-transition:
-opacity .55s ease .2s,
-transform 1.25s cubic-bezier(.22,.7,.25,1);
-}
-
-.sobre-construido{
-position:absolute;
-width:79%;
-height:53%;
-left:10.5%;
-top:28%;
-z-index:4;
-opacity:0;
-transform:scale(.985);
-transition:
-opacity .35s ease,
+opacity .6s ease,
 transform .6s ease;
+
 }
 
-.sobre-cuerpo{
-position:absolute;
-inset:0;
-background:
-linear-gradient(
-155deg,
-#c9a9a0 0%,
-#d7bab1 48%,
-#c9a79d 100%
-);
-box-shadow:
-0 25px 45px rgba(72,49,42,.19),
-inset 0 0 0 1px rgba(255,255,255,.18);
-overflow:hidden;
-}
 
-.sobre-cuerpo::before{
-content:"";
-position:absolute;
-left:-2%;
-bottom:-8%;
-width:104%;
-height:73%;
-background:linear-gradient(
-135deg,
-rgba(186,147,138,.35),
-rgba(229,205,198,.17)
-);
-clip-path:polygon(0 100%,0 15%,50% 73%,100% 15%,100% 100%);
-}
+/* Escena */
 
-.sobre-cuerpo::after{
-content:"";
-position:absolute;
-inset:0;
-background-image:
-radial-gradient(rgba(255,255,255,.15) .6px, transparent .6px);
-background-size:4px 4px;
-opacity:.25;
-pointer-events:none;
-}
+.escena-intro{
 
-.solapa{
-position:absolute;
-left:0;
-top:0;
-width:100%;
-height:57%;
-z-index:10;
-transform-origin:50% 0%;
-transform-style:preserve-3d;
-transition:
-transform 1.7s cubic-bezier(.34,.04,.16,1),
-filter 1.2s ease;
-}
-
-.solapa svg{
-width:100%;
-height:100%;
-display:block;
-filter:drop-shadow(0 8px 8px rgba(70,45,40,.10));
-}
-
-.solapa path{
-fill:#d2afa6;
-}
-
-.sello{
-position:absolute;
-left:50%;
-top:47%;
-width:72px;
-height:72px;
-z-index:16;
-transform:translate(-50%,-50%) rotate(-4deg);
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-background:
-radial-gradient(circle at 34% 28%,#9a4250 0%,#7e2635 42%,#671c2a 100%);
-box-shadow:
-0 5px 9px rgba(73,20,30,.28),
-inset 1px 2px 4px rgba(255,255,255,.18),
-inset -2px -3px 5px rgba(45,0,8,.25);
-border:2px solid rgba(91,20,31,.38);
-transition:
-transform .65s cubic-bezier(.2,.8,.2,1),
-opacity .42s ease .3s;
-}
-
-.sello::before{
-content:"JM";
-font-family:'Cormorant Garamond',serif;
-font-style:italic;
-font-size:27px;
-letter-spacing:-2px;
-color:#ecd9d8;
-text-shadow:0 1px rgba(69,15,24,.4);
-}
-
-.sello::after{
-content:"";
-position:absolute;
-inset:5px;
-border:1px solid rgba(238,210,210,.46);
-border-radius:50%;
-}
-
-.tarjeta-sobre{
-position:absolute;
-z-index:6;
-left:8%;
-bottom:5%;
-width:84%;
-height:82%;
-background:#fffdfa;
-box-shadow:0 5px 13px rgba(58,42,36,.13);
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-transform:translateY(45%);
-transition:
-transform 1.9s cubic-bezier(.22,.74,.18,1);
-overflow:hidden;
-}
-
-.tarjeta-sobre::before{
-content:"";
-position:absolute;
-inset:14px;
-border:1px solid #d9d1ca;
-pointer-events:none;
-}
-
-.tarjeta-interior{
 position:relative;
-z-index:2;
-padding:25px;
-}
 
-.tarjeta-interior .jm{
-font-family:'Parisienne',cursive;
-font-size:58px;
-line-height:1;
-margin-bottom:12px;
-}
+width:min(720px,118vw);
 
-.tarjeta-interior .fecha{
-font-family:'Cormorant Garamond',serif;
-font-size:20px;
-letter-spacing:5px;
-}
+aspect-ratio:1/1;
 
-.abrir-sobre{
-position:absolute;
-inset:0;
-z-index:40;
-border:0;
-background:transparent;
-cursor:pointer;
--webkit-tap-highlight-color:transparent;
-touch-action:manipulation;
-}
+display:flex;
+align-items:center;
+justify-content:center;
 
-#inicio.abriendo .inicio-texto,
-#inicio.abriendo .pulsa{
-opacity:0;
-}
-
-#inicio.abriendo .inicio-texto{
-transform:translateY(-8px);
-}
-
-#inicio.abriendo .pulsa{
-transform:translateY(8px);
-}
-
-#inicio.abriendo .escena-sobre{
-transform:scale(1.035);
-}
-
-#inicio.abriendo .sobre-foto{
-opacity:0;
-transform:scale(1.015);
-}
-
-#inicio.abriendo .sobre-construido{
-opacity:1;
-transform:scale(1);
-}
-
-#inicio.soltar-sello .sello{
-transform:
-translate(-50%,-50%)
-translateY(23px)
-rotate(15deg)
-scale(.88);
-opacity:0;
-}
-
-#inicio.abrir-solapa .solapa{
-transform:rotateX(168deg);
-filter:brightness(.95);
-}
-
-#inicio.sacar-tarjeta .tarjeta-sobre{
-transform:translateY(-40%);
 }
 
 
 /* =========================================================
-   CONTROL MÚSICA
+   TARJETA QUE SALE DEL SOBRE
 ========================================================= */
 
-.control-musica{
-position:fixed;
-right:17px;
-bottom:17px;
-z-index:900;
-width:43px;
-height:43px;
-border-radius:50%;
-border:1px solid rgba(30,29,27,.22);
-background:rgba(251,250,248,.89);
-backdrop-filter:blur(8px);
--webkit-backdrop-filter:blur(8px);
-box-shadow:0 7px 20px rgba(0,0,0,.09);
+.tarjeta-intro{
+
+position:absolute;
+
+z-index:2;
+
+left:50%;
+top:50%;
+
+width:54%;
+height:67%;
+
+transform:
+translate(-50%,-35%)
+scale(.87);
+
+background:#fffdfa;
+
+border:1px solid #ded8d1;
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.12);
+
 display:flex;
 align-items:center;
 justify-content:center;
+
+opacity:0;
+
+transition:
+transform 2.25s cubic-bezier(.18,.72,.18,1),
+opacity .8s ease;
+
+will-change:transform,opacity;
+
+}
+
+.tarjeta-intro::before{
+
+content:"";
+
+position:absolute;
+
+inset:13px;
+
+border:1px solid #ded8d1;
+
+pointer-events:none;
+
+}
+
+.tarjeta-intro-contenido{
+
+position:relative;
+
+z-index:2;
+
+text-align:center;
+
+padding:20px;
+
+}
+
+.tarjeta-intro-nombres{
+
+font-family:'Parisienne',cursive;
+
+font-size:clamp(34px,6vw,58px);
+
+line-height:.95;
+
+}
+
+.tarjeta-intro-amp{
+
+display:block;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:.52em;
+
+font-style:italic;
+
+margin:10px 0;
+
+}
+
+.tarjeta-intro-fecha{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:18px;
+
+letter-spacing:4px;
+
+margin-top:24px;
+
+}
+
+
+/* =========================================================
+   SOBRE REAL
+========================================================= */
+
+.sobre-real{
+
+position:absolute;
+
+z-index:10;
+
+left:50%;
+top:50%;
+
+width:100%;
+
+transform:
+translate(-50%,-50%)
+scale(1);
+
+transform-origin:center center;
+
+filter:
+drop-shadow(0 18px 30px rgba(66,45,39,.13));
+
+transition:
+transform 2.35s cubic-bezier(.18,.72,.18,1),
+opacity .75s ease 2s,
+filter 1.8s ease;
+
+will-change:transform,opacity;
+
+}
+
+.sobre-real img{
+
+display:block;
+
+width:100%;
+height:auto;
+
+}
+
+
+/* Pequeño brillo sobre el lacre al pulsar */
+
+.destello-sello{
+
+position:absolute;
+
+z-index:14;
+
+left:50%;
+top:52%;
+
+width:60px;
+height:60px;
+
+transform:
+translate(-50%,-50%)
+scale(.7);
+
+border-radius:50%;
+
+border:1px solid rgba(255,255,255,.75);
+
+box-shadow:
+0 0 0 0 rgba(255,255,255,.42);
+
+opacity:0;
+
+pointer-events:none;
+
+}
+
+
+/* Botón invisible encima de todo */
+
+.abrir-sobre{
+
+position:absolute;
+
+inset:0;
+
+z-index:50;
+
+border:0;
+
+background:transparent;
+
 cursor:pointer;
+
+-webkit-tap-highlight-color:transparent;
+
+touch-action:manipulation;
+
+}
+
+
+/* Texto inferior */
+
+.pulsa{
+
+position:absolute;
+
+bottom:7%;
+
+left:0;
+right:0;
+
+z-index:30;
+
+text-align:center;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+transition:
+opacity .6s ease,
+transform .6s ease;
+
+}
+
+
+/* =========================================================
+   SECUENCIA INTRO
+========================================================= */
+
+#inicio.abriendo .inicio-texto{
+
+opacity:0;
+
+transform:translateY(-7px);
+
+}
+
+#inicio.abriendo .pulsa{
+
+opacity:0;
+
+transform:translateY(7px);
+
+}
+
+
+/* Pulsación delicada */
+
+#inicio.abriendo .sobre-real{
+
+transform:
+translate(-50%,-50%)
+scale(.985);
+
+}
+
+
+/* El lacre responde */
+
+#inicio.abriendo .destello-sello{
+
+animation:destelloLacre .8s ease forwards;
+
+}
+
+
+/* La tarjeta comienza a salir */
+
+#inicio.sacando-tarjeta .tarjeta-intro{
+
+opacity:1;
+
+transform:
+translate(-50%,-78%)
+scale(.96);
+
+}
+
+
+/* El sobre baja suavemente */
+
+#inicio.bajando-sobre .sobre-real{
+
+transform:
+translate(-50%,-15%)
+scale(.89);
+
+filter:
+drop-shadow(0 13px 23px rgba(66,45,39,.10));
+
+}
+
+
+/* La tarjeta termina de salir */
+
+#inicio.tarjeta-fuera .tarjeta-intro{
+
+opacity:1;
+
+transform:
+translate(-50%,-60%)
+scale(1);
+
+}
+
+
+/* Sobre desaparece al final */
+
+#inicio.tarjeta-fuera .sobre-real{
+
+opacity:0;
+
+}
+
+
+/* La tarjeta crece un poco antes de pasar a la web */
+
+#inicio.finalizando .tarjeta-intro{
+
+transform:
+translate(-50%,-50%)
+scale(1.035);
+
+}
+
+
+@keyframes destelloLacre{
+
+0%{
+opacity:0;
+transform:translate(-50%,-50%) scale(.65);
+box-shadow:0 0 0 0 rgba(255,255,255,.38);
+}
+
+35%{
+opacity:.65;
+}
+
+100%{
+opacity:0;
+transform:translate(-50%,-50%) scale(1.25);
+box-shadow:0 0 0 20px rgba(255,255,255,0);
+}
+
+}
+
+
+/* =========================================================
+   BOTÓN MÚSICA
+========================================================= */
+
+.control-musica{
+
+position:fixed;
+
+right:17px;
+bottom:17px;
+
+z-index:900;
+
+width:43px;
+height:43px;
+
+border-radius:50%;
+
+border:1px solid rgba(30,29,27,.22);
+
+background:rgba(251,250,248,.90);
+
+backdrop-filter:blur(8px);
+-webkit-backdrop-filter:blur(8px);
+
+box-shadow:
+0 7px 20px rgba(0,0,0,.09);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+cursor:pointer;
+
 opacity:0;
 pointer-events:none;
+
 transform:translateY(7px);
+
 transition:
 opacity .4s ease,
 transform .4s ease;
+
 }
 
 .control-musica.visible{
+
 opacity:1;
+
 pointer-events:auto;
+
 transform:translateY(0);
+
 }
 
 .control-musica svg{
+
 width:19px;
 height:19px;
+
 fill:none;
+
 stroke:var(--negro);
+
 stroke-width:1.7;
+
 stroke-linecap:round;
 stroke-linejoin:round;
+
 }
 
 .control-musica .icono-play{
@@ -513,74 +697,128 @@ display:block;
 ========================================================= */
 
 .hero{
+
 min-height:100vh;
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 padding:80px 20px 70px;
+
 background:var(--blanco-roto);
+
 text-align:center;
+
 }
 
 .hero-card{
+
 width:min(680px,100%);
+
 }
 
 .hero-fecha{
+
 font-family:'Montserrat',sans-serif;
+
 font-size:11px;
+
 font-weight:400;
+
 letter-spacing:5px;
+
 margin-bottom:34px;
+
 }
 
 .hero-nombres{
+
 font-family:'Parisienne',cursive;
+
 font-size:clamp(70px,11vw,110px);
+
 line-height:.86;
+
 font-weight:400;
+
 }
 
 .hero-ampersand{
+
 display:block;
+
 font-family:'Cormorant Garamond',serif;
+
 font-size:.42em;
+
 font-style:italic;
+
 font-weight:400;
+
 line-height:1;
+
 margin:20px 0 16px;
+
 letter-spacing:0;
+
 }
 
 .hero-foto{
+
 position:relative;
+
 width:min(450px,90vw);
+
 margin:45px auto 0;
+
 padding:11px 11px 38px;
+
 background:#fff;
-box-shadow:0 16px 35px rgba(0,0,0,.11);
+
+box-shadow:
+0 16px 35px rgba(0,0,0,.11);
+
 transform:rotate(-1.3deg);
+
 }
 
 .hero-foto::before{
+
 content:"";
+
 position:absolute;
+
 width:105px;
 height:27px;
+
 background:rgba(219,205,187,.73);
+
 top:-13px;
 left:50%;
-transform:translateX(-50%) rotate(-2deg);
+
+transform:
+translateX(-50%)
+rotate(-2deg);
+
 z-index:4;
+
 }
 
 .hero-foto img{
+
 display:block;
+
 width:100%;
+
 height:545px;
+
 object-fit:cover;
+
 object-position:60% center;
+
 filter:grayscale(1);
+
 }
 
 
@@ -589,21 +827,37 @@ filter:grayscale(1);
 ========================================================= */
 
 .granadas-banner{
+
 height:120px;
-background-image:url('images/granadas-banner.jpg?v=5');
+
+background-image:
+url('images/granadas-banner.jpg?v=5');
+
 background-repeat:repeat-x;
+
 background-position:center center;
+
 background-size:auto 150px;
+
 background-color:var(--blanco-roto);
+
 }
 
 .granadas-banner-fino{
+
 height:70px;
-background-image:url('images/granadas-banner.jpg?v=5');
+
+background-image:
+url('images/granadas-banner.jpg?v=5');
+
 background-repeat:repeat-x;
+
 background-position:center center;
+
 background-size:auto 95px;
+
 background-color:var(--blanco-roto);
+
 }
 
 
@@ -612,22 +866,33 @@ background-color:var(--blanco-roto);
 ========================================================= */
 
 .gran-dia{
+
 background:var(--blanco);
+
 text-align:center;
+
 }
 
 .gran-dia .contenido{
+
 max-width:760px;
+
 }
 
 .gran-dia .script{
+
 margin-top:17px;
+
 color:#716863;
+
 }
 
 .gran-dia .texto{
+
 max-width:680px;
+
 margin:27px auto 0;
+
 }
 
 
@@ -636,38 +901,69 @@ margin:27px auto 0;
 ========================================================= */
 
 .cuenta{
+
 background:var(--papel);
+
 text-align:center;
+
 }
 
 .contador{
+
 display:grid;
-grid-template-columns:repeat(4,1fr);
+
+grid-template-columns:
+repeat(4,1fr);
+
 gap:12px;
+
 max-width:690px;
+
 margin:43px auto 0;
+
 }
 
 .contador-item{
-padding:24px 8px 19px;
-border-top:1px solid var(--linea-suave);
-border-bottom:1px solid var(--linea-suave);
+
+padding:
+24px 8px 19px;
+
+border-top:
+1px solid var(--linea-suave);
+
+border-bottom:
+1px solid var(--linea-suave);
+
 }
 
 .contador-numero{
+
 display:block;
-font-family:'Cormorant Garamond',serif;
-font-size:clamp(40px,8vw,67px);
+
+font-family:
+'Cormorant Garamond',serif;
+
+font-size:
+clamp(40px,8vw,67px);
+
 line-height:1;
+
 font-weight:400;
+
 }
 
 .contador-label{
+
 display:block;
+
 font-size:9px;
+
 letter-spacing:2px;
+
 text-transform:uppercase;
+
 margin-top:10px;
+
 }
 
 
@@ -676,68 +972,113 @@ margin-top:10px;
 ========================================================= */
 
 .lugares{
+
 background:var(--blanco-roto);
+
 text-align:center;
+
 }
 
 .lugares-grid{
+
 display:grid;
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:45px;
+
 max-width:860px;
+
 margin:55px auto 0;
+
 align-items:start;
+
 }
 
 .tarjeta-imagen-evento{
+
 position:relative;
+
 }
 
 .tarjeta-imagen-evento:first-child{
+
 transform:rotate(-1.5deg);
+
 }
 
 .tarjeta-imagen-evento:last-child{
+
 transform:rotate(1.3deg);
+
 }
 
 .tarjeta-imagen-evento.reveal:first-child{
+
 translate:-28px 0;
+
 }
 
 .tarjeta-imagen-evento.reveal:last-child{
+
 translate:28px 0;
+
 }
 
 .tarjeta-imagen-evento.reveal.visible{
+
 translate:0 0;
+
 }
 
 .tarjeta-imagen-evento img{
+
 display:block;
+
 width:100%;
 height:auto;
+
 background:#fff;
-box-shadow:0 12px 28px rgba(0,0,0,.08);
+
+box-shadow:
+0 12px 28px rgba(0,0,0,.08);
+
 }
 
 .boton-mapa{
+
 display:inline-block;
+
 margin-top:22px;
+
 padding:12px 23px;
-border:1px solid var(--negro);
+
+border:
+1px solid var(--negro);
+
 color:var(--negro);
+
 text-decoration:none;
+
 font-size:10px;
+
 letter-spacing:2px;
+
 text-transform:uppercase;
+
 background:transparent;
+
 transition:.25s ease;
+
 }
 
 .boton-mapa:hover{
+
 background:var(--negro);
+
 color:#fff;
+
 }
 
 
@@ -746,70 +1087,119 @@ color:#fff;
 ========================================================= */
 
 .autobuses{
+
 background:var(--blanco);
+
 text-align:center;
+
 }
 
 .autobuses .script{
+
 margin-top:12px;
+
 }
 
 .bus-ilustracion{
+
 width:90px;
+
 margin:28px auto 15px;
+
 }
 
 .bus-ilustracion svg{
+
 width:100%;
 height:auto;
+
 fill:none;
+
 stroke:#292724;
+
 stroke-width:1.4;
+
 stroke-linecap:round;
 stroke-linejoin:round;
+
 }
 
 .bus-panel{
+
 max-width:720px;
+
 margin:18px auto 0;
+
 }
 
 .bus-panel .texto{
+
 max-width:680px;
+
 margin:auto;
+
 }
 
 .bus-imagenes{
+
 display:grid;
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:18px;
+
 margin:42px auto 0;
+
 max-width:720px;
+
 }
 
 .bus-imagen{
+
 position:relative;
+
 overflow:hidden;
+
 background:#fff;
-border:1px solid #ddd8d1;
-box-shadow:0 9px 22px rgba(0,0,0,.06);
+
+border:
+1px solid #ddd8d1;
+
+box-shadow:
+0 9px 22px rgba(0,0,0,.06);
+
 border-radius:26px;
+
 }
 
 .bus-imagen:first-child{
+
 transform:rotate(-1deg);
+
 }
 
 .bus-imagen:last-child{
+
 transform:rotate(1deg);
+
 }
 
 .bus-imagen img{
+
 width:100%;
+
 height:auto;
+
 display:block;
+
 border-radius:26px;
-filter:brightness(1.07) contrast(.94) saturate(.82);
+
+filter:
+brightness(1.07)
+contrast(.94)
+saturate(.82);
+
 }
 
 
@@ -818,135 +1208,246 @@ filter:brightness(1.07) contrast(.94) saturate(.82);
 ========================================================= */
 
 .historia{
+
 background:var(--papel);
+
 text-align:center;
+
 overflow:hidden;
+
 }
 
 .historia-intro{
-margin:28px auto 33px;
+
+margin:
+28px auto 33px;
+
 }
 
 .infancia{
+
 display:flex;
+
 justify-content:center;
+
 align-items:flex-start;
+
 gap:22px;
+
 max-width:600px;
+
 margin:auto;
+
 }
 
 .foto-papel{
+
 position:relative;
+
 width:45%;
-padding:8px 8px 27px;
+
+padding:
+8px 8px 27px;
+
 background:#fff;
-border:1px solid #ddd9d2;
-box-shadow:0 11px 24px rgba(0,0,0,.08);
+
+border:
+1px solid #ddd9d2;
+
+box-shadow:
+0 11px 24px rgba(0,0,0,.08);
+
 }
 
 .foto-papel:first-child{
+
 transform:rotate(-3deg);
+
 }
 
 .foto-papel:last-child{
+
 transform:rotate(2.5deg);
+
 }
 
 .foto-papel img{
+
 width:100%;
+
 height:300px;
+
 object-fit:cover;
+
 display:block;
+
 }
 
 .historia-frase{
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',serif;
+
 font-size:24px;
+
 line-height:1.45;
+
 max-width:650px;
-margin:42px auto 12px;
+
+margin:
+42px auto 12px;
+
 font-style:italic;
+
 }
 
 .carrusel-historia{
+
 position:relative;
-width:calc(100% + 40px);
+
+width:
+calc(100% + 40px);
+
 margin-left:-20px;
+
 overflow:hidden;
-padding:22px 0 35px;
+
+padding:
+22px 0 35px;
+
 }
 
 .carrusel-historia::before,
 .carrusel-historia::after{
+
 content:"";
+
 position:absolute;
+
 top:0;
 bottom:0;
+
 width:45px;
+
 z-index:5;
+
 pointer-events:none;
+
 }
 
 .carrusel-historia::before{
+
 left:0;
-background:linear-gradient(90deg,var(--papel),rgba(247,246,242,0));
+
+background:
+linear-gradient(
+90deg,
+var(--papel),
+rgba(247,246,242,0)
+);
+
 }
 
 .carrusel-historia::after{
+
 right:0;
-background:linear-gradient(270deg,var(--papel),rgba(247,246,242,0));
+
+background:
+linear-gradient(
+270deg,
+var(--papel),
+rgba(247,246,242,0)
+);
+
 }
 
 .carrusel-pista{
+
 display:flex;
+
 width:max-content;
+
 gap:16px;
+
 align-items:center;
-animation:historiaCarrusel 19s linear infinite;
+
+animation:
+historiaCarrusel
+19s linear infinite;
+
 will-change:transform;
+
 }
 
 .carrusel-foto{
+
 position:relative;
+
 flex:0 0 245px;
-padding:8px 8px 24px;
+
+padding:
+8px 8px 24px;
+
 background:#fff;
-border:1px solid #ddd9d2;
-box-shadow:0 12px 25px rgba(0,0,0,.09);
+
+border:
+1px solid #ddd9d2;
+
+box-shadow:
+0 12px 25px rgba(0,0,0,.09);
+
 }
 
 .carrusel-foto:nth-child(3n+1){
+
 transform:rotate(-2.2deg);
+
 }
 
 .carrusel-foto:nth-child(3n+2){
+
 transform:rotate(.8deg);
+
 }
 
 .carrusel-foto:nth-child(3n+3){
+
 transform:rotate(2deg);
+
 }
 
 .carrusel-foto img{
+
 width:100%;
+
 height:290px;
+
 object-fit:cover;
+
 display:block;
+
 }
 
 .carrusel-historia:hover .carrusel-pista,
 .carrusel-historia:active .carrusel-pista{
+
 animation-play-state:paused;
+
 }
 
 @keyframes historiaCarrusel{
+
 from{
 transform:translateX(0);
 }
+
 to{
-transform:translateX(calc(-50% - 8px));
+transform:
+translateX(
+calc(-50% - 8px)
+);
 }
+
 }
 
 
@@ -955,63 +1456,115 @@ transform:translateX(calc(-50% - 8px));
 ========================================================= */
 
 .rsvp{
+
 background:var(--blanco-roto);
+
 text-align:center;
+
 }
 
 .rsvp-tarjeta{
+
 max-width:660px;
+
 margin:40px auto 0;
-padding:45px 34px;
+
+padding:
+45px 34px;
+
 background:#fff;
-border:1px solid #ded9d2;
-box-shadow:var(--sombra);
+
+border:
+1px solid #ded9d2;
+
+box-shadow:
+var(--sombra);
+
 }
 
 .rsvp-fecha{
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',serif;
+
 font-size:19px;
+
 letter-spacing:5px;
+
 margin-bottom:21px;
+
 }
 
 .rsvp .script{
+
 font-size:43px;
+
 }
 
 .rsvp .texto{
-margin:22px auto 30px;
+
+margin:
+22px auto 30px;
+
 max-width:530px;
+
 }
 
 .boton-principal{
+
 position:relative;
+
 display:inline-block;
-padding:17px 29px;
+
+padding:
+17px 29px;
+
 border:0;
+
 background:var(--negro);
+
 color:#fff;
+
 text-decoration:none;
+
 font-size:10px;
+
 letter-spacing:2.2px;
+
 text-transform:uppercase;
+
 cursor:pointer;
+
 }
 
 .boton-principal::after{
+
 content:"";
+
 position:absolute;
+
 inset:4px;
-border:1px solid rgba(255,255,255,.56);
+
+border:
+1px solid rgba(255,255,255,.56);
+
 pointer-events:none;
+
 }
 
 .rsvp-nota{
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',serif;
+
 font-size:14px;
+
 font-style:italic;
+
 color:#77706b;
+
 margin-top:14px;
+
 }
 
 
@@ -1020,15 +1573,22 @@ margin-top:14px;
 ========================================================= */
 
 .onda{
+
 height:65px;
+
 background:
 radial-gradient(
 45px 25px at 50% 0,
 transparent 98%,
 var(--papel) 100%
 );
-background-size:90px 65px;
-background-position:center top;
+
+background-size:
+90px 65px;
+
+background-position:
+center top;
+
 }
 
 
@@ -1037,45 +1597,81 @@ background-position:center top;
 ========================================================= */
 
 .regalo{
+
 background:var(--papel);
+
 text-align:center;
+
 overflow:hidden;
+
 }
 
 .regalo .contenido{
+
 padding-bottom:18px;
+
 }
 
 .regalo-cabecera{
+
 max-width:850px;
+
 margin:auto;
-padding:0 20px;
+
+padding:
+0 20px;
+
 }
 
 .regalo-imagen-grande{
+
 width:100%;
-margin:34px auto 0;
+
+margin:
+34px auto 0;
+
 }
 
 .regalo-imagen-grande img{
+
 width:min(960px,96vw);
+
 height:auto;
+
 display:block;
-margin:0 auto;
+
+margin:
+0 auto;
+
 }
 
 .copiar{
-margin:29px auto 70px;
+
+margin:
+29px auto 70px;
+
 position:relative;
+
 display:inline-block;
-padding:14px 25px;
-border:1px solid var(--negro);
+
+padding:
+14px 25px;
+
+border:
+1px solid var(--negro);
+
 background:transparent;
+
 font-size:10px;
+
 letter-spacing:2px;
+
 text-transform:uppercase;
+
 cursor:pointer;
+
 color:var(--negro);
+
 }
 
 
@@ -1084,74 +1680,138 @@ color:var(--negro);
 ========================================================= */
 
 .contacto{
+
 background:#fff;
+
 text-align:center;
+
 }
 
 .contacto .texto{
+
 max-width:620px;
-margin:27px auto 0;
+
+margin:
+27px auto 0;
+
 }
 
 .contactos-grid{
+
 display:grid;
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:27px;
+
 max-width:650px;
-margin:45px auto 0;
+
+margin:
+45px auto 0;
+
 }
 
 .contacto-persona{
+
 position:relative;
-background:var(--blanco-roto);
-border:1px solid #ddd8d1;
-padding:40px 20px 29px;
-box-shadow:0 8px 22px rgba(0,0,0,.05);
+
+background:
+var(--blanco-roto);
+
+border:
+1px solid #ddd8d1;
+
+padding:
+40px 20px 29px;
+
+box-shadow:
+0 8px 22px rgba(0,0,0,.05);
+
 }
 
 .contacto-persona::before{
+
 content:"";
+
 position:absolute;
+
 top:-10px;
+
 left:50%;
+
 width:82px;
 height:22px;
-transform:translateX(-50%) rotate(-2deg);
-background:rgba(219,205,187,.66);
+
+transform:
+translateX(-50%)
+rotate(-2deg);
+
+background:
+rgba(219,205,187,.66);
+
 }
 
 .contacto-persona:nth-child(2)::before{
-transform:translateX(-50%) rotate(2deg);
+
+transform:
+translateX(-50%)
+rotate(2deg);
+
 }
 
 .contacto-nombre{
-font-family:'Parisienne',cursive;
+
+font-family:
+'Parisienne',cursive;
+
 font-size:41px;
+
 line-height:1;
+
 }
 
 .contacto-telefono{
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',serif;
+
 font-size:20px;
+
 letter-spacing:1px;
-margin:13px 0 20px;
+
+margin:
+13px 0 20px;
+
 }
 
 .whatsapp{
+
 display:inline-flex;
+
 align-items:center;
+
 gap:8px;
+
 text-decoration:none;
+
 color:var(--negro);
+
 font-size:9px;
+
 letter-spacing:1.7px;
+
 text-transform:uppercase;
+
 }
 
 .whatsapp svg{
+
 width:20px;
 height:20px;
+
 fill:var(--negro);
+
 }
 
 
@@ -1160,59 +1820,117 @@ fill:var(--negro);
 ========================================================= */
 
 .final{
+
 position:relative;
-padding:112px 20px 75px;
+
+padding:
+112px 20px 75px;
+
 background:#20201e;
+
 color:#fff;
+
 text-align:center;
+
 overflow:hidden;
+
 }
 
 .final::before{
+
 content:"";
+
 position:absolute;
+
 top:0;
 left:0;
 right:0;
+
 height:84px;
-background-image:url('images/granadas-banner.jpg?v=5');
+
+background-image:
+url('images/granadas-banner.jpg?v=5');
+
 background-repeat:repeat-x;
-background-position:center center;
-background-size:auto 112px;
-filter:grayscale(1) invert(1) contrast(1.45) brightness(.85);
+
+background-position:
+center center;
+
+background-size:
+auto 112px;
+
+filter:
+grayscale(1)
+invert(1)
+contrast(1.45)
+brightness(.85);
+
 opacity:.32;
+
 mix-blend-mode:screen;
+
 pointer-events:none;
+
 }
 
 .final-agradecimiento{
+
 position:relative;
+
 z-index:2;
+
 max-width:540px;
-margin:0 auto 16px;
-font-family:'Cormorant Garamond',serif;
+
+margin:
+0 auto 16px;
+
+font-family:
+'Cormorant Garamond',serif;
+
 font-size:21px;
+
 line-height:1.55;
-color:rgba(255,255,255,.86);
+
+color:
+rgba(255,255,255,.86);
+
 }
 
 .final-gracias{
+
 position:relative;
+
 z-index:2;
-font-family:'Parisienne',cursive;
-font-size:clamp(60px,14vw,90px);
+
+font-family:
+'Parisienne',cursive;
+
+font-size:
+clamp(60px,14vw,90px);
+
 line-height:1;
+
 margin-top:4px;
+
 color:#fff;
+
 }
 
 .final-fecha{
+
 position:relative;
+
 z-index:2;
+
 margin-top:25px;
-font-family:'Cormorant Garamond',serif;
+
+font-family:
+'Cormorant Garamond',serif;
+
 font-size:26px;
+
 letter-spacing:5px;
+
 }
 
 
@@ -1223,213 +1941,384 @@ letter-spacing:5px;
 @media(max-width:650px){
 
 .contenido{
-padding:72px 14px;
+
+padding:
+72px 14px;
+
 }
 
 .titulo{
+
 font-size:48px;
+
 }
 
 .texto{
+
 font-size:19px;
+
 }
 
+
+/* INTRO */
+
 .inicio-texto{
+
 font-size:12px;
+
 letter-spacing:3px;
+
 top:7%;
+
 }
 
 .pulsa{
+
 font-size:10px;
+
 letter-spacing:2.2px;
+
 bottom:6%;
+
 }
 
-.escena-sobre{
+.escena-intro{
+
 width:158vw;
+
 max-width:none;
+
 }
 
-.sobre-construido{
-width:72%;
-left:14%;
-top:29%;
+.tarjeta-intro{
+
+width:44%;
+
+height:57%;
+
 }
 
-.sello{
-width:62px;
-height:62px;
+.tarjeta-intro-nombres{
+
+font-size:35px;
+
 }
 
-.sello::before{
-font-size:23px;
+.tarjeta-intro-fecha{
+
+font-size:15px;
+
+letter-spacing:3px;
+
 }
+
+
+/* HERO */
 
 .hero{
-padding:72px 14px 60px;
+
+padding:
+72px 14px 60px;
+
 }
 
 .hero-nombres{
-font-size:clamp(58px,18vw,82px);
+
+font-size:
+clamp(58px,18vw,82px);
+
 }
 
 .hero-ampersand{
+
 font-size:.42em;
-margin:21px 0 17px;
+
+margin:
+21px 0 17px;
+
 }
 
 .hero-foto{
+
 width:88vw;
+
 margin-top:40px;
+
 }
 
 .hero-foto img{
+
 height:410px;
+
 }
 
+
+/* GRANADAS */
+
 .granadas-banner{
+
 height:95px;
-background-size:auto 125px;
+
+background-size:
+auto 125px;
+
 }
 
 .granadas-banner-fino{
+
 height:58px;
-background-size:auto 78px;
+
+background-size:
+auto 78px;
+
 }
 
+
+/* CONTADOR */
+
 .contador{
+
 gap:5px;
+
 }
 
 .contador-item{
-padding:19px 3px 16px;
+
+padding:
+19px 3px 16px;
+
 }
 
 .contador-numero{
+
 font-size:38px;
+
 }
 
 .contador-label{
+
 font-size:7px;
+
 letter-spacing:1.2px;
+
 }
 
+
+/* LUGARES */
+
 .lugares-grid{
+
 grid-template-columns:1fr;
+
 gap:45px;
+
 max-width:410px;
+
 }
 
 .tarjeta-imagen-evento:first-child,
 .tarjeta-imagen-evento:last-child{
+
 transform:none;
+
 }
 
+
+/* BUS */
+
 .bus-imagenes{
-grid-template-columns:1fr 1fr;
+
+grid-template-columns:
+1fr 1fr;
+
 gap:9px;
+
 }
 
 .bus-imagen{
-border-radius:18px;
+
+border-radius:26px;
+
 }
 
 .bus-imagen img{
-border-radius:18px;
+
+border-radius:26px;
+
 }
 
+
+/* HISTORIA */
+
 .infancia{
+
 gap:10px;
+
 }
 
 .foto-papel{
+
 width:48%;
-padding:6px 6px 21px;
+
+padding:
+6px 6px 21px;
+
 }
 
 .foto-papel img{
+
 height:230px;
+
 }
 
 .historia-frase{
+
 font-size:21px;
-padding:0 12px;
+
+padding:
+0 12px;
+
 }
 
 .carrusel-historia{
-width:calc(100% + 28px);
+
+width:
+calc(100% + 28px);
+
 margin-left:-14px;
-padding:17px 0 30px;
+
+padding:
+17px 0 30px;
+
 }
 
 .carrusel-pista{
+
 gap:12px;
+
 animation-duration:17s;
+
 }
 
 .carrusel-foto{
+
 flex:0 0 68vw;
+
 max-width:265px;
-padding:7px 7px 21px;
+
+padding:
+7px 7px 21px;
+
 }
 
 .carrusel-foto img{
+
 height:300px;
+
 }
 
 .carrusel-historia::before,
 .carrusel-historia::after{
+
 width:24px;
+
 }
 
+
+/* RSVP */
+
 .rsvp-tarjeta{
-padding:38px 20px;
+
+padding:
+38px 20px;
+
 }
 
 .rsvp .script{
+
 font-size:37px;
+
 }
 
+
+/* REGALO */
+
 .regalo{
+
 padding-left:0;
 padding-right:0;
+
 }
 
 .regalo-cabecera{
-padding:0 14px;
+
+padding:
+0 14px;
+
 }
 
 .regalo-imagen-grande{
+
 margin-top:28px;
+
 }
 
 .regalo-imagen-grande img{
+
 width:96vw;
+
 max-width:none;
+
 }
+
+
+/* CONTACTO */
 
 .contactos-grid{
+
 grid-template-columns:1fr;
+
 max-width:330px;
+
 }
 
+
+/* FINAL */
+
 .final{
-padding:94px 20px 70px;
+
+padding:
+94px 20px 70px;
+
 }
 
 .final::before{
+
 height:68px;
-background-size:auto 92px;
+
+background-size:
+auto 92px;
+
 opacity:.34;
+
 }
+
+
+/* MÚSICA */
 
 .control-musica{
+
 right:13px;
 bottom:13px;
+
 }
 
 }
+
+
+/* =========================================================
+   REDUCIR MOVIMIENTO
+========================================================= */
 
 @media(prefers-reduced-motion:reduce){
 
@@ -1438,22 +2327,27 @@ scroll-behavior:auto;
 }
 
 .reveal{
+
 opacity:1;
+
 translate:0 0;
+
 transition:none;
+
 }
 
 .carrusel-pista{
+
 animation-duration:40s;
-}
 
 }
 
-
-/* FIN CSS */
+}
 
 </style>
+
 </head>
+
 
 <body class="intro-activa">
 
@@ -1463,8 +2357,14 @@ animation-duration:40s;
 ====================================================== -->
 
 <audio id="musica" loop preload="auto">
-<source src="Screen_Recording_20260822_101901_YouTube.mp3?v=1" type="audio/mpeg">
+
+<source
+src="Screen_Recording_20260822_101901_YouTube.mp3?v=2"
+type="audio/mpeg"
+>
+
 </audio>
+
 
 <button
 id="controlMusica"
@@ -1473,80 +2373,96 @@ type="button"
 aria-label="Pausar o reproducir música"
 >
 
-<svg class="icono-sonido" viewBox="0 0 24 24" aria-hidden="true">
+<svg
+class="icono-sonido"
+viewBox="0 0 24 24"
+aria-hidden="true"
+>
+
 <path d="M5 10v4h3l4 3V7l-4 3H5Z"></path>
+
 <path d="M15 9.5c1.2 1.3 1.2 3.7 0 5"></path>
+
 <path d="M17.5 7c2.8 2.8 2.8 7.2 0 10"></path>
+
 </svg>
 
-<svg class="icono-play" viewBox="0 0 24 24" aria-hidden="true">
+
+<svg
+class="icono-play"
+viewBox="0 0 24 24"
+aria-hidden="true"
+>
+
 <path d="M8 5v14l11-7L8 5Z"></path>
+
 </svg>
 
 </button>
 
 
 <!-- ======================================================
-     INTRO
+     INTRO SOBRE
 ====================================================== -->
 
 <section id="inicio">
 
 <div class="inicio-contenido">
 
+
 <div class="inicio-texto">
 Una invitación para ti
 </div>
 
-<div class="escena-sobre">
+
+<div class="escena-intro">
+
+
+<!--
+La tarjeta está DETRÁS del sobre real.
+No sustituimos el sobre por otro dibujo.
+-->
+
+<div class="tarjeta-intro">
+
+<div class="tarjeta-intro-contenido">
+
+<div class="tarjeta-intro-nombres">
+
+Joaquín
+
+<span class="tarjeta-intro-amp">
+&
+</span>
+
+Marina
+
+</div>
+
+<div class="tarjeta-intro-fecha">
+19 · 12 · 2026
+</div>
+
+</div>
+
+</div>
+
+
+<div class="sobre-real">
 
 <img
-class="sobre-foto"
-src="images/55f9615c-4d2a-439f-bd52-fe5c04d80ac5.png?v=6"
+src="images/55f9615c-4d2a-439f-bd52-fe5c04d80ac5.png?v=7"
 alt="Sobre de Joaquín y Marina"
 >
 
-<div class="sobre-construido">
-
-<div class="tarjeta-sobre">
-
-<div class="tarjeta-interior">
-<div class="jm">Joaquín & Marina</div>
-<div class="fecha">19 · 12 · 2026</div>
 </div>
+
+
+<div class="destello-sello"></div>
+
 
 </div>
 
-<div class="sobre-cuerpo"></div>
-
-<div class="solapa">
-
-<svg
-viewBox="0 0 1000 500"
-preserveAspectRatio="none"
-aria-hidden="true"
->
-<path
-d="
-M 0 0
-L 1000 0
-L 1000 120
-C 905 152, 805 186, 712 227
-C 624 265, 555 309, 500 364
-C 445 309, 376 265, 288 227
-C 195 186, 95 152, 0 120
-Z
-">
-</path>
-</svg>
-
-</div>
-
-<div class="sello"></div>
-
-</div>
-
-</div>
 
 <button
 id="botonAbrir"
@@ -1555,9 +2471,11 @@ type="button"
 aria-label="Abrir invitación"
 ></button>
 
+
 <div class="pulsa">
 Pulsa el sello para abrir
 </div>
+
 
 </div>
 
@@ -1576,11 +2494,19 @@ Pulsa el sello para abrir
 19 · 12 · 2026
 </div>
 
+
 <h1 class="hero-nombres">
+
 Joaquín
-<span class="hero-ampersand">&</span>
+
+<span class="hero-ampersand">
+&
+</span>
+
 Marina
+
 </h1>
+
 
 <div class="hero-foto reveal">
 
@@ -1607,21 +2533,30 @@ alt="Joaquín y Marina"
 
 <div class="contenido">
 
+
 <h2 class="titulo marco-ilustrado reveal">
 Nuestro gran día
 </h2>
+
 
 <div class="script reveal">
 una fecha para recordar
 </div>
 
+
 <div class="separador"></div>
 
+
 <p class="texto reveal">
+
 Hay momentos que merecen ser compartidos con las personas que más queremos.
+
 <br><br>
+
 Nos hace muchísima ilusión celebrar este día contigo y comenzar juntos esta nueva etapa.
+
 </p>
+
 
 </div>
 
@@ -1636,31 +2571,78 @@ Nos hace muchísima ilusión celebrar este día contigo y comenzar juntos esta n
 
 <div class="contenido">
 
+
 <h2 class="titulo reveal">
 Falta muy poquito
 </h2>
 
+
 <div class="contador reveal">
 
-<div class="contador-item">
-<span id="dias" class="contador-numero">0</span>
-<span class="contador-label">días</span>
-</div>
 
 <div class="contador-item">
-<span id="horas" class="contador-numero">00</span>
-<span class="contador-label">horas</span>
+
+<span
+id="dias"
+class="contador-numero"
+>
+0
+</span>
+
+<span class="contador-label">
+días
+</span>
+
 </div>
 
-<div class="contador-item">
-<span id="minutos" class="contador-numero">00</span>
-<span class="contador-label">minutos</span>
-</div>
 
 <div class="contador-item">
-<span id="segundos" class="contador-numero">00</span>
-<span class="contador-label">segundos</span>
+
+<span
+id="horas"
+class="contador-numero"
+>
+00
+</span>
+
+<span class="contador-label">
+horas
+</span>
+
 </div>
+
+
+<div class="contador-item">
+
+<span
+id="minutos"
+class="contador-numero"
+>
+00
+</span>
+
+<span class="contador-label">
+minutos
+</span>
+
+</div>
+
+
+<div class="contador-item">
+
+<span
+id="segundos"
+class="contador-numero"
+>
+00
+</span>
+
+<span class="contador-label">
+segundos
+</span>
+
+</div>
+
 
 </div>
 
@@ -1680,11 +2662,14 @@ Falta muy poquito
 
 <div class="contenido">
 
+
 <h2 class="titulo reveal">
 El gran día
 </h2>
 
+
 <div class="lugares-grid">
+
 
 <div class="tarjeta-imagen-evento reveal">
 
@@ -1692,6 +2677,7 @@ El gran día
 src="images/ceremonia-icono.png?v=5"
 alt="Ceremonia en Iglesia de San Buenaventura"
 >
+
 
 <a
 class="boton-mapa"
@@ -1712,6 +2698,7 @@ src="images/celebracion-icono.png?v=5"
 alt="Celebración en Hacienda Torre de las Arcas"
 >
 
+
 <a
 class="boton-mapa"
 href="https://www.google.com/maps/search/?api=1&query=Hacienda+Torre+de+las+Arcas+Bollullos+de+la+Mitacion"
@@ -1722,6 +2709,7 @@ Cómo llegar
 </a>
 
 </div>
+
 
 </div>
 
@@ -1741,9 +2729,11 @@ Cómo llegar
 
 <div class="contenido">
 
+
 <h2 class="titulo reveal">
 Autobuses
 </h2>
+
 
 <div class="script reveal">
 solo preocúpate de disfrutar
@@ -1752,16 +2742,35 @@ solo preocúpate de disfrutar
 
 <div class="bus-ilustracion reveal">
 
-<svg viewBox="0 0 120 85" aria-hidden="true">
-<rect x="13" y="20" width="94" height="45" rx="10"></rect>
+<svg
+viewBox="0 0 120 85"
+aria-hidden="true"
+>
+
+<rect
+x="13"
+y="20"
+width="94"
+height="45"
+rx="10"
+></rect>
+
 <path d="M21 24h62c9 0 15 5 17 14"></path>
+
 <path d="M25 32h25v18H25z"></path>
+
 <path d="M56 32h25v18H56z"></path>
+
 <path d="M87 33h11v17H87"></path>
+
 <path d="M18 55h84"></path>
+
 <circle cx="34" cy="66" r="8"></circle>
+
 <circle cx="88" cy="66" r="8"></circle>
+
 <path d="M15 60H9"></path>
+
 </svg>
 
 </div>
@@ -1770,8 +2779,10 @@ solo preocúpate de disfrutar
 <div class="bus-panel reveal">
 
 <p class="texto">
+
 Habrá servicio de autobús desde Sevilla y Tocina.
 Publicaremos aquí los horarios cuando estén confirmados.
+
 </p>
 
 </div>
@@ -1779,13 +2790,26 @@ Publicaremos aquí los horarios cuando estén confirmados.
 
 <div class="bus-imagenes">
 
-<div class="bus-imagen reveal">
-<img src="images/SEV.png?v=5" alt="Autobús desde Sevilla">
-</div>
 
 <div class="bus-imagen reveal">
-<img src="images/TC.png?v=5" alt="Autobús desde Tocina">
+
+<img
+src="images/SEV.png?v=5"
+alt="Autobús desde Sevilla"
+>
+
 </div>
+
+
+<div class="bus-imagen reveal">
+
+<img
+src="images/TC.png?v=5"
+alt="Autobús desde Tocina"
+>
+
+</div>
+
 
 </div>
 
@@ -1795,16 +2819,18 @@ Publicaremos aquí los horarios cuando estén confirmados.
 
 
 <!-- ======================================================
-     HISTORIA
+     NUESTRA HISTORIA
 ====================================================== -->
 
 <section class="historia">
 
 <div class="contenido">
 
+
 <h2 class="titulo reveal">
 Nuestra historia
 </h2>
+
 
 <div class="historia-intro script reveal">
 Quién nos iba a decir…
@@ -1813,56 +2839,111 @@ Quién nos iba a decir…
 
 <div class="infancia">
 
+
 <div class="foto-papel reveal">
+
 <img
 src="images/1786297988259.png"
 alt="Joaquín de pequeño"
 >
+
 </div>
 
+
 <div class="foto-papel reveal">
+
 <img
 src="images/FB_IMG_1786299085334.jpg"
 alt="Marina de pequeña"
 >
+
 </div>
+
 
 </div>
 
 
 <div class="historia-frase reveal">
+
 aquel 28 de febrero de 2014 que acabaríamos llegando hasta aquí.
+
 </div>
 
 
 <div class="carrusel-historia reveal">
 
+
 <div class="carrusel-pista">
 
-<div class="carrusel-foto">
-<img src="images/20240616133050505.jpeg" alt="Joaquín y Marina">
-</div>
 
 <div class="carrusel-foto">
-<img src="images/20260712_215553.jpg" alt="Joaquín y Marina">
+
+<img
+src="images/20240616133050505.jpeg"
+alt="Joaquín y Marina"
+>
+
 </div>
+
 
 <div class="carrusel-foto">
-<img src="images/Screenshot_20260807_135313_Gallery.jpg" alt="Joaquín y Marina">
+
+<img
+src="images/20260712_215553.jpg"
+alt="Joaquín y Marina"
+>
+
 </div>
 
 
-<div class="carrusel-foto" aria-hidden="true">
-<img src="images/20240616133050505.jpeg" alt="">
+<div class="carrusel-foto">
+
+<img
+src="images/Screenshot_20260807_135313_Gallery.jpg"
+alt="Joaquín y Marina"
+>
+
 </div>
 
-<div class="carrusel-foto" aria-hidden="true">
-<img src="images/20260712_215553.jpg" alt="">
+
+<div
+class="carrusel-foto"
+aria-hidden="true"
+>
+
+<img
+src="images/20240616133050505.jpeg"
+alt=""
+>
+
 </div>
 
-<div class="carrusel-foto" aria-hidden="true">
-<img src="images/Screenshot_20260807_135313_Gallery.jpg" alt="">
+
+<div
+class="carrusel-foto"
+aria-hidden="true"
+>
+
+<img
+src="images/20260712_215553.jpg"
+alt=""
+>
+
 </div>
+
+
+<div
+class="carrusel-foto"
+aria-hidden="true"
+>
+
+<img
+src="images/Screenshot_20260807_135313_Gallery.jpg"
+alt=""
+>
+
+</div>
+
 
 </div>
 
@@ -1884,6 +2965,7 @@ aquel 28 de febrero de 2014 que acabaríamos llegando hasta aquí.
 
 <div class="contenido">
 
+
 <h2 class="titulo reveal">
 ¿Nos acompañas?
 </h2>
@@ -1891,17 +2973,23 @@ aquel 28 de febrero de 2014 que acabaríamos llegando hasta aquí.
 
 <div class="rsvp-tarjeta reveal">
 
+
 <div class="rsvp-fecha">
 19 · 12 · 2026
 </div>
+
 
 <div class="script">
 Nos hará muchísima ilusión
 </div>
 
+
 <p class="texto">
+
 Confirma tu asistencia y cuéntanos todo lo necesario para que podamos cuidar cada detalle.
+
 </p>
+
 
 <a
 class="boton-principal"
@@ -1909,12 +2997,18 @@ href="https://forms.gle/1RrKdaNcS1fuMRbn9"
 target="_blank"
 rel="noopener"
 >
+
 Confirmar asistencia
+
 </a>
 
+
 <div class="rsvp-nota">
+
 El formulario se abrirá en una nueva pestaña.
+
 </div>
+
 
 </div>
 
@@ -1932,7 +3026,9 @@ El formulario se abrirá en una nueva pestaña.
 
 <section class="regalo">
 
+
 <div class="contenido">
+
 
 <div class="regalo-cabecera">
 
@@ -1941,6 +3037,7 @@ Un detalle
 </h2>
 
 </div>
+
 
 </div>
 
@@ -1963,6 +3060,7 @@ type="button"
 Copiar IBAN
 </button>
 
+
 </section>
 
 
@@ -1974,27 +3072,35 @@ Copiar IBAN
 
 <div class="contenido">
 
+
 <h2 class="titulo reveal">
 ¿Necesitas algo?
 </h2>
 
+
 <p class="texto reveal">
+
 Si tienes cualquier duda antes del gran día, escríbenos.
 Estaremos encantados de ayudarte.
+
 </p>
 
 
 <div class="contactos-grid">
 
+
 <div class="contacto-persona reveal">
+
 
 <div class="contacto-nombre">
 Joaquín
 </div>
 
+
 <div class="contacto-telefono">
 605 245 594
 </div>
+
 
 <a
 class="whatsapp"
@@ -2003,26 +3109,37 @@ target="_blank"
 rel="noopener"
 >
 
-<svg viewBox="0 0 32 32" aria-hidden="true">
+
+<svg
+viewBox="0 0 32 32"
+aria-hidden="true"
+>
+
 <path d="M16.04 3.2c-7.04 0-12.76 5.66-12.76 12.63 0 2.23.59 4.41 1.71 6.33L3.2 28.8l6.84-1.78a12.84 12.84 0 0 0 6 1.49h.01c7.03 0 12.75-5.67 12.75-12.64S23.08 3.2 16.04 3.2Zm0 23.17h-.01a10.72 10.72 0 0 1-5.46-1.49l-.39-.23-4.06 1.06 1.08-3.95-.25-.41a10.48 10.48 0 0 1-1.63-5.52c0-5.8 4.79-10.52 10.72-10.52s10.71 4.72 10.71 10.52-4.78 10.54-10.71 10.54Zm5.88-7.89c-.32-.16-1.9-.93-2.2-1.04-.29-.1-.5-.16-.71.16-.21.32-.82 1.04-1 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.49-2.57-1.57-.95-.84-1.59-1.88-1.78-2.2-.19-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.69-.98-2.31-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.11 1.08-1.11 2.63s1.14 3.05 1.3 3.26c.16.21 2.24 3.39 5.43 4.75.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.9-.77 2.17-1.51.27-.75.27-1.39.19-1.52-.08-.14-.29-.21-.61-.37Z"/>
+
 </svg>
+
 
 WhatsApp
 
 </a>
+
 
 </div>
 
 
 <div class="contacto-persona reveal">
 
+
 <div class="contacto-nombre">
 Marina
 </div>
 
+
 <div class="contacto-telefono">
 605 253 664
 </div>
+
 
 <a
 class="whatsapp"
@@ -2031,15 +3148,24 @@ target="_blank"
 rel="noopener"
 >
 
-<svg viewBox="0 0 32 32" aria-hidden="true">
+
+<svg
+viewBox="0 0 32 32"
+aria-hidden="true"
+>
+
 <path d="M16.04 3.2c-7.04 0-12.76 5.66-12.76 12.63 0 2.23.59 4.41 1.71 6.33L3.2 28.8l6.84-1.78a12.84 12.84 0 0 0 6 1.49h.01c7.03 0 12.75-5.67 12.75-12.64S23.08 3.2 16.04 3.2Zm0 23.17h-.01a10.72 10.72 0 0 1-5.46-1.49l-.39-.23-4.06 1.06 1.08-3.95-.25-.41a10.48 10.48 0 0 1-1.63-5.52c0-5.8 4.79-10.52 10.72-10.52s10.71 4.72 10.71 10.52-4.78 10.54-10.71 10.54Zm5.88-7.89c-.32-.16-1.9-.93-2.2-1.04-.29-.1-.5-.16-.71.16-.21.32-.82 1.04-1 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.49-2.57-1.57-.95-.84-1.59-1.88-1.78-2.2-.19-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.69-.98-2.31-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.11 1.08-1.11 2.63s1.14 3.05 1.3 3.26c.16.21 2.24 3.39 5.43 4.75.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.9-.77 2.17-1.51.27-.75.27-1.39.19-1.52-.08-.14-.29-.21-.61-.37Z"/>
+
 </svg>
+
 
 WhatsApp
 
 </a>
 
+
 </div>
+
 
 </div>
 
@@ -2054,56 +3180,78 @@ WhatsApp
 
 <footer class="final">
 
+
 <p class="final-agradecimiento reveal">
+
 Agradecemos mucho que nos acompañéis en este día tan bonito para nosotros.
+
 </p>
+
 
 <div class="final-gracias reveal">
 Gracias
 </div>
 
+
 <div class="final-fecha reveal">
 19 · 12 · 2026
 </div>
+
 
 </footer>
 
 
 <script>
 
+
 /* =========================================================
-   INTRO + MÚSICA
+   INTRO
 ========================================================= */
 
-const inicio = document.getElementById('inicio');
-const botonAbrir = document.getElementById('botonAbrir');
+const inicio =
+document.getElementById('inicio');
 
-const musica = document.getElementById('musica');
-const controlMusica = document.getElementById('controlMusica');
+const botonAbrir =
+document.getElementById('botonAbrir');
+
+const musica =
+document.getElementById('musica');
+
+const controlMusica =
+document.getElementById('controlMusica');
 
 let introIniciada = false;
-let musicaActiva = false;
 
 
-/* Iniciar música con la interacción del usuario */
+/* =========================================================
+   MÚSICA
+========================================================= */
 
 function iniciarMusica(){
 
 musica.volume = 0.34;
 
-const intento = musica.play();
+const intento =
+musica.play();
 
-if(intento && typeof intento.then === 'function'){
+if(
+intento &&
+typeof intento.then === 'function'
+){
 
-intento.then(function(){
+intento
+.then(function(){
 
-musicaActiva = true;
-controlMusica.classList.remove('pausada');
+controlMusica
+.classList
+.remove('pausada');
 
-}).catch(function(){
+})
+.catch(function(){
 
-musicaActiva = false;
-controlMusica.classList.add('pausada');
+controlMusica
+.classList
+.add('pausada');
 
 });
 
@@ -2112,26 +3260,40 @@ controlMusica.classList.add('pausada');
 }
 
 
-/* Cerrar intro */
+/* =========================================================
+   TERMINAR INTRO
+========================================================= */
 
-function finalizarIntro(){
+function cerrarIntro(){
+
+if(
+inicio.classList.contains('oculto')
+){
+return;
+}
 
 inicio.classList.add('saliendo');
 
-document.body.classList.remove('intro-activa');
+document.body
+.classList
+.remove('intro-activa');
 
 setTimeout(function(){
 
 inicio.classList.add('oculto');
 
-controlMusica.classList.add('visible');
+controlMusica
+.classList
+.add('visible');
 
-},850);
+},900);
 
 }
 
 
-/* Secuencia de apertura */
+/* =========================================================
+   ABRIR INVITACIÓN
+========================================================= */
 
 function abrirInvitacion(){
 
@@ -2141,110 +3303,165 @@ return;
 
 introIniciada = true;
 
+
+/* Música exactamente al toque */
+
 iniciarMusica();
+
+
+/* Pequeña respuesta del sobre */
 
 inicio.classList.add('abriendo');
 
 
-/* Aparece la versión animable del sobre */
+/* Empieza a asomar la invitación */
 
 setTimeout(function(){
 
-inicio.classList.add('soltar-sello');
+inicio.classList
+.add('sacando-tarjeta');
 
 },650);
 
 
-/* Se abre la solapa curva */
+/* El sobre baja mientras la tarjeta continúa saliendo */
 
 setTimeout(function(){
 
-inicio.classList.add('abrir-solapa');
+inicio.classList
+.add('bajando-sobre');
 
-},1100);
-
-
-/* Sale la tarjeta */
-
-setTimeout(function(){
-
-inicio.classList.add('sacar-tarjeta');
-
-},2450);
+},1350);
 
 
-/* Entramos en la invitación */
+/* Tarjeta completamente fuera */
 
 setTimeout(function(){
 
-finalizarIntro();
+inicio.classList
+.add('tarjeta-fuera');
 
-},4100);
+},2550);
+
+
+/* Acercamiento mínimo final */
+
+setTimeout(function(){
+
+inicio.classList
+.add('finalizando');
+
+},3150);
+
+
+/* Entramos en la web */
+
+setTimeout(function(){
+
+cerrarIntro();
+
+},3950);
 
 }
 
 
-/* Click + soporte móvil */
+/* Click */
 
-botonAbrir.addEventListener('click',abrirInvitacion);
+botonAbrir
+.addEventListener(
+'click',
+abrirInvitacion
+);
 
-botonAbrir.addEventListener('touchend',function(event){
+
+/* Soporte táctil móvil */
+
+botonAbrir
+.addEventListener(
+'touchend',
+function(event){
 
 event.preventDefault();
 
 abrirInvitacion();
 
-},{
+},
+{
 passive:false
-});
+}
+);
 
 
-/* Fallback para que nunca pueda quedarse bloqueada */
+/* Seguridad: nunca dejar la pantalla bloqueada */
 
 setTimeout(function(){
 
-if(!inicio.classList.contains('oculto') && introIniciada){
+if(
+introIniciada &&
+!inicio.classList.contains('oculto')
+){
 
-finalizarIntro();
+cerrarIntro();
 
 }
 
-},7500);
+},7000);
 
 
-/* Botón música */
+/* =========================================================
+   BOTÓN MÚSICA
+========================================================= */
 
-controlMusica.addEventListener('click',function(){
+controlMusica
+.addEventListener(
+'click',
+function(){
 
 if(musica.paused){
 
-musica.play()
+const intento =
+musica.play();
+
+if(
+intento &&
+typeof intento.then === 'function'
+){
+
+intento
 .then(function(){
 
-musicaActiva = true;
-controlMusica.classList.remove('pausada');
+controlMusica
+.classList
+.remove('pausada');
 
 })
 .catch(function(){
 
-controlMusica.classList.add('pausada');
+controlMusica
+.classList
+.add('pausada');
 
 });
+
+}
 
 }else{
 
 musica.pause();
-musicaActiva = false;
-controlMusica.classList.add('pausada');
+
+controlMusica
+.classList
+.add('pausada');
 
 }
 
-});
+}
+);
 
 
 /* =========================================================
    CUENTA ATRÁS
-   Mantener tal cual
+   NO TOCAR
 ========================================================= */
 
 const FORMATO_SEVILLA =
@@ -2262,22 +3479,34 @@ hourCycle:'h23'
 }
 );
 
+
 function obtenerHoraSevilla(){
 
-const partes = FORMATO_SEVILLA.formatToParts(new Date());
+const partes =
+FORMATO_SEVILLA
+.formatToParts(
+new Date()
+);
 
 const valores = {};
 
-partes.forEach(function(parte){
+partes.forEach(
+function(parte){
 
-if(parte.type !== 'literal'){
+if(
+parte.type !== 'literal'
+){
 
 valores[parte.type] =
-parseInt(parte.value,10);
+parseInt(
+parte.value,
+10
+);
 
 }
 
-});
+}
+);
 
 return valores;
 
@@ -2286,22 +3515,37 @@ return valores;
 
 function fechaRelojSevillaEnUTC(){
 
-const sevilla = obtenerHoraSevilla();
+const sevilla =
+obtenerHoraSevilla();
 
 return Date.UTC(
+
 sevilla.year,
+
 sevilla.month - 1,
+
 sevilla.day,
+
 sevilla.hour,
+
 sevilla.minute,
+
 sevilla.second
+
 );
 
 }
 
 
 const fechaBodaReloj =
-Date.UTC(2026,11,19,12,45,0);
+Date.UTC(
+2026,
+11,
+19,
+12,
+45,
+0
+);
 
 
 function actualizarContador(){
@@ -2310,15 +3554,33 @@ const ahoraReloj =
 fechaRelojSevillaEnUTC();
 
 const diferencia =
-fechaBodaReloj - ahoraReloj;
+fechaBodaReloj -
+ahoraReloj;
 
 
-if(diferencia <= 0){
+if(
+diferencia <= 0
+){
 
-document.getElementById('dias').textContent='0';
-document.getElementById('horas').textContent='00';
-document.getElementById('minutos').textContent='00';
-document.getElementById('segundos').textContent='00';
+document
+.getElementById('dias')
+.textContent =
+'0';
+
+document
+.getElementById('horas')
+.textContent =
+'00';
+
+document
+.getElementById('minutos')
+.textContent =
+'00';
+
+document
+.getElementById('segundos')
+.textContent =
+'00';
 
 return;
 
@@ -2326,40 +3588,82 @@ return;
 
 
 const dias =
-Math.floor(diferencia / 86400000);
+Math.floor(
+diferencia /
+86400000
+);
+
 
 const horas =
 Math.floor(
-(diferencia % 86400000) / 3600000
+(
+diferencia %
+86400000
+) /
+3600000
 );
+
 
 const minutos =
 Math.floor(
-(diferencia % 3600000) / 60000
+(
+diferencia %
+3600000
+) /
+60000
 );
+
 
 const segundos =
 Math.floor(
-(diferencia % 60000) / 1000
+(
+diferencia %
+60000
+) /
+1000
 );
 
 
-document.getElementById('dias').textContent =
+document
+.getElementById('dias')
+.textContent =
 dias;
 
-document.getElementById('horas').textContent =
-String(horas).padStart(2,'0');
 
-document.getElementById('minutos').textContent =
-String(minutos).padStart(2,'0');
+document
+.getElementById('horas')
+.textContent =
+String(horas)
+.padStart(
+2,
+'0'
+);
 
-document.getElementById('segundos').textContent =
-String(segundos).padStart(2,'0');
+
+document
+.getElementById('minutos')
+.textContent =
+String(minutos)
+.padStart(
+2,
+'0'
+);
+
+
+document
+.getElementById('segundos')
+.textContent =
+String(segundos)
+.padStart(
+2,
+'0'
+);
 
 }
 
 
 actualizarContador();
+
 
 setInterval(
 actualizarContador,
@@ -2372,198 +3676,362 @@ actualizarContador,
 ========================================================= */
 
 const botonCopiar =
-document.getElementById('copiarIban');
+document.getElementById(
+'copiarIban'
+);
 
-botonCopiar.addEventListener('click',async function(){
+
+botonCopiar
+.addEventListener(
+'click',
+async function(){
+
 
 const iban =
 'ES9814650100911743407008';
 
+
 try{
 
-await navigator.clipboard.writeText(iban);
 
-botonCopiar.textContent =
+await navigator
+.clipboard
+.writeText(
+iban
+);
+
+
+botonCopiar
+.textContent =
 '✓ Copiado';
 
-setTimeout(function(){
 
-botonCopiar.textContent =
+setTimeout(
+function(){
+
+botonCopiar
+.textContent =
 'Copiar IBAN';
 
-},2000);
+},
+2000
+);
+
 
 }catch(error){
 
+
 const temporal =
-document.createElement('textarea');
+document.createElement(
+'textarea'
+);
 
-temporal.value = iban;
 
-document.body.appendChild(temporal);
+temporal.value =
+iban;
+
+
+document.body
+.appendChild(
+temporal
+);
+
 
 temporal.select();
 
-document.execCommand('copy');
 
-document.body.removeChild(temporal);
+document.execCommand(
+'copy'
+);
 
-botonCopiar.textContent =
+
+document.body
+.removeChild(
+temporal
+);
+
+
+botonCopiar
+.textContent =
 '✓ Copiado';
 
-setTimeout(function(){
 
-botonCopiar.textContent =
+setTimeout(
+function(){
+
+botonCopiar
+.textContent =
 'Copiar IBAN';
 
-},2000);
+},
+2000
+);
+
 
 }
 
-});
+}
+);
 
 
 /* =========================================================
-   ANIMACIONES AL HACER SCROLL
+   REVEAL
 ========================================================= */
 
 const elementosReveal =
 document.querySelectorAll(
+
 '.hero-card,' +
+
 '.hero-foto,' +
+
 '.gran-dia .marco-ilustrado,' +
+
 '.gran-dia .script,' +
+
 '.gran-dia .texto,' +
+
 '.cuenta .titulo,' +
+
 '.cuenta .contador,' +
+
 '.lugares .titulo,' +
+
 '.tarjeta-imagen-evento,' +
+
 '.bus-ilustracion,' +
+
 '.autobuses .titulo,' +
+
 '.autobuses .script,' +
+
 '.bus-panel,' +
+
 '.bus-imagen,' +
+
 '.historia .titulo,' +
+
 '.historia-intro,' +
+
 '.historia .infancia .foto-papel,' +
+
 '.historia-frase,' +
+
 '.carrusel-historia,' +
+
 '.rsvp .titulo,' +
+
 '.rsvp-tarjeta,' +
+
 '.regalo .titulo,' +
+
 '.regalo-imagen-grande,' +
+
 '.copiar,' +
+
 '.contacto .titulo,' +
+
 '.contacto .texto,' +
+
 '.contacto-persona,' +
+
 '.final-agradecimiento,' +
+
 '.final-gracias,' +
+
+'.final-fecha'
+
+);
+
+
+/* =========================================================
+   RETRASOS
+========================================================= */
+
+document
+.querySelectorAll(
+'.tarjeta-imagen-evento'
+)
+.forEach(
+function(elemento,indice){
+
+elemento.style
+.transitionDelay =
+(
+indice * 750
+) +
+'ms';
+
+}
+);
+
+
+document
+.querySelectorAll(
+'.bus-imagen'
+)
+.forEach(
+function(elemento,indice){
+
+elemento.style
+.transitionDelay =
+(
+indice * 100
+) +
+'ms';
+
+}
+);
+
+
+document
+.querySelectorAll(
+'.foto-papel'
+)
+.forEach(
+function(elemento,indice){
+
+elemento.style
+.transitionDelay =
+(
+indice * 120
+) +
+'ms';
+
+}
+);
+
+
+document
+.querySelectorAll(
+'.contacto-persona'
+)
+.forEach(
+function(elemento,indice){
+
+elemento.style
+.transitionDelay =
+(
+indice * 100
+) +
+'ms';
+
+}
+);
+
+
+const finalGracias =
+document.querySelector(
+'.final-gracias'
+);
+
+
+const finalFecha =
+document.querySelector(
 '.final-fecha'
 );
 
 
-/* Retrasos */
-
-document
-.querySelectorAll('.tarjeta-imagen-evento')
-.forEach(function(elemento,indice){
-
-elemento.style.transitionDelay =
-(indice * 750) + 'ms';
-
-});
-
-
-document
-.querySelectorAll('.bus-imagen')
-.forEach(function(elemento,indice){
-
-elemento.style.transitionDelay =
-(indice * 100) + 'ms';
-
-});
-
-
-document
-.querySelectorAll('.foto-papel')
-.forEach(function(elemento,indice){
-
-elemento.style.transitionDelay =
-(indice * 120) + 'ms';
-
-});
-
-
-document
-.querySelectorAll('.contacto-persona')
-.forEach(function(elemento,indice){
-
-elemento.style.transitionDelay =
-(indice * 100) + 'ms';
-
-});
-
-
-const finalGracias =
-document.querySelector('.final-gracias');
-
-const finalFecha =
-document.querySelector('.final-fecha');
-
 if(finalGracias){
-finalGracias.style.transitionDelay =
+
+finalGracias.style
+.transitionDelay =
 '120ms';
+
 }
+
 
 if(finalFecha){
-finalFecha.style.transitionDelay =
+
+finalFecha.style
+.transitionDelay =
 '230ms';
+
 }
 
 
-/* Observer */
+/* =========================================================
+   OBSERVER
+========================================================= */
 
-if('IntersectionObserver' in window){
+if(
+'IntersectionObserver'
+in window
+){
+
 
 const observer =
 new IntersectionObserver(
-function(entries,observador){
 
-entries.forEach(function(entry){
+function(
+entries,
+observador
+){
 
-if(entry.isIntersecting){
+entries.forEach(
+function(entry){
 
-entry.target.classList.add('visible');
+if(
+entry.isIntersecting
+){
 
-observador.unobserve(entry.target);
+entry.target
+.classList
+.add('visible');
+
+observador
+.unobserve(
+entry.target
+);
 
 }
 
-});
+}
+);
 
 },
+
 {
+
 threshold:.13,
-rootMargin:'0px 0px -30px 0px'
+
+rootMargin:
+'0px 0px -30px 0px'
+
+}
+
+);
+
+
+elementosReveal
+.forEach(
+function(elemento){
+
+observer.observe(
+elemento
+);
+
 }
 );
 
 
-elementosReveal.forEach(function(elemento){
-
-observer.observe(elemento);
-
-});
-
 }else{
 
-elementosReveal.forEach(function(elemento){
 
-elemento.classList.add('visible');
+elementosReveal
+.forEach(
+function(elemento){
 
-});
+elemento
+.classList
+.add('visible');
 
 }
+);
+
+
+}
+
 
 </script>
 
