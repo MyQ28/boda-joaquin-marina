@@ -364,21 +364,28 @@ filter:grayscale(1);
 
 
 /* =========================================================
-   INDICADOR DE SCROLL
+   FLECHAS PARA INDICAR QUE HAY QUE BAJAR
 ========================================================= */
 
 .scroll-indicador{
 position:fixed;
 left:50%;
-bottom:24px;
+bottom:25px;
 transform:translateX(-50%);
 z-index:850;
+
 display:flex;
 flex-direction:column;
 align-items:center;
-gap:2px;
+
+gap:0;
+
 pointer-events:none;
+
 opacity:1;
+
+filter:drop-shadow(0 2px 3px rgba(0,0,0,.18));
+
 transition:
 opacity .45s ease,
 transform .45s ease;
@@ -387,59 +394,72 @@ transform .45s ease;
 .scroll-indicador::before{
 content:"";
 display:block;
-width:2px;
-height:19px;
-margin-bottom:4px;
+
+width:3px;
+height:20px;
+
+margin-bottom:3px;
+
+border-radius:5px;
+
 background:linear-gradient(
 to bottom,
-rgba(191,166,134,0),
-rgba(191,166,134,.88)
+rgba(191,150,138,0),
+rgba(191,150,138,1)
 );
 }
 
 .scroll-indicador span{
 display:block;
-width:15px;
-height:15px;
-border-right:2px solid rgba(191,166,134,.95);
-border-bottom:2px solid rgba(191,166,134,.95);
+
+width:22px;
+height:22px;
+
+margin-top:-5px;
+
+border-right:3px solid rgba(191,150,138,1);
+border-bottom:3px solid rgba(191,150,138,1);
+
 transform:rotate(45deg);
-opacity:.28;
-animation:flechaElegante 2.3s ease-in-out infinite;
+
+opacity:.4;
+
+animation:flechaElegante 1.85s ease-in-out infinite;
 }
 
 .scroll-indicador span:nth-child(2){
-animation-delay:.20s;
+animation-delay:.18s;
 }
 
 .scroll-indicador span:nth-child(3){
-animation-delay:.40s;
+animation-delay:.36s;
 }
 
 .scroll-indicador.oculto{
 opacity:0;
-transform:translateX(-50%) translateY(9px);
+transform:translateX(-50%) translateY(10px);
 }
 
 @keyframes flechaElegante{
 
 0%{
-opacity:.28;
-translate:0 -3px;
+opacity:.35;
+translate:0 -4px;
 }
 
-38%{
+40%{
 opacity:1;
+translate:0 1px;
 }
 
-65%{
-opacity:.65;
-translate:0 4px;
+70%{
+opacity:.72;
+translate:0 6px;
 }
 
 100%{
 opacity:.25;
-translate:0 7px;
+translate:0 10px;
 }
 
 }
@@ -504,16 +524,42 @@ text-align:center;
 .contador{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:12px;
+gap:18px;
 max-width:690px;
 margin:43px auto 0;
 }
 
 .contador-item{
+position:relative;
 padding:24px 8px 19px;
 border-top:1px solid var(--linea-suave);
 border-bottom:1px solid var(--linea-suave);
 }
+
+
+/* ROMBOS ENTRE LOS BLOQUES */
+
+.contador-item:not(:last-child)::after{
+content:"";
+position:absolute;
+
+right:-13px;
+top:50%;
+
+width:7px;
+height:7px;
+
+background:var(--papel);
+
+border:1px solid var(--nude-oscuro);
+
+transform:
+translateY(-50%)
+rotate(45deg);
+
+z-index:2;
+}
+
 
 .contador-numero{
 display:block;
@@ -521,6 +567,7 @@ font-family:'Cormorant Garamond',serif;
 font-size:clamp(40px,8vw,67px);
 font-weight:400;
 line-height:1;
+
 font-variant-numeric:lining-nums;
 font-feature-settings:"lnum" 1;
 }
@@ -1140,22 +1187,22 @@ height:410px;
 }
 
 
-/* FLECHITAS */
+/* FLECHAS MÁS GRANDES */
 
 .scroll-indicador{
-bottom:26px;
+bottom:27px;
 }
 
 .scroll-indicador::before{
-width:2px;
-height:17px;
+width:3px;
+height:22px;
 }
 
 .scroll-indicador span{
-width:14px;
-height:14px;
-border-right-width:2px;
-border-bottom-width:2px;
+width:23px;
+height:23px;
+border-right-width:3px;
+border-bottom-width:3px;
 }
 
 
@@ -1175,11 +1222,17 @@ background-size:auto 78px;
 /* CONTADOR */
 
 .contador{
-gap:5px;
+gap:12px;
 }
 
 .contador-item{
 padding:19px 3px 16px;
+}
+
+.contador-item:not(:last-child)::after{
+right:-9px;
+width:6px;
+height:6px;
 }
 
 .contador-numero{
@@ -1400,7 +1453,7 @@ animation-duration:40s;
 
 .scroll-indicador span{
 animation:none;
-opacity:.65;
+opacity:.8;
 }
 
 }
@@ -2102,7 +2155,7 @@ abrirInvitacion
 
 
 /* =========================================================
-   FLECHITAS DE SCROLL
+   FLECHAS SCROLL
 ========================================================= */
 
 function actualizarIndicadorScroll(){
@@ -2572,4 +2625,4 @@ elemento.classList.add('visible');
 </script>
 
 </body>
-   </html>
+</html>
