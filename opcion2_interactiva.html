@@ -54,8 +54,8 @@ img{
 max-width:100%;
 }
 
-button,
-a{
+a,
+button{
 font-family:inherit;
 }
 
@@ -114,6 +114,11 @@ top:50%;
 margin:-4px 0 0 -4px;
 }
 
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
 .reveal{
 opacity:0;
 translate:0 24px;
@@ -130,7 +135,7 @@ translate:0 0;
 
 
 /* =========================================================
-   INTRO
+   INTRO SIMPLE
 ========================================================= */
 
 #inicio{
@@ -140,10 +145,9 @@ z-index:9999;
 display:flex;
 align-items:center;
 justify-content:center;
-background:#fbfaf8;
+background:var(--blanco-roto);
 overflow:hidden;
 opacity:1;
-visibility:visible;
 transition:opacity .9s ease;
 }
 
@@ -186,7 +190,7 @@ inset:0;
 display:flex;
 align-items:center;
 justify-content:center;
-background:#fbfaf8;
+background:var(--blanco-roto);
 z-index:3;
 }
 
@@ -407,7 +411,7 @@ margin:27px auto 0;
 
 
 /* =========================================================
-   CONTADOR
+   CUENTA ATRÁS
 ========================================================= */
 
 .cuenta{
@@ -429,17 +433,21 @@ border-top:1px solid var(--linea-suave);
 border-bottom:1px solid var(--linea-suave);
 }
 
+/* TIPOGRAFÍA ORIGINAL DEL CONTADOR */
+
 .contador-numero{
 display:block;
 font-family:'Cormorant Garamond',serif;
 font-size:clamp(40px,8vw,67px);
-line-height:1;
 font-weight:400;
+line-height:1;
 }
 
 .contador-label{
 display:block;
+font-family:'Montserrat',sans-serif;
 font-size:9px;
+font-weight:300;
 letter-spacing:2px;
 text-transform:uppercase;
 margin-top:10px;
@@ -516,16 +524,17 @@ margin-top:12px;
 }
 
 .bus-ilustracion{
-width:90px;
-margin:28px auto 15px;
+width:96px;
+margin:30px auto 17px;
 }
 
 .bus-ilustracion svg{
 width:100%;
 height:auto;
+display:block;
 fill:none;
 stroke:#292724;
-stroke-width:1.4;
+stroke-width:1.45;
 stroke-linecap:round;
 stroke-linejoin:round;
 }
@@ -621,13 +630,17 @@ object-fit:cover;
 display:block;
 }
 
+/* TIPOGRAFÍA ORIGINAL DE LA FRASE */
+
 .historia-frase{
 font-family:'Cormorant Garamond',serif;
 font-size:24px;
+font-weight:400;
 line-height:1.45;
 max-width:650px;
 margin:42px auto 12px;
 font-style:italic;
+color:var(--negro);
 }
 
 .carrusel-historia{
@@ -889,6 +902,7 @@ transform:translateX(-50%) rotate(2deg);
 .contacto-nombre{
 font-family:'Parisienne',cursive;
 font-size:41px;
+font-weight:400;
 line-height:1;
 }
 
@@ -906,6 +920,7 @@ justify-content:center;
 gap:8px;
 text-decoration:none;
 color:var(--negro);
+font-family:'Montserrat',sans-serif;
 font-size:9px;
 letter-spacing:1.7px;
 text-transform:uppercase;
@@ -965,6 +980,7 @@ position:relative;
 z-index:2;
 font-family:'Parisienne',cursive;
 font-size:clamp(60px,14vw,90px);
+font-weight:400;
 line-height:1;
 margin-top:4px;
 color:#fff;
@@ -1068,16 +1084,20 @@ padding:19px 3px 16px;
 }
 
 .contador-numero{
+font-family:'Cormorant Garamond',serif;
 font-size:38px;
+font-weight:400;
 }
 
 .contador-label{
+font-family:'Montserrat',sans-serif;
 font-size:7px;
 letter-spacing:1.2px;
 }
 
 
-/* CEREMONIA + CELEBRACIÓN */
+/* CEREMONIA Y CELEBRACIÓN
+   SIEMPRE JUNTAS */
 
 .lugares-grid{
 grid-template-columns:repeat(2,minmax(0,1fr));
@@ -1096,6 +1116,10 @@ transform:rotate(1.2deg);
 
 
 /* AUTOBUSES */
+
+.bus-ilustracion{
+width:88px;
+}
 
 .bus-imagenes{
 grid-template-columns:1fr 1fr;
@@ -1127,7 +1151,11 @@ height:230px;
 }
 
 .historia-frase{
+font-family:'Cormorant Garamond',serif;
 font-size:21px;
+font-style:italic;
+font-weight:400;
+line-height:1.45;
 padding:0 12px;
 }
 
@@ -1190,7 +1218,8 @@ max-width:none;
 }
 
 
-/* CONTACTOS */
+/* CONTACTOS
+   SIEMPRE JUNTOS */
 
 .contactos-grid{
 grid-template-columns:repeat(2,minmax(0,1fr));
@@ -1208,10 +1237,12 @@ height:19px;
 }
 
 .contacto-nombre{
+font-family:'Parisienne',cursive;
 font-size:34px;
 }
 
 .contacto-telefono{
+font-family:'Cormorant Garamond',serif;
 font-size:16px;
 letter-spacing:0;
 white-space:nowrap;
@@ -1251,6 +1282,7 @@ bottom:13px;
 
 }
 
+
 @media(prefers-reduced-motion:reduce){
 
 html{
@@ -1272,6 +1304,7 @@ animation-duration:40s;
 </style>
 </head>
 
+
 <body class="intro-activa">
 
 
@@ -1281,7 +1314,7 @@ animation-duration:40s;
 
 <audio id="musica" loop preload="auto">
 <source
-src="Screen_Recording_20260822_101901_YouTube.mp3?v=3"
+src="Screen_Recording_20260822_101901_YouTube.mp3?v=4"
 type="audio/mpeg">
 </audio>
 
@@ -1306,7 +1339,7 @@ aria-label="Pausar o reproducir música">
 
 
 <!-- ======================================================
-     INTRO
+     INTRO SIMPLE
 ====================================================== -->
 
 <section id="inicio">
@@ -1320,7 +1353,7 @@ Una invitación para ti
 <div class="poster-sobre">
 
 <img
-src="images/55f9615c-4d2a-439f-bd52-fe5c04d80ac5.png?v=8"
+src="images/55f9615c-4d2a-439f-bd52-fe5c04d80ac5.png?v=9"
 alt="Sobre de Joaquín y Marina">
 
 </div>
@@ -1465,14 +1498,14 @@ El gran día
 
 <a
 class="tarjeta-imagen-evento reveal"
-href="https://www.google.com/maps/search/?api=1&query=Iglesia+de+San+Buenaventura+Calle+Carlos+Canal+30+Sevilla"
+href="https://www.google.com/maps/search/?api=1&query=Calle+Carlos+Canal+30+Sevilla"
 target="_blank"
 rel="noopener"
 aria-label="Ver ubicación de la ceremonia">
 
 <img
 src="images/ceremonia-icono.png?v=5"
-alt="Ceremonia">
+alt="Ceremonia en Iglesia de San Buenaventura">
 
 </a>
 
@@ -1486,7 +1519,7 @@ aria-label="Ver ubicación de la celebración">
 
 <img
 src="images/celebracion-icono.png?v=5"
-alt="Celebración">
+alt="Celebración en Hacienda Torre de las Arcas">
 
 </a>
 
@@ -1517,39 +1550,71 @@ Autobuses
 solo preocúpate de disfrutar
 </div>
 
+
+<!-- DIBUJO DE AUTOBÚS DE LÍNEA -->
+
 <div class="bus-ilustracion reveal">
 
-<svg viewBox="0 0 120 85" aria-hidden="true">
-<rect x="13" y="20" width="94" height="45" rx="10"></rect>
-<path d="M21 24h62c9 0 15 5 17 14"></path>
-<path d="M25 32h25v18H25z"></path>
-<path d="M56 32h25v18H56z"></path>
-<path d="M87 33h11v17H87"></path>
-<path d="M18 55h84"></path>
-<circle cx="34" cy="66" r="8"></circle>
-<circle cx="88" cy="66" r="8"></circle>
-<path d="M15 60H9"></path>
+<svg viewBox="0 0 120 82" aria-hidden="true">
+
+<path d="M19 61
+V30
+C19 23 24 19 32 19
+H83
+C92 19 99 24 101 34
+L105 51
+V61" />
+
+<path d="M20 50H104" />
+
+<path d="M29 27H47V43H29Z" />
+
+<path d="M52 27H70V43H52Z" />
+
+<path d="M75 27H91
+C95 27 98 31 99 36
+L100 43H75Z" />
+
+<path d="M15 61H108" />
+
+<path d="M23 61V66" />
+<path d="M101 61V66" />
+
+<circle cx="34" cy="65" r="8" />
+<circle cx="89" cy="65" r="8" />
+
+<circle cx="34" cy="65" r="3" />
+<circle cx="89" cy="65" r="3" />
+
+<path d="M19 36H13" />
+<path d="M13 36V43" />
+
 </svg>
 
 </div>
 
+
 <div class="bus-panel reveal">
 
 <p class="texto">
-Habrá servicio de autobús desde Sevilla y Tocina.
-Publicaremos aquí los horarios cuando estén confirmados.
+Habrá servicio de autobús desde Sevilla y Tocina. Publicaremos aquí los horarios cuando estén confirmados.
 </p>
 
 </div>
 
+
 <div class="bus-imagenes">
 
 <div class="bus-imagen reveal">
-<img src="images/SEV.png?v=5" alt="Autobús desde Sevilla">
+<img
+src="images/SEV.png?v=5"
+alt="Autobús desde Sevilla">
 </div>
 
 <div class="bus-imagen reveal">
-<img src="images/TC.png?v=5" alt="Autobús desde Tocina">
+<img
+src="images/TC.png?v=5"
+alt="Autobús desde Tocina">
 </div>
 
 </div>
@@ -1560,7 +1625,7 @@ Publicaremos aquí los horarios cuando estén confirmados.
 
 
 <!-- ======================================================
-     HISTORIA
+     NUESTRA HISTORIA
 ====================================================== -->
 
 <section class="historia">
@@ -1575,48 +1640,68 @@ Nuestra historia
 Quién nos iba a decir…
 </div>
 
+
 <div class="infancia">
 
 <div class="foto-papel reveal">
-<img src="images/1786297988259.png" alt="Joaquín de pequeño">
+<img
+src="images/1786297988259.png"
+alt="Joaquín de pequeño">
 </div>
 
 <div class="foto-papel reveal">
-<img src="images/FB_IMG_1786299085334.jpg" alt="Marina de pequeña">
+<img
+src="images/FB_IMG_1786299085334.jpg"
+alt="Marina de pequeña">
 </div>
 
 </div>
+
 
 <div class="historia-frase reveal">
 aquel 28 de febrero de 2014 que acabaríamos llegando hasta aquí.
 </div>
+
 
 <div class="carrusel-historia reveal">
 
 <div class="carrusel-pista">
 
 <div class="carrusel-foto">
-<img src="images/20240616133050505.jpeg" alt="Joaquín y Marina">
+<img
+src="images/20240616133050505.jpeg"
+alt="Joaquín y Marina">
 </div>
 
 <div class="carrusel-foto">
-<img src="images/20260712_215553.jpg" alt="Joaquín y Marina">
+<img
+src="images/20260712_215553.jpg"
+alt="Joaquín y Marina">
 </div>
 
 <div class="carrusel-foto">
-<img src="images/Screenshot_20260807_135313_Gallery.jpg" alt="Joaquín y Marina">
+<img
+src="images/Screenshot_20260807_135313_Gallery.jpg"
+alt="Joaquín y Marina">
+</div>
+
+
+<div class="carrusel-foto" aria-hidden="true">
+<img
+src="images/20240616133050505.jpeg"
+alt="">
 </div>
 
 <div class="carrusel-foto" aria-hidden="true">
-<img src="images/20240616133050505.jpeg" alt="">
+<img
+src="images/20260712_215553.jpg"
+alt="">
 </div>
 
 <div class="carrusel-foto" aria-hidden="true">
-<img src="images/20260712_215553.jpg" alt="">
-</div>
-
-<div class="carrusel-foto" aria-hidden="true">
-<img src="images/Screenshot_20260807_135313_Gallery.jpg" alt="">
+<img
+src="images/Screenshot_20260807_135313_Gallery.jpg"
+alt="">
 </div>
 
 </div>
@@ -1642,6 +1727,7 @@ aquel 28 de febrero de 2014 que acabaríamos llegando hasta aquí.
 <h2 class="titulo reveal">
 ¿Nos acompañas?
 </h2>
+
 
 <div class="rsvp-tarjeta reveal">
 
@@ -1697,6 +1783,7 @@ Un detalle
 
 </div>
 
+
 <div class="regalo-imagen-grande reveal">
 
 <img
@@ -1704,6 +1791,7 @@ src="images/White Black and Blue Wedding Table Number Card_20260820_141035_0000.
 alt="Información para regalo">
 
 </div>
+
 
 <button
 id="copiarIban"
@@ -1728,9 +1816,9 @@ Copiar IBAN
 </h2>
 
 <p class="texto reveal">
-Si tienes cualquier duda antes del gran día, escríbenos.
-Estaremos encantados de ayudarte.
+Si tienes cualquier duda antes del gran día, escríbenos. Estaremos encantados de ayudarte.
 </p>
+
 
 <div class="contactos-grid">
 
@@ -1752,7 +1840,9 @@ target="_blank"
 rel="noopener">
 
 <svg viewBox="0 0 32 32" aria-hidden="true">
+
 <path d="M16.04 3.2c-7.04 0-12.76 5.66-12.76 12.63 0 2.23.59 4.41 1.71 6.33L3.2 28.8l6.84-1.78a12.84 12.84 0 0 0 6 1.49h.01c7.03 0 12.75-5.67 12.75-12.64S23.08 3.2 16.04 3.2Zm0 23.17h-.01a10.72 10.72 0 0 1-5.46-1.49l-.39-.23-4.06 1.06 1.08-3.95-.25-.41a10.48 10.48 0 0 1-1.63-5.52c0-5.8 4.79-10.52 10.72-10.52s10.71 4.72 10.71 10.52-4.78 10.54-10.71 10.54Zm5.88-7.89c-.32-.16-1.9-.93-2.2-1.04-.29-.1-.5-.16-.71.16-.21.32-.82 1.04-1 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.49-2.57-1.57-.95-.84-1.59-1.88-1.78-2.2-.19-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.69-.98-2.31-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.11 1.08-1.11 2.63s1.14 3.05 1.3 3.26c.16.21 2.24 3.39 5.43 4.75.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.9-.77 2.17-1.51.27-.75.27-1.39.19-1.52-.08-.14-.29-.21-.61-.37Z"/>
+
 </svg>
 
 WhatsApp
@@ -1779,7 +1869,9 @@ target="_blank"
 rel="noopener">
 
 <svg viewBox="0 0 32 32" aria-hidden="true">
+
 <path d="M16.04 3.2c-7.04 0-12.76 5.66-12.76 12.63 0 2.23.59 4.41 1.71 6.33L3.2 28.8l6.84-1.78a12.84 12.84 0 0 0 6 1.49h.01c7.03 0 12.75-5.67 12.75-12.64S23.08 3.2 16.04 3.2Zm0 23.17h-.01a10.72 10.72 0 0 1-5.46-1.49l-.39-.23-4.06 1.06 1.08-3.95-.25-.41a10.48 10.48 0 0 1-1.63-5.52c0-5.8 4.79-10.52 10.72-10.52s10.71 4.72 10.71 10.52-4.78 10.54-10.71 10.54Zm5.88-7.89c-.32-.16-1.9-.93-2.2-1.04-.29-.1-.5-.16-.71.16-.21.32-.82 1.04-1 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.49-2.57-1.57-.95-.84-1.59-1.88-1.78-2.2-.19-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.69-.98-2.31-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.11 1.08-1.11 2.63s1.14 3.05 1.3 3.26c.16.21 2.24 3.39 5.43 4.75.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.9-.77 2.17-1.51.27-.75.27-1.39.19-1.52-.08-.14-.29-.21-.61-.37Z"/>
+
 </svg>
 
 WhatsApp
@@ -1842,8 +1934,7 @@ function iniciarMusica(){
 
 musica.volume = 0.34;
 
-const intento =
-musica.play();
+const intento = musica.play();
 
 if(
 intento &&
@@ -1853,16 +1944,12 @@ typeof intento.then === 'function'
 intento
 .then(function(){
 
-controlMusica
-.classList
-.remove('pausada');
+controlMusica.classList.remove('pausada');
 
 })
 .catch(function(){
 
-controlMusica
-.classList
-.add('pausada');
+controlMusica.classList.add('pausada');
 
 });
 
@@ -1881,17 +1968,13 @@ introCerrada = true;
 
 inicio.classList.add('saliendo');
 
-document.body
-.classList
-.remove('intro-activa');
+document.body.classList.remove('intro-activa');
 
 setTimeout(function(){
 
 inicio.classList.add('oculto');
 
-controlMusica
-.classList
-.add('visible');
+controlMusica.classList.add('visible');
 
 },900);
 
@@ -1914,7 +1997,7 @@ abrirInvitacion
 
 
 /* =========================================================
-   CONTROL MÚSICA
+   BOTÓN MÚSICA
 ========================================================= */
 
 controlMusica.addEventListener(
@@ -1923,8 +2006,7 @@ function(){
 
 if(musica.paused){
 
-const intento =
-musica.play();
+const intento = musica.play();
 
 if(
 intento &&
@@ -1959,6 +2041,7 @@ controlMusica.classList.add('pausada');
 
 /* =========================================================
    CUENTA ATRÁS
+   NO CAMBIAR
 ========================================================= */
 
 const FORMATO_SEVILLA =
@@ -1979,8 +2062,7 @@ hourCycle:'h23'
 function obtenerHoraSevilla(){
 
 const partes =
-FORMATO_SEVILLA
-.formatToParts(
+FORMATO_SEVILLA.formatToParts(
 new Date()
 );
 
@@ -1988,15 +2070,10 @@ const valores = {};
 
 partes.forEach(function(parte){
 
-if(
-parte.type !== 'literal'
-){
+if(parte.type !== 'literal'){
 
 valores[parte.type] =
-parseInt(
-parte.value,
-10
-);
+parseInt(parte.value,10);
 
 }
 
@@ -2005,6 +2082,7 @@ parte.value,
 return valores;
 
 }
+
 
 function fechaRelojSevillaEnUTC(){
 
@@ -2022,6 +2100,7 @@ sevilla.second
 
 }
 
+
 const fechaBodaReloj =
 Date.UTC(
 2026,
@@ -2032,6 +2111,7 @@ Date.UTC(
 0
 );
 
+
 function actualizarContador(){
 
 const ahoraReloj =
@@ -2041,29 +2121,21 @@ const diferencia =
 fechaBodaReloj -
 ahoraReloj;
 
-if(
-diferencia <= 0
-){
 
-document
-.getElementById('dias')
-.textContent='0';
+if(diferencia <= 0){
 
-document
-.getElementById('horas')
-.textContent='00';
+document.getElementById('dias').textContent='0';
 
-document
-.getElementById('minutos')
-.textContent='00';
+document.getElementById('horas').textContent='00';
 
-document
-.getElementById('segundos')
-.textContent='00';
+document.getElementById('minutos').textContent='00';
+
+document.getElementById('segundos').textContent='00';
 
 return;
 
 }
+
 
 const dias =
 Math.floor(
@@ -2073,55 +2145,37 @@ diferencia /
 
 const horas =
 Math.floor(
-(
-diferencia %
-86400000
-) /
+(diferencia % 86400000) /
 3600000
 );
 
 const minutos =
 Math.floor(
-(
-diferencia %
-3600000
-) /
+(diferencia % 3600000) /
 60000
 );
 
 const segundos =
 Math.floor(
-(
-diferencia %
-60000
-) /
+(diferencia % 60000) /
 1000
 );
 
-document
-.getElementById('dias')
-.textContent =
+
+document.getElementById('dias').textContent =
 dias;
 
-document
-.getElementById('horas')
-.textContent =
-String(horas)
-.padStart(2,'0');
+document.getElementById('horas').textContent =
+String(horas).padStart(2,'0');
 
-document
-.getElementById('minutos')
-.textContent =
-String(minutos)
-.padStart(2,'0');
+document.getElementById('minutos').textContent =
+String(minutos).padStart(2,'0');
 
-document
-.getElementById('segundos')
-.textContent =
-String(segundos)
-.padStart(2,'0');
+document.getElementById('segundos').textContent =
+String(segundos).padStart(2,'0');
 
 }
+
 
 actualizarContador();
 
@@ -2140,12 +2194,14 @@ document.getElementById(
 'copiarIban'
 );
 
+
 botonCopiar.addEventListener(
 'click',
 async function(){
 
 const iban =
 'ES9814650100911743407008';
+
 
 try{
 
@@ -2156,12 +2212,14 @@ await navigator
 botonCopiar.textContent =
 '✓ Copiado';
 
+
 setTimeout(function(){
 
 botonCopiar.textContent =
 'Copiar IBAN';
 
 },2000);
+
 
 }catch(error){
 
@@ -2170,10 +2228,10 @@ document.createElement(
 'textarea'
 );
 
-temporal.value = iban;
+temporal.value =
+iban;
 
-document.body
-.appendChild(
+document.body.appendChild(
 temporal
 );
 
@@ -2183,13 +2241,13 @@ document.execCommand(
 'copy'
 );
 
-document.body
-.removeChild(
+document.body.removeChild(
 temporal
 );
 
 botonCopiar.textContent =
 '✓ Copiado';
+
 
 setTimeout(function(){
 
@@ -2205,7 +2263,7 @@ botonCopiar.textContent =
 
 
 /* =========================================================
-   REVEAL
+   ELEMENTOS REVEAL
 ========================================================= */
 
 const elementosReveal =
@@ -2245,7 +2303,9 @@ document.querySelectorAll(
 );
 
 
-/* Ceremonia / celebración */
+/* =========================================================
+   RETRASOS ORIGINALES
+========================================================= */
 
 document
 .querySelectorAll(
@@ -2253,14 +2313,11 @@ document
 )
 .forEach(function(elemento,indice){
 
-elemento.style
-.transitionDelay =
+elemento.style.transitionDelay =
 (indice * 750) + 'ms';
 
 });
 
-
-/* Autobuses */
 
 document
 .querySelectorAll(
@@ -2268,14 +2325,11 @@ document
 )
 .forEach(function(elemento,indice){
 
-elemento.style
-.transitionDelay =
+elemento.style.transitionDelay =
 (indice * 100) + 'ms';
 
 });
 
-
-/* Infancia */
 
 document
 .querySelectorAll(
@@ -2283,14 +2337,11 @@ document
 )
 .forEach(function(elemento,indice){
 
-elemento.style
-.transitionDelay =
+elemento.style.transitionDelay =
 (indice * 120) + 'ms';
 
 });
 
-
-/* Contactos */
 
 document
 .querySelectorAll(
@@ -2298,8 +2349,7 @@ document
 )
 .forEach(function(elemento,indice){
 
-elemento.style
-.transitionDelay =
+elemento.style.transitionDelay =
 (indice * 100) + 'ms';
 
 });
@@ -2315,24 +2365,25 @@ document.querySelector(
 '.final-fecha'
 );
 
+
 if(finalGracias){
 
-finalGracias.style
-.transitionDelay =
+finalGracias.style.transitionDelay =
 '120ms';
 
 }
 
 if(finalFecha){
 
-finalFecha.style
-.transitionDelay =
+finalFecha.style.transitionDelay =
 '230ms';
 
 }
 
 
-/* Observer */
+/* =========================================================
+   OBSERVER
+========================================================= */
 
 if(
 'IntersectionObserver'
@@ -2342,23 +2393,15 @@ in window
 const observer =
 new IntersectionObserver(
 
-function(
-entries,
-observador
-){
+function(entries,observador){
 
 entries.forEach(function(entry){
 
-if(
-entry.isIntersecting
-){
+if(entry.isIntersecting){
 
-entry.target
-.classList
-.add('visible');
+entry.target.classList.add('visible');
 
-observador
-.unobserve(
+observador.unobserve(
 entry.target
 );
 
@@ -2370,11 +2413,11 @@ entry.target
 
 {
 threshold:.13,
-rootMargin:
-'0px 0px -30px 0px'
+rootMargin:'0px 0px -30px 0px'
 }
 
 );
+
 
 elementosReveal
 .forEach(function(elemento){
@@ -2390,9 +2433,7 @@ elemento
 elementosReveal
 .forEach(function(elemento){
 
-elemento
-.classList
-.add('visible');
+elemento.classList.add('visible');
 
 });
 
