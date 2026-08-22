@@ -364,6 +364,79 @@ filter:grayscale(1);
 
 
 /* =========================================================
+   INDICADOR DE SCROLL
+========================================================= */
+
+.scroll-indicador{
+position:absolute;
+left:50%;
+bottom:20px;
+transform:translateX(-50%);
+z-index:10;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:1px;
+pointer-events:none;
+}
+
+.scroll-indicador::before{
+content:"";
+display:block;
+width:1px;
+height:16px;
+margin-bottom:3px;
+background:linear-gradient(
+to bottom,
+rgba(30,29,27,0),
+rgba(30,29,27,.42)
+);
+}
+
+.scroll-indicador span{
+display:block;
+width:11px;
+height:11px;
+border-right:1px solid rgba(30,29,27,.52);
+border-bottom:1px solid rgba(30,29,27,.52);
+transform:rotate(45deg);
+opacity:.12;
+animation:flechaElegante 2.3s ease-in-out infinite;
+}
+
+.scroll-indicador span:nth-child(2){
+animation-delay:.2s;
+}
+
+.scroll-indicador span:nth-child(3){
+animation-delay:.4s;
+}
+
+@keyframes flechaElegante{
+
+0%{
+opacity:.08;
+translate:0 -3px;
+}
+
+38%{
+opacity:.72;
+}
+
+65%{
+opacity:.3;
+translate:0 4px;
+}
+
+100%{
+opacity:.08;
+translate:0 7px;
+}
+
+}
+
+
+/* =========================================================
    GRANADAS
 ========================================================= */
 
@@ -439,8 +512,8 @@ font-family:'Cormorant Garamond',serif;
 font-size:clamp(40px,8vw,67px);
 font-weight:400;
 line-height:1;
-font-variant-numeric:oldstyle-nums;
-font-feature-settings:"onum" 1;
+font-variant-numeric:lining-nums;
+font-feature-settings:"lnum" 1;
 }
 
 .contador-label{
@@ -1036,7 +1109,7 @@ letter-spacing:2.2px;
 /* HERO */
 
 .hero{
-padding:72px 14px 60px;
+padding:72px 14px 70px;
 }
 
 .hero-nombres{
@@ -1055,6 +1128,22 @@ margin-top:40px;
 
 .hero-foto img{
 height:410px;
+}
+
+
+/* FLECHITAS */
+
+.scroll-indicador{
+bottom:15px;
+}
+
+.scroll-indicador::before{
+height:13px;
+}
+
+.scroll-indicador span{
+width:10px;
+height:10px;
 }
 
 
@@ -1085,8 +1174,8 @@ padding:19px 3px 16px;
 font-family:'Cormorant Garamond',serif;
 font-size:38px;
 font-weight:400;
-font-variant-numeric:oldstyle-nums;
-font-feature-settings:"onum" 1;
+font-variant-numeric:lining-nums;
+font-feature-settings:"lnum" 1;
 }
 
 .contador-label{
@@ -1297,6 +1386,11 @@ transition:none;
 animation-duration:40s;
 }
 
+.scroll-indicador span{
+animation:none;
+opacity:.42;
+}
+
 }
 
 </style>
@@ -1399,6 +1493,14 @@ alt="Joaquín y Marina">
 </div>
 
 </div>
+
+
+<div class="scroll-indicador" aria-hidden="true">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
 
 </section>
 
@@ -2426,4 +2528,4 @@ elemento.classList.add('visible');
 </script>
 
 </body>
-   </html>
+</html>
