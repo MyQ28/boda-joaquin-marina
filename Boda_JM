@@ -1458,6 +1458,57 @@ opacity:.8;
 
 }
 
+
+/* =========================================================
+   ACCESO RÁPIDO A RSVP
+========================================================= */
+
+.rsvp-flotante{
+  position:fixed;
+  left:50%;
+  bottom:18px;
+  z-index:880;
+  transform:translateX(-50%);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:205px;
+  padding:13px 20px;
+  border:1px solid rgba(30,29,27,.18);
+  background:rgba(251,250,248,.94);
+  color:var(--negro);
+  text-decoration:none;
+  font-family:'Montserrat',sans-serif;
+  font-size:9px;
+  font-weight:400;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+  box-shadow:0 8px 24px rgba(0,0,0,.10);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .35s ease,transform .35s ease;
+}
+
+.rsvp-flotante.visible{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.rsvp-flotante:active{
+  transform:translateX(-50%) translateY(1px);
+}
+
+@media(max-width:650px){
+  .rsvp-flotante{
+    bottom:14px;
+    min-width:190px;
+    padding:12px 17px;
+    font-size:8px;
+  }
+}
+
 </style>
 </head>
 
@@ -1877,54 +1928,6 @@ alt="">
 
 
 <!-- ======================================================
-     RSVP
-====================================================== -->
-
-<section class="rsvp">
-
-<div class="contenido">
-
-<h2 class="titulo reveal">
-¿Nos acompañas?
-</h2>
-
-<div class="rsvp-tarjeta reveal">
-
-<div class="rsvp-fecha">
-19 · 12 · 2026
-</div>
-
-<div class="script">
-Nos hará muchísima ilusión
-</div>
-
-<p class="texto">
-Confirma tu asistencia y cuéntanos todo lo necesario para que podamos cuidar cada detalle.
-</p>
-
-<a
-class="boton-principal"
-href="https://forms.gle/1RrKdaNcS1fuMRbn9"
-target="_blank"
-rel="noopener">
-Confirmar asistencia
-</a>
-
-<div class="rsvp-nota">
-El formulario se abrirá en una nueva pestaña.
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<div class="onda"></div>
-
-
-<!-- ======================================================
      REGALO
 ====================================================== -->
 
@@ -2042,6 +2045,63 @@ WhatsApp
 
 </section>
 
+
+<!-- ======================================================
+     RSVP
+====================================================== -->
+
+<section class="rsvp" id="confirmar-asistencia">
+
+<div class="contenido">
+
+<h2 class="titulo reveal">
+¿Nos acompañas?
+</h2>
+
+<div class="rsvp-tarjeta reveal">
+
+<div class="rsvp-fecha">
+19 · 12 · 2026
+</div>
+
+<div class="script">
+Nos hará muchísima ilusión
+</div>
+
+<p class="texto">
+Confirma tu asistencia y cuéntanos todo lo necesario para que podamos cuidar cada detalle.
+</p>
+
+<a
+class="boton-principal"
+href="https://forms.gle/1RrKdaNcS1fuMRbn9"
+target="_blank"
+rel="noopener">
+Confirmar asistencia
+</a>
+
+<div class="rsvp-nota">
+El formulario se abrirá en una nueva pestaña.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<div class="onda"></div>
+
+
+
+<a
+  id="rsvpFlotante"
+  class="rsvp-flotante"
+  href="#confirmar-asistencia"
+  aria-label="Ir a confirmar asistencia">
+  Confirmar asistencia
+</a>
 
 <!-- ======================================================
      FINAL
@@ -2621,6 +2681,55 @@ elemento.classList.add('visible');
 });
 
 }
+
+
+/* =========================================================
+   BOTÓN FLOTANTE RSVP
+========================================================= */
+
+const rsvpFlotante =
+document.getElementById('rsvpFlotante');
+
+const seccionRsvp =
+document.getElementById('confirmar-asistencia');
+
+function actualizarRsvpFlotante(){
+
+  if(!rsvpFlotante || !seccionRsvp){
+    return;
+  }
+
+  const rectRsvp =
+  seccionRsvp.getBoundingClientRect();
+
+  const rsvpVisible =
+  rectRsvp.top < window.innerHeight * .82 &&
+  rectRsvp.bottom > window.innerHeight * .18;
+
+  const yaHaBajado =
+  window.scrollY > window.innerHeight * .75;
+
+  if(yaHaBajado && !rsvpVisible){
+    rsvpFlotante.classList.add('visible');
+  }else{
+    rsvpFlotante.classList.remove('visible');
+  }
+
+}
+
+window.addEventListener(
+  'scroll',
+  actualizarRsvpFlotante,
+  {passive:true}
+);
+
+window.addEventListener(
+  'resize',
+  actualizarRsvpFlotante
+);
+
+actualizarRsvpFlotante();
+
 
 </script>
 
