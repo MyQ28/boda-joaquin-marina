@@ -1514,35 +1514,7 @@ opacity:.8;
    PISTAS DE INTERACCIÓN: UBICACIÓN + TELÉFONOS
 ========================================================= */
 
-.ubicacion-ayuda{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:7px;
-  margin:13px auto 0;
-  padding:9px 13px;
-  color:var(--negro);
-  background:rgba(255,255,255,.86);
-  border:1px solid rgba(30,29,27,.14);
-  box-shadow:0 6px 16px rgba(0,0,0,.05);
-  font-family:'Montserrat',sans-serif;
-  font-size:8px;
-  font-weight:400;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  animation:avisoInteractivo 2.25s ease-in-out infinite;
-}
 
-.ubicacion-ayuda svg{
-  width:15px;
-  height:15px;
-  fill:none;
-  stroke:currentColor;
-  stroke-width:1.8;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  animation:pinLatido 2.25s ease-in-out infinite;
-}
 
 .contacto-telefono a{
   display:inline-flex;
@@ -1587,8 +1559,6 @@ opacity:.8;
 }
 
 @media(prefers-reduced-motion:reduce){
-  .ubicacion-ayuda,
-  .ubicacion-ayuda svg,
   .contacto-telefono a,
   .whatsapp{
     animation:none;
@@ -1808,14 +1778,6 @@ aria-label="Ver ubicación de la ceremonia">
 src="images/ceremonia-icono.png?v=5"
 alt="Ceremonia en Iglesia de San Buenaventura">
 
-<span class="ubicacion-ayuda">
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11Z"></path>
-    <circle cx="12" cy="10" r="2.1"></circle>
-  </svg>
-  Ver ubicación
-</span>
-
 </a>
 
 
@@ -1829,14 +1791,6 @@ aria-label="Ver ubicación de la celebración">
 <img
 src="images/celebracion-icono.png?v=5"
 alt="Celebración en Hacienda Torre de las Arcas">
-
-<span class="ubicacion-ayuda">
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11Z"></path>
-    <circle cx="12" cy="10" r="2.1"></circle>
-  </svg>
-  Ver ubicación
-</span>
 
 </a>
 
@@ -2840,4 +2794,4 @@ actualizarRsvpFlotante();
 </script>
 
 </body>
-   </html>
+</html>
